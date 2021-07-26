@@ -33,4 +33,8 @@ public class Food {
     public double getCaloriePerPortion() {
         return caloriePerPortion;
     }
+
+    public String toString() {
+        return foodName;
+    }
 }
