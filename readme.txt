@@ -6,6 +6,6 @@ A basic java desktop application that aims to automate looking up food nutrient 
 its current status, a short statement of what has been done so far and what remains to be done, plus a list of the group members with a brief statement of each member's contributions to this upload.
 
 Göksu Şenerkek - FoodSelect class and Login class. I tried some database connections between login page and user database and storage page and food database. They are not completed.
-Hayrullah Emre Taş
+Hayrullah Emre Taş - Recipe, Recommendation class, and MenuBar class. I learned a bit how to use API. Some methods of these classes will be completed. 
 Eren Karakaş - Food and Storage classes, some early work in SceneBuilder and SQL to learn workflow
 Amir Aliyev - User, Settings and Feedback classes. First version of UI for Settings and Feedback pages.
