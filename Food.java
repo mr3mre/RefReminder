@@ -1,13 +1,17 @@
 public class Food {
 
     private String foodName;
+    private String expiryDate;
     private String main;
-    private double caloriePerPortion;
     private double quantity;
-    private int expiryDate;
+    private double caloriePerPortion;
 
-    public Food() {
-
+    public Food( String foodName, String expiryDate, String main, double quantity, double calorie ) {
+        this.foodName = foodName;
+        this.expiryDate = expiryDate;
+        this.main = main;
+        this.quantity = quantity;
+        caloriePerPortion = calorie;
     }
 
     public String getFoodName() {
