@@ -98,8 +98,7 @@ public class MenuBar extends JPanel{
 //	    	System.out.println( comEvent.getSource().getClass() );
 	    	System.out.println( "Window changed." );
 	    	repaint();	
-//	    	updateLabels( menu );
-			
+//	    	updateLabels( menu );	
 	    }	
 	}
 	
