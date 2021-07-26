@@ -1,16 +1,24 @@
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.HashMap;
 
 public class Storage {
 
     private final int totalCapacity = CAPACITY;
 
     private ArrayList<Food> foodList;
-    private ArrayList<Food> meatList;
-    private ArrayList<Food> vegetableList;
-    private ArrayList<Food> fruitList;
-    private ArrayList<Food> legumesList;
-    private ArrayList<Food> dairyList;
-    private Food food;
+    private HashMap<String, ArrayList<Food>> categorizedList;
+
+    public Storage() {
+        foodList = new ArrayList<>();
+
+        categorizedList = new HashMap<>();
+        categorizedList.put( "Meat", new ArrayList<>() );
+        categorizedList.put( "Vegetable", new ArrayList<>() );
+        categorizedList.put( "Fruit", new ArrayList<>() );
+        categorizedList.put( "Legume", new ArrayList<>() );
+        categorizedList.put( "Dairy", new ArrayList<>() );
+    }
 
     public int getTotalCapacity() {
         return totalCapacity;
@@ -21,30 +29,36 @@ public class Storage {
     }
 
     public ArrayList<Food> getMeatList() {
-        return meatList;
+        return categorizedList.get( "Meat" );
     }
 
     public ArrayList<Food> getVegetableList() {
-        return vegetableList;
+        return categorizedList.get( "Vegetable" );
     }
 
     public ArrayList<Food> getFruitList() {
-        return fruitList;
+        return categorizedList.get( "Fruit" );
     }
 
     public ArrayList<Food> getLegumesList() {
-        return legumesList;
+        return categorizedList.get( "Legume" );
     }
 
     public ArrayList<Food> getDairyList() {
-        return dairyList;
+        return categorizedList.get( "Dairy" );
     }
 
     public void addFood( Food food ) {
         foodList.add( food );
+
+        String main = food.getMain();
+        categorizedList.get( main ).add( food );
     }
 
     public void removeFood( Food food ) {
         foodList.remove( food );
+
+        String main = food.getMain();
+        categorizedList.get( main ).remove( food );
     }
 }
