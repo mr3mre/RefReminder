@@ -8,7 +8,7 @@ public class Recipe {
 	private String recipeName;
 	private URL link;
 	
-	public Recipe( ) {
+	public Recipe() {
 		recipeList = new ArrayList< Recipe >();
 		ingredients = new ArrayList< String >();
 	}
