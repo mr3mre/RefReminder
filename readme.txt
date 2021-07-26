@@ -8,4 +8,4 @@ its current status, a short statement of what has been done so far and what rema
 Göksu Şenerkek - FoodSelect class and Login class. I tried some database connections between login page and user database and storage page and food database. They are not completed.
 Hayrullah Emre Taş
 Eren Karakaş
-Amir Aliyev
+Amir Aliyev - User, Settings and Feedback classes. First version of UI for Settings and Feedback pages.
