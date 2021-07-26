@@ -18,19 +18,19 @@ public class Food {
         return foodName;
     }
 
-    public String getMain() {
-        return main;
+    public String getExpiryDate() {
+        return expiryDate;
     }
 
-    public double getCaloriePerPortion() {
-        return caloriePerPortion;
+    public String getMain() {
+        return main;
     }
 
     public double getQuantity() {
         return quantity;
     }
 
-    public int getExpiryDate() {
-        return expiryDate;
+    public double getCaloriePerPortion() {
+        return caloriePerPortion;
     }
 }
