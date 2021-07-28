@@ -1,23 +1,24 @@
 package Logic;
 
-import java.net.URL;
 import java.util.*;
 
 public class Recipe {
-	
-	protected ArrayList< Recipe > recipeList;
+
 	private ArrayList< String > ingredients;
+	private int id;
 	private String recipeName;
-	private URL link;
+	private String imageURL;
 	
-	public Recipe() {
-		recipeList = new ArrayList< Recipe >();
+	public Recipe( int id, String name, String image ) {
 		ingredients = new ArrayList< String >();
+		this.id = id;
+		recipeName = name;
+		imageURL = image;
 	}
 	
 	public String getRecipeName() { return recipeName; }
 	
-	public URL getLink() { return link; }
+	public String getImageURL() { return imageURL; }
 	
 	public ArrayList< String > getIngredients() { return ingredients; }
 }

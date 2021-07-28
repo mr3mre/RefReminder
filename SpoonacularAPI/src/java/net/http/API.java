@@ -1,15 +1,20 @@
-package API.src.java.net.http;
+package SpoonacularAPI.src.java.net.http;
 
 import java.io.IOException;
 import java.net.http.*;
 import java.net.*;
 import java.util.ArrayList;
 
+import Logic.Recipe;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 
 public class API {
 		
- 	public void searchRecipesByIngredients( ArrayList<String> ingredientList ) throws IOException, InterruptedException {
+ 	public ArrayList<Recipe> searchRecipesByIngredients(ArrayList<String> ingredientList ) throws IOException, InterruptedException {
  		StringBuilder ingredients = new StringBuilder();
+ 		ArrayList<Recipe> recipes = new ArrayList<>();
 
  		for ( int i = 0; i < ingredientList.size(); i++ ) {
 			ingredients.append( ingredientList.get( i ) );
@@ -26,7 +31,14 @@ public class API {
 				.method("GET", HttpRequest.BodyPublishers.noBody())
 				.build();
 		HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-	    System.out.println(response.body());
+		JSONArray array = new JSONArray( response.body() );
+
+		for ( int i = 0; i < array.length(); i++ ) {
+			JSONObject item = array.getJSONObject( i );
+			recipes.add( new Recipe( item.getInt( "id" ), item.getString( "title" ), item.getString( "image" ) ) );
+		}
+
+		return recipes;
 	}
 
 	public void searchFoodVideos( String foodName ) throws IOException, InterruptedException {
@@ -54,13 +66,15 @@ public class API {
 
 	public void getFoodInformation( int foodID ) throws IOException, InterruptedException {
 		HttpRequest request = HttpRequest.newBuilder()
-				.uri(URI.create("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/" + foodID + "/information?unit=gram&amount=100"))
+				.uri(URI.create("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/" + foodID +
+								"/information?unit=gram&amount=100"))
 				.header("x-rapidapi-key", "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254")
 				.header("x-rapidapi-host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com")
 				.method("GET", HttpRequest.BodyPublishers.noBody())
 				.build();
 		HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-		System.out.println(response.body());
+		JSONObject object = new JSONObject( response.body() );
+
 	}
 }
 

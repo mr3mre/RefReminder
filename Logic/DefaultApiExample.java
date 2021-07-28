@@ -1,6 +1,6 @@
 package Logic;
 
-import API.src.java.net.http.API;
+import SpoonacularAPI.src.java.net.http.API;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,8 +15,8 @@ public class DefaultApiExample {
         ingredients.add( "milk" );
         ingredients.add( "meat" );
 
-        api.searchRecipesByIngredients( ingredients );
-        api.searchFoodVideos( "chicken soup" );
-        api.getFoodInformation( 9266 );
+        System.out.println( api.searchRecipesByIngredients( ingredients ) );
+        //api.searchFoodVideos( "chicken soup" );
+        //api.getFoodInformation( 9266 );
     }
 }
