@@ -26,6 +26,7 @@ public class MenuBar extends JPanel{
      * Constructor 
      */
 	public MenuBar() {
+		
 		labels = new ArrayList<JLabel>();
 		menuBar = new JPanel();
 		
@@ -113,13 +114,13 @@ public class MenuBar extends JPanel{
 		frame.add( test );
 		
 //		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-//    	System.out.println( " Height" + screenSize.width );
+//    		System.out.println( " Height" + screenSize.width );
     	
-    	frame.setMinimumSize( new Dimension( 700 , 600 ) );
+    		frame.setMinimumSize( new Dimension( 700 , 600 ) );
     	
-    	frame.setLocationRelativeTo(null);
-    	frame.setVisible(true);
-    	frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+    		frame.setLocationRelativeTo(null);
+    		frame.setVisible(true);
+    		frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 
 	}
 }
