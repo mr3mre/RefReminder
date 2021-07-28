@@ -1,3 +1,5 @@
+package Logic;
+
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -9,14 +11,14 @@ public class Recommendation extends Recipe{
 	private URL link;
 	private Storage storage;
 	
-	public Recommendation() {
-		recommendationList = new ArrayList< Recipe >();
+	//public Logic.Recommendation() {
+	//	recommendationList = new ArrayList< Logic.Recipe >();
 		
-		for ( Recipe recipe : recipeList ) {
-			if ( isRecipeMakeable( recipe ) )
-				recommendationList.add( recipe );
-		}	
-	}
+	//	for ( Logic.Recipe recipe : recipeList ) {
+	//		if ( isRecipeMakeable( recipe ) )
+	//			recommendationList.add( recipe );
+	//	}
+	//}
 	
 	public void removeRecommendation( Recipe recipe ) {
 		recommendationList.remove( recommendationList.indexOf( recipe ) );
@@ -27,16 +29,16 @@ public class Recommendation extends Recipe{
 		return recommendationList.get( random ); 
 	}
 	
-	private static boolean isRecipeMakeable( Recipe recipe ) {
+	//private static boolean isRecipeMakeable( Logic.Recipe recipe ) {
 		
-		for ( String ingredient : recipe.getIngredients() ) {
-			if ( storage.contain( ingredient ) ) {
-				return true;
-			}		
-		}
-		
-		return false;
-	}
+	//	for ( String ingredient : recipe.getIngredients() ) {
+	//		if ( storage.contain( ingredient ) ) {
+	//			return true;
+	//		}
+	//	}
+	//
+	//	return false;
+	//}
 	
 	public Recipe recommendRecipe( String main ) {
 		

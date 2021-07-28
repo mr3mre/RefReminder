@@ -1,7 +1,8 @@
+package GUI;
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -74,7 +75,7 @@ public class SettingsPage {
 		btnNewButton_1.setBackground(Color.WHITE);
 		panel_1.add(btnNewButton_1);
 		
-		JButton btnNewButton = new JButton("Send Us Feedback");
+		JButton btnNewButton = new JButton("Send Us Logic.Feedback");
 		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

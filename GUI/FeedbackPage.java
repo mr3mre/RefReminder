@@ -1,3 +1,5 @@
+package GUI;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -52,7 +54,7 @@ public class FeedbackPage {
 		JPanel panel_1 = new JPanel();
 		frame.getContentPane().add(panel_1, BorderLayout.SOUTH);
 		
-		JButton btnNewButton = new JButton("Send Feedback");
+		JButton btnNewButton = new JButton("Send Logic.Feedback");
 		panel_1.setBackground(Color.white);
 		panel_1.add(btnNewButton);
 		

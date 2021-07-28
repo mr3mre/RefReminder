@@ -1,3 +1,5 @@
+package GUI;
+
 import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.JButton;

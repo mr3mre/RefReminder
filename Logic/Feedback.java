@@ -1,3 +1,5 @@
+package Logic;
+
 public class Feedback {
 	
 	//properties

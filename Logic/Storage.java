@@ -1,10 +1,9 @@
+package Logic;
+
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.HashMap;
 
 public class Storage {
-
-    private final int totalCapacity = CAPACITY;
 
     private ArrayList<Food> foodList;
     private HashMap<String, ArrayList<Food>> categorizedList;
@@ -18,10 +17,6 @@ public class Storage {
         categorizedList.put( "Fruit", new ArrayList<>() );
         categorizedList.put( "Legume", new ArrayList<>() );
         categorizedList.put( "Dairy", new ArrayList<>() );
-    }
-
-    public int getTotalCapacity() {
-        return totalCapacity;
     }
 
     public ArrayList<Food> getFoodList() {

@@ -1,3 +1,5 @@
+package Logic;
+
 public class Food {
 
     private String foodName;

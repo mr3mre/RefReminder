@@ -1,3 +1,5 @@
+package GUI;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -64,7 +66,7 @@ public class Login extends JFrame {
 		contentPane.add(str_pass);
 		str_pass.setColumns(10);
 		
-		JButton button = new JButton("Login");
+		JButton button = new JButton("GUI.Login");
 		button.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				name = str_name.getText();
