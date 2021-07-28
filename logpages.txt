@@ -8,7 +8,7 @@ Personal Logs
   
   
   H. Emre Taş 
-  28.07.2021 
+  28.07.2021 Almost all day worked on Rest API, and playing a youtube video on a JFrame 
   
   Eren Karakaş 
   
