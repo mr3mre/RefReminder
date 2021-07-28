@@ -3,14 +3,18 @@ package Logic;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class Recommendation extends Recipe{
+public class Recommendation extends Recipe {
 
 	private ArrayList< Recipe > recommendationList;
 //	private ArrayList< String > ingredients;
 	private String recipeName;
 	private URL link;
 	private Storage storage;
-	
+
+	public Recommendation(int id, String name, String image) {
+		super(id, name, image);
+	}
+
 	//public Logic.Recommendation() {
 	//	recommendationList = new ArrayList< Logic.Recipe >();
 		

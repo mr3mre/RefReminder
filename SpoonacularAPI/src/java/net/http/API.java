@@ -5,6 +5,7 @@ import java.net.http.*;
 import java.net.*;
 import java.util.ArrayList;
 
+import Logic.Food;
 import Logic.Recipe;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -41,6 +42,7 @@ public class API {
 		return recipes;
 	}
 
+	//toDo youtube videosunu nasil appe koycaz
 	public void searchFoodVideos( String foodName ) throws IOException, InterruptedException {
  		String[] words = foodName.split( " " );
  		StringBuilder name = new StringBuilder();
@@ -64,7 +66,7 @@ public class API {
 		System.out.println(response.body());
 	}
 
-	public void getFoodInformation( int foodID ) throws IOException, InterruptedException {
+	public Food getFoodInformation( int foodID ) throws IOException, InterruptedException {
 		HttpRequest request = HttpRequest.newBuilder()
 				.uri(URI.create("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/" + foodID +
 								"/information?unit=gram&amount=100"))
@@ -75,6 +77,10 @@ public class API {
 		HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 		JSONObject object = new JSONObject( response.body() );
 
+		Food food = new Food( object.getInt( "id" ), object.getString( "name" ), object.getString( "aisle" ),
+							object.getJSONObject( "nutrition" ).getJSONArray( "nutrients" ).getJSONObject( 0 ).getNumber( "amount" ) );
+
+		return food;
 	}
 }
 

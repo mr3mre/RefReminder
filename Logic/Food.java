@@ -1,18 +1,18 @@
 package Logic;
 
+import java.math.BigDecimal;
+
 public class Food {
 
+    private int id;
     private String foodName;
-    private String expiryDate;
     private String main;
-    private double quantity;
-    private double caloriePerPortion;
+    private Number caloriePerPortion;
 
-    public Food( String foodName, String expiryDate, String main, double quantity, double calorie ) {
+    public Food( int id, String foodName, String main, Number calorie ) {
+        this.id = id;
         this.foodName = foodName;
-        this.expiryDate = expiryDate;
         this.main = main;
-        this.quantity = quantity;
         caloriePerPortion = calorie;
     }
 
@@ -20,19 +20,12 @@ public class Food {
         return foodName;
     }
 
-    public String getExpiryDate() {
-        return expiryDate;
-    }
 
     public String getMain() {
         return main;
     }
 
-    public double getQuantity() {
-        return quantity;
-    }
-
-    public double getCaloriePerPortion() {
+    public Number getCaloriePerPortion() {
         return caloriePerPortion;
     }
 

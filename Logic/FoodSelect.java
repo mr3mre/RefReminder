@@ -42,8 +42,8 @@ public ArrayList<Food> getFoodFromSQL(String name){
             ResultSet resultset = statement.executeQuery("select * from foodlist"); 
             
             while(resultset.next()){
-                food = new Food(resultset.getString("fd_name"), resultset.getString("fd_exp"), resultset.getString("fd_main"), resultset.getDouble("fd_qt"), resultset.getDouble("fd_cal"));
-                list.add(food);
+                //food = new Food(resultset.getString("fd_name"), resultset.getString("fd_exp"), resultset.getString("fd_main"), resultset.getDouble("fd_qt"), resultset.getDouble("fd_cal"));
+                //list.add(food);
                 System.out.println(list);
             }
             connect.close(); 

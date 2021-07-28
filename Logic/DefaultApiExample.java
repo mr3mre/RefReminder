@@ -15,8 +15,11 @@ public class DefaultApiExample {
         ingredients.add( "milk" );
         ingredients.add( "meat" );
 
-        System.out.println( api.searchRecipesByIngredients( ingredients ) );
+        //System.out.println( api.searchRecipesByIngredients( ingredients ) );
         //api.searchFoodVideos( "chicken soup" );
-        //api.getFoodInformation( 9266 );
+        Food food = api.getFoodInformation( 9266 );
+        System.out.println( food.getFoodName() );
+        System.out.println( food.getMain() );
+        System.out.println( food.getCaloriePerPortion() );
     }
 }
