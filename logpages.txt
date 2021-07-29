@@ -18,4 +18,7 @@ Personal Logs
   
   
   Amir Aliyev
+  25.07.2021 Writing first version of User, Settings and Feedback classes. Additionally working on the first version of the GUI of the Settings and Feedback page using WindowBuilder.
+  28.07.2021 Designing the first version of the MainMenu GUI.
+  29.07.2021 Working on the rest of the GUIs. Doing additional research on APIs.
 
