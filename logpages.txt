@@ -1,17 +1,17 @@
 Group Meetings 
   28.07.2021 11:00 - 12:30 
-  29.07.2021 20:30 - 22:00 
+  29.07.2021 20:30 - 23:00 
   
   
   
 Personal Logs
   Göksu Şenerkek
-  28.07.2021 - Creating database connection and making remote server connection by using Google Cloud Service. Creating WelcomePage to obtain login and register specs. Creating Feedback GUI and Feedback page with database connection. Making e-mail verification integration. 
+  28.07.2021 - Creating database connection and making remote server connection by using Google Cloud Service. Creating WelcomePage to obtain login and register          specs. Creating Feedback GUI and Feedback page with database connection. Making e-mail verification integration. 
   29.07.2021 - Modifying user class to make connection between user and database. Creating User Settings class with GUI.
   
   H. Emre Taş 
-  28.07.2021 Almost all day worked on Rest API, and playing a youtube video on a JFrame 
-  29.07.2021 Almost all day worked on Worldwide Restaurants Rest API, getting data from Bilkent Cafeteria Menu
+  28.07.2021 worked on Rest API, and playing a youtube video on a JFrame 
+  29.07.2021 worked on Worldwide Restaurants Rest API, getting data from Bilkent Cafeteria Menu
   
   Eren Karakaş
   28.07.2021 Creating methods from Spoonacular API and adjusting Recipe and Food classes accordingly.
