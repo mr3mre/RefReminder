@@ -13,7 +13,7 @@ import org.json.JSONObject;
 
 public class API {
 		
- 	public ArrayList<Recipe> searchRecipesByIngredients(ArrayList<String> ingredientList ) throws IOException, InterruptedException {
+ 	public ArrayList<Recipe> searchRecipesByIngredients( ArrayList<String> ingredientList ) throws IOException, InterruptedException {
  		StringBuilder ingredients = new StringBuilder();
  		ArrayList<Recipe> recipes = new ArrayList<>();
 
@@ -42,7 +42,29 @@ public class API {
 		return recipes;
 	}
 
-	//toDo youtube videosunu nasil appe koycaz
+	public ArrayList<String> getRecipeInformation( int recipeID ) throws IOException, InterruptedException {
+ 		ArrayList<String> information = new ArrayList<>();
+
+		HttpRequest request = HttpRequest.newBuilder()
+				.uri(URI.create("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + recipeID + "/information"))
+				.header("x-rapidapi-key", "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254")
+				.header("x-rapidapi-host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com")
+				.method("GET", HttpRequest.BodyPublishers.noBody())
+				.build();
+		HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+		JSONObject object = new JSONObject( response.body() );
+
+		information.add( object.getString( "instructions" ) );
+		JSONArray array = object.getJSONArray( "extendedIngredients" );
+
+		for ( int i = 0; i < array.length(); i++ ) {
+			JSONObject item = array.getJSONObject( i );
+			information.add( String.valueOf( item.getInt( "id" ) ) );
+		}
+
+		return information;
+	}
+
 	public void searchFoodVideos( String foodName ) throws IOException, InterruptedException {
  		String[] words = foodName.split( " " );
  		StringBuilder name = new StringBuilder();
@@ -78,7 +100,8 @@ public class API {
 		JSONObject object = new JSONObject( response.body() );
 
 		Food food = new Food( object.getInt( "id" ), object.getString( "name" ), object.getString( "aisle" ),
-							object.getJSONObject( "nutrition" ).getJSONArray( "nutrients" ).getJSONObject( 0 ).getNumber( "amount" ) );
+							  object.getJSONObject( "nutrition" ).getJSONArray( "nutrients" ).getJSONObject( 0 )
+							  .getNumber( "amount" ) );
 
 		return food;
 	}
