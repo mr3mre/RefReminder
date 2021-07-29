@@ -13,4 +13,10 @@ Amir Aliyev - User, Settings and Logic.Feedback classes. First version of UI for
 
 Tools:
 IDE: NetBeans, Eclipse, VSCode.
-Libraries: javax.mail.jar, javax.activitation-1.2.0.jar, mysql-connector-java-5.1.42-bin.jar
+Libraries: DJNativeSwing.jar, PDFOne.jar, swt_win64.jar 
+
+
+
+How to Setup:
+This app requires 64-bit versions of operating systems to play a video in it. 
+This app is in the .jar format along with the source codes. The user needs a JDK (v11 is preferred) in order to run this .jar file. Open the jar file in its own file and do not change filename.txt.
