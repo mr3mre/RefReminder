@@ -8,3 +8,9 @@ Göksu Şenerkek - Logic.FoodSelect class and GUI.Login class. I tried some data
 Hayrullah Emre Taş - Logic.Recipe, Logic.Recommendation class, and GUI.MenuBar class. I learned a bit how to use SpoonacularAPI. Some methods of these classes will be completed.
 Eren Karakaş - Logic.Food and Logic.Storage classes, some early work in SceneBuilder and SQL to learn workflow
 Amir Aliyev - User, Settings and Logic.Feedback classes. First version of UI for Settings and Logic.Feedback pages.
+
+
+
+Tools:
+IDE: NetBeans, Eclipse, VSCode.
+Libraries: javax.mail.jar, javax.activitation-1.2.0.jar, mysql-connector-java-5.1.42-bin.jar
