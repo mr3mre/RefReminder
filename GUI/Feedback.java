@@ -1,3 +1,7 @@
+package GUI;
+
+import GUI.Settings;
+
 import java.sql.*;
 import java.io.Closeable;
 import java.io.File;

@@ -461,10 +461,6 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
@@ -504,6 +500,12 @@ public class MainMenu extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
         BilkentMenuPage bilmenu = new BilkentMenuPage();
         bilmenu.setVisible(true);
+        setVisible(false);
+    }
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
+        Settings settings = new Settings();
+        settings.setVisible(true);
         setVisible(false);
     }
 

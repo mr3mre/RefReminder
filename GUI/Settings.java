@@ -13,6 +13,8 @@ import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import Logic.*;
+
 /**
  *
  * @author goksu
@@ -350,31 +352,41 @@ public class Settings extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
     	if ( evt.getSource() == jButton1 )
-        {  
+        {
             MainMenu f = new MainMenu();
             f.setVisible(true);
             setVisible(false);
         }
-    }                                        
+    }
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+        StockControlPage stck = new StockControlPage();
+        stck.setVisible(true);
+        setVisible(false);
     }                                        
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
+        RestaurantsPage res = new RestaurantsPage();
+        res.setVisible(true);
+        setVisible(false);
     }                                        
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // TODO add your handling code here:
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
+        ReciperPage reciper = new ReciperPage();
+        reciper.setVisible(true);
+        setVisible(false);
     }                                         
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // TODO add your handling code here:
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
+        BilkentMenuPage bilmenu = new BilkentMenuPage();
+        bilmenu.setVisible(true);
+        setVisible(false);
     }                                         
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // TODO add your handling code here:
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {
+        ShoppingPage shop = new ShoppingPage();
+        shop.setVisible(true);
+        setVisible(false);
     }                                         
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {                                          

@@ -21,6 +21,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import Logic.*;
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -338,7 +341,7 @@ public class WelcomePage1 extends javax.swing.JFrame {
                 printWriter.print( name );
                 printWriter.close(); 
                 
-                MainPageGui main = new MainPageGui();
+                MainMenu main = new MainMenu();
                 main.setVisible(true);
                 setVisible(false);
                 
@@ -441,9 +444,9 @@ public class WelcomePage1 extends javax.swing.JFrame {
                         fileWriter = new FileWriter(myObj);
                         PrintWriter printWriter = new PrintWriter(fileWriter);
                         printWriter.print( jTextField3.getText());
-                        printWriter.close();  
-                            
-                        MainPageGui main = new MainPageGui();
+                        printWriter.close();
+
+                        MainMenu main = new MainMenu();
                         main.setVisible(true);
                         setVisible(false);
                         sendMail( jTextField4.getText() );

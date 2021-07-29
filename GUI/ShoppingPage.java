@@ -308,7 +308,9 @@ public class ShoppingPage extends javax.swing.JFrame {
     }
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        Settings settings = new Settings();
+        settings.setVisible(true);
+        setVisible(false);
     }
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {

@@ -255,7 +255,9 @@ public class StockControlPage extends javax.swing.JFrame {
     }
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        Settings settings = new Settings();
+        settings.setVisible(true);
+        setVisible(false);
     }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
