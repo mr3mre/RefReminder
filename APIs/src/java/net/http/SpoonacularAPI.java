@@ -1,4 +1,4 @@
-package SpoonacularAPI.src.java.net.http;
+package APIs.src.java.net.http;
 
 import java.io.IOException;
 import java.net.http.*;
@@ -11,8 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 
-public class API {
-		
+public class SpoonacularAPI {
+
  	public ArrayList<Recipe> searchRecipesByIngredients( ArrayList<String> ingredientList ) throws IOException, InterruptedException {
  		StringBuilder ingredients = new StringBuilder();
  		ArrayList<Recipe> recipes = new ArrayList<>();
@@ -26,7 +26,7 @@ public class API {
 
 		HttpRequest request = HttpRequest.newBuilder()
 				.uri(URI.create("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
-								"findByIngredients?ingredients=" + ingredients + "&ranking=1&ignorePantry=true&number=5"))
+								"findByIngredients?ingredients=" + ingredients + "&ranking=2&ignorePantry=true&number=5"))
 				.header("x-rapidapi-key", "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254")
 				.header("x-rapidapi-host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com")
 				.method("GET", HttpRequest.BodyPublishers.noBody())
@@ -84,6 +84,7 @@ public class API {
 		return recipe;
 	}
 
+	// todo return URL
 	public void searchFoodVideos( String foodName ) throws IOException, InterruptedException {
  		String[] words = foodName.split( " " );
  		StringBuilder name = new StringBuilder();
