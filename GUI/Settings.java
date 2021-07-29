@@ -1,4 +1,4 @@
-/*
+package GUI;/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -351,7 +351,7 @@ public class Settings extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
     	if ( evt.getSource() == jButton1 )
         {  
-            MainPageGui f = new MainPageGui();
+            MainMenu f = new MainMenu();
             f.setVisible(true);
             setVisible(false);
         }
