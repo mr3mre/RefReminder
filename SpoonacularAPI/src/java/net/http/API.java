@@ -65,6 +65,25 @@ public class API {
 		return information;
 	}
 
+	//todo Recipe cekemedim
+	public Recipe getRandomRecipe() throws IOException, InterruptedException {
+		ArrayList<String> information = new ArrayList<>();
+
+		HttpRequest request = HttpRequest.newBuilder()
+				.uri(URI.create("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?tags=meal&number=1"))
+				.header("x-rapidapi-key", "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254")
+				.header("x-rapidapi-host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com")
+				.method("GET", HttpRequest.BodyPublishers.noBody())
+				.build();
+		HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+		JSONObject object = new JSONObject( response.body() );
+		JSONArray array = object.getJSONArray( "recipes" );
+		JSONObject item = array.getJSONObject( 0 );
+
+		Recipe recipe = new Recipe( item.getInt( "id" ), item.getString( "title" ), item.getString( "image" ) );
+		return recipe;
+	}
+
 	public void searchFoodVideos( String foodName ) throws IOException, InterruptedException {
  		String[] words = foodName.split( " " );
  		StringBuilder name = new StringBuilder();
@@ -88,6 +107,7 @@ public class API {
 		System.out.println(response.body());
 	}
 
+	//todo Kalori yanlis
 	public Food getFoodInformation( int foodID ) throws IOException, InterruptedException {
 		HttpRequest request = HttpRequest.newBuilder()
 				.uri(URI.create("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/" + foodID +

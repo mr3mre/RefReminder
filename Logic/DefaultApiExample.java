@@ -15,21 +15,22 @@ public class DefaultApiExample {
         ingredients.add( "milk" );
         ingredients.add( "meat" );
 
-        ArrayList<Recipe> recipes = api.searchRecipesByIngredients( ingredients );
+        //ArrayList<Recipe> recipes = api.searchRecipesByIngredients( ingredients );
 
-        for ( Recipe recipe : recipes ) {
-            ArrayList<String> ids = new ArrayList<>();
-            ArrayList<String> info = api.getRecipeInformation( recipe.getID() );
+        //for ( Recipe recipe : recipes ) {
+        //    ArrayList<String> ids = new ArrayList<>();
+        //    ArrayList<String> info = api.getRecipeInformation( recipe.getID() );
 
-            recipe.setInstructions( info.get( 0 ) );
-            for ( int i = 1; i < info.size(); i++ ) {
-                ids.add( info.get( i ) );
-            }
-            recipe.setIngredients( ids );
-            System.out.println( recipe.getInstructions() );
-            System.out.println( recipe.getIngredients() );
-        }
+        //    recipe.setInstructions( info.get( 0 ) );
+        //    for ( int i = 1; i < info.size(); i++ ) {
+        //        ids.add( info.get( i ) );
+        //    }
+        //    recipe.setIngredients( ids );
+        //    System.out.println( recipe.getInstructions() );
+        //    System.out.println( recipe.getIngredients() );
+        //}
 
+        System.out.println( api.getRandomRecipe() );
         //api.searchFoodVideos( "chicken soup" );
         //Food food = api.getFoodInformation( 9266 );
     }
