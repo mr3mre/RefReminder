@@ -10,7 +10,8 @@ Personal Logs
   H. Emre Taş 
   28.07.2021 Almost all day worked on Rest API, and playing a youtube video on a JFrame 
   
-  Eren Karakaş 
+  Eren Karakaş
+  28.07.2021 Creating methods from Spoonacular API and adjusting Recipe and Food classes accordingly.
   
   
   Amir Aliyev
