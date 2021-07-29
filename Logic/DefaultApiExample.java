@@ -1,6 +1,6 @@
 package Logic;
 
-import SpoonacularAPI.src.java.net.http.API;
+import APIs.src.java.net.http.SpoonacularAPI;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class DefaultApiExample {
 
     public static void main( String[] args ) throws IOException, InterruptedException {
-        API api = new API();
+        SpoonacularAPI api = new SpoonacularAPI();
 
         ArrayList<String> ingredients = new ArrayList<>();
         ingredients.add( "chicken" );
