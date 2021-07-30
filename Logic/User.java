@@ -1,5 +1,3 @@
-package Logic;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.*;
@@ -14,9 +12,9 @@ public class User {
     public String name;
     public String userPassword;
     public String email;
-    public String address;
-    
-    
+    public String country;
+    public String province;
+
     
     // constructor for login user
     public User( String n )
@@ -46,12 +44,12 @@ public class User {
             
             
             Statement statement1 = ((java.sql.Connection) conn).createStatement(); 
-            String sql1 = "SELECT address FROM user WHERE username = '" + name + "'";
+            String sql1 = "SELECT country FROM user WHERE username = '" + name + "'";
             ResultSet resultset1 = statement1.executeQuery(sql1);
             
             while( resultset1.next() )
             {
-                address = resultset1.getString("address");
+                country = resultset1.getString("country");
             }
             
             Statement statement2 = ((java.sql.Connection) conn).createStatement(); 
@@ -71,6 +69,15 @@ public class User {
             {
                 email = resultset3.getString("email");
             }
+            
+            Statement statement4 = ((java.sql.Connection) conn).createStatement(); 
+            String sql4 = "SELECT province FROM user WHERE username = '" + name + "'";
+            ResultSet resultset4 = statement1.executeQuery(sql4);
+            
+            while( resultset4.next() )
+            {
+                province = resultset4.getString("province");
+            }
         }
         
         catch(SQLException e ) { e.printStackTrace();} catch (ClassNotFoundException e) { e.printStackTrace(); }
@@ -88,9 +95,14 @@ public class User {
     }
     
     
-    public String getAddress()
+    public String getCountry()
     {
-        return this.address;
+        return this.country;
+    }
+    
+    public String getProvince()
+    {
+        return this.province;
     }
     
     public String getEmail()
