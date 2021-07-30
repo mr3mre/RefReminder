@@ -14,8 +14,10 @@ public class BrowserPanel {
         JPanel panel = new JPanel();
 
         SwingUtilities.invokeLater( () -> {
-            /* Creating Swing component for rendering web content
-            */ loaded in the given Browser instance.
+            /*
+             * Creating Swing component for rendering web content
+             * loaded in the given Browser instance.
+             */
             BrowserView view = BrowserView.newInstance( browser );
 
             // Creating and displaying Swing app panel

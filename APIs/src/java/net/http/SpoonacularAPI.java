@@ -26,6 +26,7 @@ public class SpoonacularAPI {
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+
         return response.body();
     }
 
@@ -41,7 +42,7 @@ public class SpoonacularAPI {
             }
         }
         String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
-                "findByIngredients?ingredients=" + ingredients + "&ranking=2&ignorePantry=true&number=5";
+                	 "findByIngredients?ingredients=" + ingredients + "&ranking=2&ignorePantry=true&number=5";
 
         JSONArray array = new JSONArray( sendRequest( url )  );
 
@@ -68,19 +69,16 @@ public class SpoonacularAPI {
         return information;
     }
 
-    //todo Recipe cekemedim
     public Recipe getRandomRecipe() throws IOException, InterruptedException {
         ArrayList<String> information = new ArrayList<>();
 
-        String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random&number=1";
+        String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?tags=&number=1";
 
         JSONObject object = new JSONObject( sendRequest( url ) );
-
         JSONArray array = object.getJSONArray( "recipes" );
         JSONObject item = array.getJSONObject( 0 );
 
-        Recipe recipe = new Recipe( item.getInt( "id" ), item.getString( "title" ), item.getString( "image" ) );
-        return recipe;
+        return new Recipe( item.getInt( "id" ), item.getString( "title" ), item.getString( "image" ) );
     }
 
 
@@ -96,11 +94,12 @@ public class SpoonacularAPI {
         }
 
         String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/videos/" +
-                "search?offset=0&number=10&" +
-                "maxLength=999&minLength=0&query=" + name;
+                	 "search?offset=0&number=10&" +
+                	 "maxLength=999&minLength=0&query=" + name;
 
         JSONObject object = new JSONObject( sendRequest( url ) );
         JSONArray videos = new JSONArray( object.getJSONArray( "videos" ) );
+
         int maxViews =0;
         int indexOfMax = 0;
         for ( int i = 0; i < videos.length(); i++ ) {
@@ -120,7 +119,7 @@ public class SpoonacularAPI {
         String[] foodList = new String[8];
 
         String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/autocomplete?query=" +
-                foodName + "&number=4&metaInformation=true";
+                	 foodName + "&number=4&metaInformation=true";
 
         JSONArray array = new JSONArray( sendRequest( url ) );
 
@@ -132,6 +131,7 @@ public class SpoonacularAPI {
             // System.out.println(  item.getString("name" ) + "Will be added to :" + ( i + array.length() - 1 ) );
             foodList[ i + array.length() ] = item.getInt("id") + "";
         }
+
         return foodList;
     }
 
@@ -139,7 +139,7 @@ public class SpoonacularAPI {
         Food food = null;
 
         String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/" + foodID +
-                "/information?unit=gram&amount=100";
+                	 "/information?unit=gram&amount=100";
 
         JSONObject object = new JSONObject(  sendRequest( url ) );
 
@@ -156,19 +156,21 @@ public class SpoonacularAPI {
         return food;
     }
 
-    public String getJoke() throws IOException, InterruptedException{
+    public String getJoke() throws IOException, InterruptedException {
         String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/random";
         JSONObject object = new JSONObject(  sendRequest( url ) );
+
         return object.getString( "text" );
     }
 
-    public String getTrivia() throws IOException, InterruptedException{
+    public String getTrivia() throws IOException, InterruptedException {
         String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/trivia/random";
         JSONObject object = new JSONObject(  sendRequest( url ) );
+
         return object.getString( "text" );
     }
 
-    public static void main( String args[] ) {
+    public static void main( String[] args ) {
         String apiKey = "2b1ad64154msh266681e9461a336p1bfd1bjsndcdef3e10f2a";
         String apiKey2 = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254";
         String apiKey3 = "da73587c8emsh6ca56b7d9f2a385p1699dcjsnf6a7ee99f8e3";
@@ -177,14 +179,13 @@ public class SpoonacularAPI {
         System.out.println();
 
         try {
-           // foodApi.getJoke();
-           // System.out.println(  foodApi.getJoke() );
-            System.out.println( foodApi.searchFoodVideos( "potato") );
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+            // foodApi.getJoke();
+            // System.out.println(  foodApi.getJoke() );
+			// System.out.println( foodApi.searchFoodVideos( "potato") );
+			System.out.println( foodApi.getRecipeInformation( foodApi.getRandomRecipe().getID() ) );
+        } catch ( IOException | InterruptedException e ) {
             e.printStackTrace();
         }
-    }
+	}
 }
 
