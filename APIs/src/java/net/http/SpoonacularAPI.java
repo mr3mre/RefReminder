@@ -84,8 +84,7 @@ public class SpoonacularAPI {
 		return recipe;
 	}
 
-	// todo return URL
-	public void searchFoodVideos( String foodName ) throws IOException, InterruptedException {
+	public String searchFoodVideos( String foodName ) throws IOException, InterruptedException {
  		String[] words = foodName.split( " " );
  		StringBuilder name = new StringBuilder();
 
@@ -105,7 +104,21 @@ public class SpoonacularAPI {
 				.method("GET", HttpRequest.BodyPublishers.noBody())
 				.build();
 		HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-		System.out.println(response.body());
+		JSONObject object = new JSONObject( response.body() );
+		JSONArray videos = new JSONArray( object.getJSONArray( "videos" ) );
+
+		int maxViews =0;
+		int indexOfMax = 0;
+		for ( int i = 0; i < videos.length(); i++ ) {
+			int views = videos.getJSONObject( i ).getInt( "views" );
+			if ( views > maxViews ) {
+				maxViews = views;
+				indexOfMax = i;
+			}
+		}
+
+		String id = videos.getJSONObject( indexOfMax ).getString( "youTubeId" );
+		return "https://www.youtube.com/embed/" + id;
 	}
 
 	//todo Kalori yanlis

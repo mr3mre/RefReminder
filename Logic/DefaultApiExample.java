@@ -30,8 +30,8 @@ public class DefaultApiExample {
         //    System.out.println( recipe.getIngredients() );
         //}
 
-        System.out.println( api.getRandomRecipe() );
-        //api.searchFoodVideos( "chicken soup" );
+        //System.out.println( api.getRandomRecipe() );
+        //System.out.println( api.searchFoodVideos( "chicken soup" ) );
         //Food food = api.getFoodInformation( 9266 );
     }
 }
