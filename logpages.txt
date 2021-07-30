@@ -15,6 +15,7 @@ Personal Logs
   
   Eren Karakaş
   28.07.2021 Creating methods from Spoonacular API and adjusting Recipe and Food classes accordingly.
+  29.07.2021 More methods for the API to get Food information, Recipe videos etc. Pulling necessary data from JSON files and returning useful/formatted data.
   
   
   Amir Aliyev
