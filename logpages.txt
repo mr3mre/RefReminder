@@ -6,8 +6,10 @@ Group Meetings
   
 Personal Logs
   Göksu Şenerkek
+  27.07.2021 - Learning some databases and working on it. Creating some database table to connect with our variables.
   28.07.2021 - Creating database connection and making remote server connection by using Google Cloud Service. Creating WelcomePage to obtain login and register          specs. Creating Feedback GUI and Feedback page with database connection. Making e-mail verification integration. 
   29.07.2021 - Modifying user class to make connection between user and database. Creating User Settings class with GUI.
+  30.07.2021 - Modifying user class to apply changes of address variable. Creating new welcomepage with comboboxes and prepare these comboboxes with using array and hashmap. Creating "update address" panel to settings page and add this hashmap and selection organization to the settings class. Making Feedback page much more detailed to use. Working on GUI about these pages as i mentioned before.
   
   H. Emre Taş 
   28.07.2021 worked on Rest API, and playing a youtube video on a JFrame 
