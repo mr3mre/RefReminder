@@ -23,6 +23,8 @@ Personal Logs
   Eren Karakaş
   28.07.2021 Creating methods from Spoonacular API and adjusting Recipe and Food classes accordingly.
   29.07.2021 More methods for the API to get Food information, Recipe videos etc. Pulling necessary data from JSON files and returning useful/formatted data.
+  30.07.2021 Embedded browser to display Recipe videos and Sanal Market. Methods to get information from Recipes.
+  31.07.2021 A way to get how many days have passed to edit expiry dates.  Updated/refined some classes.
   
   
   Amir Aliyev
