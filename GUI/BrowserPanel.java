@@ -24,7 +24,6 @@ public class BrowserPanel {
             JTextField addressBar = new JTextField( url );
             addressBar.addActionListener(e ->
                     browser.navigation().loadUrl( addressBar.getText() ) );
-            panel.add( addressBar, BorderLayout.NORTH );
             panel.add( view, BorderLayout.CENTER );
             panel.setSize( 800, 500 );
             panel.setVisible( true );
