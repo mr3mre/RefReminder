@@ -331,8 +331,8 @@ public class Feedback extends javax.swing.JFrame {
              statement.setString(3, name );
 
             statement.executeUpdate();
-            
-            Settings s = new Settings();
+
+            SettingsPage s = new SettingsPage();
             s.setVisible(true);
             setVisible(false);
             
@@ -378,8 +378,8 @@ public class Feedback extends javax.swing.JFrame {
     	jRadioButton10.setSelected(false);
     }                                             
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-    	Settings s = new Settings();
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+        SettingsPage s = new SettingsPage();
         s.setVisible(true);
         setVisible(false);
     }                                        

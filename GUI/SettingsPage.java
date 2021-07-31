@@ -10,11 +10,11 @@ import java.util.Scanner;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 
-import Logic.User;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import java.util.Hashtable;
+import Logic.*;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -25,7 +25,7 @@ import java.util.Hashtable;
  *
  * @author goksu
  */
-class Settings1 extends javax.swing.JFrame {
+public class SettingsPage extends javax.swing.JFrame {
 	String name;
 	String actualCountry1;
     String actualProvince1;
@@ -40,7 +40,7 @@ class Settings1 extends javax.swing.JFrame {
     /**
      * Creates new form Settings
      */
-    public Settings1() {
+    public SettingsPage() {
     	try
         {
             user = new User( name );
@@ -486,7 +486,7 @@ class Settings1 extends javax.swing.JFrame {
                 jLabel11.setText(actualCountry);
                 jLabel12.setText(actualProvince);
                 setVisible(false);
-                new Settings1().setVisible(true);   
+                new SettingsPage().setVisible(true);
                 JFrame d = new JFrame();
                 JOptionPane.showMessageDialog( d, "Your country and province are changed succesfully!, new country is " + newCountry + ", new province is "+ newProvince );
                 
@@ -655,27 +655,27 @@ class Settings1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Settings1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SettingsPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Settings1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SettingsPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Settings1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SettingsPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Settings1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SettingsPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Settings1().setVisible(true);
+                new SettingsPage().setVisible(true);
             }
         });
     }
     
     public static String textReader() throws FileNotFoundException
     {
-        File file = new File( "filename.txt" );
+        File file = new File("filename.txt");
         Scanner scan = new Scanner( file );
         String name = scan.next();
         scan.close();
@@ -718,3 +718,4 @@ class Settings1 extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     // End of variables declaration                   
 }
+

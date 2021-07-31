@@ -1,5 +1,11 @@
 package GUI;
 
+import Logic.PdfReader;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
+import java.lang.reflect.Array;
 
 /**
  *
@@ -10,7 +16,7 @@ public class BilkentMenuPage extends javax.swing.JFrame {
     /**
      * Creates new form BilkentMenuPage
      */
-    public BilkentMenuPage() {
+    public BilkentMenuPage() throws IOException {
         initComponents();
     }
 
@@ -21,7 +27,7 @@ public class BilkentMenuPage extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    private void initComponents() {
+    private void initComponents() throws IOException {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -31,19 +37,12 @@ public class BilkentMenuPage extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        ScrollPane2 = new ScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton1.setBackground(new java.awt.Color(255, 102, 255));
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -123,108 +122,77 @@ public class BilkentMenuPage extends javax.swing.JFrame {
         });
         jPanel1.add(jButton7);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(840, 445));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
-        jLabel1.setText("Bilkent Menu");
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Amir Aliyev\\Downloads\\bilkentlogo1.png")); // NOI18N
-        jLabel3.setText("jLabel3");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel2.setText("Select Date");
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel4.setText("Today's Menu");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 122, Short.MAX_VALUE)
-        );
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel5.setText("Tomorrow's Menu");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 122, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(332, 332, 332))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel2)
-                                .addGap(123, 123, 123)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel4)
-                                                        .addComponent(jLabel5))
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jLabel1)
-                                                .addGap(79, 79, 79)
-                                                .addComponent(jLabel2)
-                                                .addContainerGap(393, Short.MAX_VALUE))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jLabel3)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabel4)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel5)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(130, 130, 130))))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ScrollPane2)
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE))
+                                .addComponent(ScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE))
         );
 
+        JPanel panel = new JPanel();
+        PdfReader e = new PdfReader();
+        String[] lines = e.give().split(System.getProperty("line.separator"));
+        int n = 0;
+        JLabel l1;
+        JLabel l2;
+        JLabel l3;
+        JLabel l4;
+        JLabel l5;
+        JLabel l6;
+        JLabel l7;
+        l1 = new JLabel("<html>" + "Monday" + "<br>" + "<br>" + "Lunch" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "<br>" + "Dinner" + "<br>" + (String)Array.get(lines, n + 5) +
+                "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) + "<br>" + (String)Array.get(lines, n + 8) +
+                "<br>" + (String)Array.get(lines, n + 9) + "</html>");
+        n += 10;
+        l2 = new JLabel("<html>" + "<br>" + "Tuesday" + "<br>" + "<br>" + "Lunch" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "<br>" + "Dinner" + "<br>" + (String)Array.get(lines, n + 5) +
+                "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) + "<br>" + (String)Array.get(lines, n + 8) +
+                "<br>" + (String)Array.get(lines, n + 9) + "</html>");
+        n += 10;
+        l3 = new JLabel("<html>" + "<br>" + "Wednesday" + "<br>" + "<br>" + "Lunch" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "<br>" + "Dinner" + "<br>" + (String)Array.get(lines, n + 5) +
+                "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) + "<br>" + (String)Array.get(lines, n + 8) +
+                "<br>" + (String)Array.get(lines, n + 9) + "</html>");
+        n += 10;
+        l4 = new JLabel("<html>" + "<br>" + "Thursday" + "<br>" + "<br>" + "Lunch" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "<br>" + "Dinner" + "<br>" + (String)Array.get(lines, n + 5) +
+                "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) + "<br>" + (String)Array.get(lines, n + 8) +
+                "<br>" + (String)Array.get(lines, n + 9) + "</html>");
+        n += 10;
+        l5 = new JLabel("<html>" + "<br>" + "Friday" + "<br>" + "<br>" + "Lunch" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "<br>" + "Dinner" + "<br>" + (String)Array.get(lines, n + 5) +
+                "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) + "<br>" + (String)Array.get(lines, n + 8) +
+                "<br>" + (String)Array.get(lines, n + 9) + "</html>");
+        n += 10;
+        l6 = new JLabel("<html>" + "<br>" + "Saturday" + "<br>" + "<br>" + "Lunch" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "<br>" + "Dinner" + "<br>" + (String)Array.get(lines, n + 5) +
+                "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) + "<br>" + (String)Array.get(lines, n + 8) +
+                "<br>" + (String)Array.get(lines, n + 9) + "</html>");
+        n += 10;
+        l7 = new JLabel("<html>" + "<br>" + "Sunday" + "<br>" + "<br>" + "Lunch" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "<br>" + "Dinner" + "<br>" + (String)Array.get(lines, n + 5) +
+                "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) + "<br>" + (String)Array.get(lines, n + 8) +
+                "<br>" + (String)Array.get(lines, n + 9) + "</html>");
+
+        panel.setLayout(new GridLayout(7,1));
+        panel.setBackground( Color.white );
+        panel.add(l1);
+        panel.add(l2);
+        panel.add(l3);
+        panel.add(l4);
+        panel.add(l5);
+        panel.add(l6);
+        panel.add(l7);
+        ScrollPane2.add(panel);
         pack();
     }// </editor-fold>
 
@@ -253,9 +221,7 @@ public class BilkentMenuPage extends javax.swing.JFrame {
     }
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
-        Settings1 settings = new Settings1();
-        settings.setVisible(true);
-        setVisible(false);
+        // TODO add your handling code here:
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -294,7 +260,11 @@ public class BilkentMenuPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BilkentMenuPage().setVisible(true);
+                try {
+                    new BilkentMenuPage().setVisible(true);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -307,15 +277,8 @@ public class BilkentMenuPage extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private ScrollPane ScrollPane2;
     // End of variables declaration
 }
 

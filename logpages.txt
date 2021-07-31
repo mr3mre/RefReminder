@@ -8,7 +8,7 @@ Personal Logs
   Göksu Şenerkek
   27.07.2021 - Learning some databases and working on it. Creating some database table to connect with our variables.
   28.07.2021 - Creating database connection and making remote server connection by using Google Cloud Service. Creating WelcomePage to obtain login and register specs. Creating Feedback GUI and Feedback page with database connection. Making e-mail verification integration. 
-  29.07.2021 - Modifying user class to make connection between user and database. Creating User Settings class with GUI.
+  29.07.2021 - Modifying user class to make connection between user and database. Creating User SettingsPage class with GUI.
   30.07.2021 - Modifying user class to apply changes of address variable. Creating new welcomepage with comboboxes and prepare these comboboxes with using array and hashmap. Creating "update address" panel to settings page and add this hashmap and selection organization to the settings class. Making Feedback page much more detailed to use. Working on GUI about these pages as i mentioned before.
   
   H. Emre Taş 
@@ -21,7 +21,7 @@ Personal Logs
   
   
   Amir Aliyev
-  25.07.2021 Writing first version of User, Settings and Feedback classes. Additionally working on the first version of the GUI of the Settings and Feedback page using WindowBuilder.
+  25.07.2021 Writing first version of User, SettingsPage and Feedback classes. Additionally working on the first version of the GUI of the SettingsPage and Feedback page using WindowBuilder.
   28.07.2021 Designing the first version of the MainMenu GUI.
   29.07.2021 Working on the rest of the GUIs. Doing additional research on APIs.
 

@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.GridLayout;
+import java.io.IOException;
 
 /**
  *
@@ -98,7 +99,11 @@ public class ReciperPage extends javax.swing.JFrame {
         jButton5.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                try {
+                    jButton5ActionPerformed(evt);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
         jPanel1.add(jButton5);
@@ -269,7 +274,7 @@ public class ReciperPage extends javax.swing.JFrame {
     }
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
-        Settings1 settings = new Settings1();
+        SettingsPage settings = new SettingsPage();
         settings.setVisible(true);
         setVisible(false);
     }
@@ -286,7 +291,7 @@ public class ReciperPage extends javax.swing.JFrame {
         setVisible(false);
     }
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         BilkentMenuPage bilmenu = new BilkentMenuPage();
         bilmenu.setVisible(true);
         setVisible(false);

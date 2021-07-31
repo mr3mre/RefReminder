@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.awt.*;
@@ -169,7 +170,11 @@ public class StockControlPage extends javax.swing.JFrame {
         jButton11.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                try {
+                    jButton11ActionPerformed(evt);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -581,7 +586,7 @@ public class StockControlPage extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {
-        Settings settin = new Settings();
+        SettingsPage settin = new SettingsPage();
         settin.setVisible(true);
         setVisible(false);
     }
@@ -592,7 +597,7 @@ public class StockControlPage extends javax.swing.JFrame {
         setVisible(false);
     }
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         BilkentMenuPage bil = new BilkentMenuPage();
         bil.setVisible(true);
         setVisible(false);

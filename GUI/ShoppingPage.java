@@ -4,6 +4,7 @@ import com.teamdev.jxbrowser.engine.Engine;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  *
@@ -97,7 +98,11 @@ public class ShoppingPage extends javax.swing.JFrame {
         jButton5.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                try {
+                    jButton5ActionPerformed(evt);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
         topPanel.add(jButton5);
@@ -160,12 +165,12 @@ public class ShoppingPage extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
-        Settings settings = new Settings();
+        SettingsPage settings = new SettingsPage();
         settings.setVisible(true);
         setVisible(false);
     }
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
         BilkentMenuPage bilmenu = new BilkentMenuPage();
         bilmenu.setVisible(true);
