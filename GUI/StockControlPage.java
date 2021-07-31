@@ -2,14 +2,19 @@ package GUI;
 
 import Logic.Food;
 import Logic.FoodSelect;
+import Logic.TimePassed;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.awt.*;
+import java.sql.*;
+
 
 import APIs.src.java.net.http.SpoonacularAPI;
 import Logic.User;
@@ -27,7 +32,7 @@ import Logic.User;
 public class StockControlPage extends javax.swing.JFrame {
     String name;
     User user;
-    FoodSelect sd = new FoodSelect();
+    FoodSelect sd;
     static final int MY_MINIMUM = 0;
     static final int MY_MAXIMUM = 100;
     double percentage;
@@ -47,9 +52,44 @@ public class StockControlPage extends javax.swing.JFrame {
         {
             System.out.println("1");
         }
-        setSize(1500,800);
-        setLocationRelativeTo(null);
+        sd = new FoodSelect();
+        //setPreferredSize( new Dimension(1500,800) );
+        pack();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Point middle = new Point(screenSize.width / 2, screenSize.height / 2);
+        Point newLocation = new Point(middle.x - (this.getWidth() / 2),
+                middle.y - (this.getHeight() / 2));
+        setLocation(newLocation);
         initComponents();
+
+        String driver = "com.mysql.cj.jdbc.Driver";
+        String username = "root";
+        String password = "root";
+        String url = "jdbc:mysql://34.141.44.144:3306/" + name;
+
+        try
+        {
+            for(int i  = 0; i < sd.getFood().size(); i++){
+
+            int actualExpiryDate = sd.getFood().get(i).getExpiryDate();
+            int newExpiryDate = actualExpiryDate - (int) TimePassed.getDifferenceInDays();
+
+            Class.forName( driver );
+            java.sql.Connection conn3 = DriverManager.getConnection( url, username, password );
+            Statement statement = ( ( java.sql.Connection) conn3 ).createStatement();
+            String sql = "UPDATE food SET expirydate = '" + newExpiryDate + "'";
+            statement.executeUpdate(sql);
+        }
+
+        }
+        catch (ClassNotFoundException e) { e.printStackTrace(); }
+
+        catch (SQLException e) { e.printStackTrace(); } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -581,7 +621,7 @@ public class StockControlPage extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {
-        Settings settin = new Settings();
+        SettingsPage settin = new SettingsPage();
         settin.setVisible(true);
         setVisible(false);
     }
@@ -593,8 +633,8 @@ public class StockControlPage extends javax.swing.JFrame {
     }
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
-        BilkentMenuPage bil = new BilkentMenuPage();
-        bil.setVisible(true);
+        //BilkentMenuPage bil = new BilkentMenuPage();
+        //bil.setVisible(true);
         setVisible(false);
     }
 
@@ -605,8 +645,8 @@ public class StockControlPage extends javax.swing.JFrame {
     }
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
-        ReciperPage rec = new ReciperPage();
-        rec.setVisible(true);
+        RecipeGui reciper = new RecipeGui();
+        reciper.setVisible(true);
         setVisible(false);
     }
 
