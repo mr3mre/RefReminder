@@ -6,16 +6,20 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/**
+ * @author Goksu
+ * @author H.Emre
+ */
 public class FoodSelect {
 
     ArrayList<Food> 	foodList;
-    ArrayList<Food>  	vegetableList;
-    ArrayList<Food> 	fruitList;
-    ArrayList<Food> 	meatList;
-    ArrayList<Food>  	legumesList;
-    ArrayList<Food> 	dairyList;
+
+    ArrayList<Food>  	produceList;
+    ArrayList<Food> 	breakfastList;
+    ArrayList<Food> 	mainDishesList;
+    ArrayList<Food>  	freezerList;
     ArrayList<Food> 	drinkList;
+    ArrayList<Food> 	addonsList;
 
     Food FoodSelected;
     String username;
@@ -28,32 +32,33 @@ public class FoodSelect {
         }
         catch(FileNotFoundException e)
         {
-            System.out.println("1");
+            //System.out.println("1");
         }
         FoodSelected = null;
         foodList = getFoodFromSQL("food");
-        vegetableList = getFoodFromSQL("vegetable");
-        fruitList = getFoodFromSQL("fruit");
-        meatList = getFoodFromSQL("meat");
-        legumesList = getFoodFromSQL("legumes");
-        dairyList = getFoodFromSQL("dairy");
-        drinkList = getFoodFromSQL("drinks");
 
-        foodList.addAll(vegetableList);
-        foodList.addAll(fruitList);
-        foodList.addAll(meatList);
-        foodList.addAll(legumesList);
-        foodList.addAll(dairyList);
+        produceList = getFoodFromSQL("Produce");
+        breakfastList = getFoodFromSQL("Breakfast");
+        mainDishesList = getFoodFromSQL("Main Dishes");
+        freezerList = getFoodFromSQL("Freezer");
+        drinkList = getFoodFromSQL("Drink");
+        addonsList = getFoodFromSQL("Food Addons");
+
+        foodList.addAll(produceList);
+        foodList.addAll(breakfastList);
+        foodList.addAll(mainDishesList);
+        foodList.addAll(freezerList);
+        foodList.addAll(addonsList);
         foodList.addAll(drinkList);
 
 
-        System.out.println(foodList);
-        System.out.println(vegetableList);
-        System.out.println(fruitList);
-        System.out.println(meatList);
-        System.out.println(legumesList);
-        System.out.println(dairyList);
-        System.out.println(drinkList);
+//        System.out.println(foodList);
+//        System.out.println(vegetableList);
+//        System.out.println(fruitList);
+//        System.out.println(meatList);
+//        System.out.println(legumesList);
+//        System.out.println(dairyList);
+//        System.out.println(drinkList);
     }
 
     public Food selectFood(ArrayList<Food> list, int index){
@@ -76,10 +81,8 @@ public class FoodSelect {
                 //String sql1 = "SELECT * FROM food WHERE main = '" + name + "'";
                 ResultSet resultset = statement.executeQuery();
 
-
                 while (resultset.next()) {
                     food = new Food(resultset.getInt("id"), resultset.getString("foodname"), resultset.getString("main"), (Number)resultset.getDouble("calorie"));
-
                     list.add(food);
 
                 }
@@ -103,31 +106,27 @@ public class FoodSelect {
         return name;
     }
     public ArrayList<Food> getFood (){
-
         return foodList;
     }
 
-    public ArrayList<Food> getDairyList (){
-
-        return dairyList;
+    public ArrayList<Food> getAddonsList (){
+        return addonsList;
     }
 
-
-    public ArrayList<Food> getVegetableList (){
-
-        return vegetableList;
+    public ArrayList<Food> getMainDishesList (){
+        return mainDishesList;
     }
-    public ArrayList<Food> getFruitList (){
+    public ArrayList<Food> getBreakfastList (){
 
-        return fruitList;
+        return breakfastList;
     }
-    public ArrayList<Food> getMeatList (){
+    public ArrayList<Food> getProduceList (){
 
-        return meatList;
+        return produceList;
     }
-    public ArrayList<Food> getLegumesList (){
+    public ArrayList<Food> getFreezerList (){
 
-        return legumesList;
+        return freezerList;
     }
     public ArrayList<Food> getDrinkList (){
 
@@ -139,21 +138,19 @@ public class FoodSelect {
     public int getNumOfFood( ){
         return foodList.size();
     }
-    public int getNumOfLegumes( ){
-        return legumesList.size();
+    public int getNumOfMainDishes( ){
+        return mainDishesList.size();
     }
-    public int getNumOfMeat( ){
-        return meatList.size();
+    public int getNumOfBreakfast(){
+        return breakfastList.size();
     }
-    public int getNumOfDairy( ){
-        return dairyList.size();
+    public int getNumOfProduce( ){
+        return produceList.size();
     }
-    public int getNumOfVegetables( ){
-        return vegetableList.size();
+    public int getNumOfFreezer( ){
+        return freezerList.size();
     }
-    public int getNumOfFruit( ){
-        return fruitList.size();
-    }
+    public int getNumOfAddons( ){ return addonsList.size(); }
     public int getNumOfDrinks( ){
         return drinkList.size();
     }
