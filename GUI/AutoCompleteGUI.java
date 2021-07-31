@@ -1,6 +1,6 @@
 package GUI;
 import Logic.Food;
-import APIs.src.java.net.http.SpoonacularAPI;
+import recipe.java.net.http.SpoonacularAPI;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

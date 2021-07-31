@@ -504,7 +504,7 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
-        Settings settings = new Settings();
+        Settings1 settings = new Settings1();
         settings.setVisible(true);
         setVisible(false);
     }
