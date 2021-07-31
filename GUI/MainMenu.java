@@ -5,6 +5,7 @@ package GUI;
  * and open the template in the editor.
  */
 
+import Logic.User;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
