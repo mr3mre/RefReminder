@@ -7,7 +7,6 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.awt.*;
@@ -170,11 +169,7 @@ public class StockControlPage extends javax.swing.JFrame {
         jButton11.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton11ActionPerformed(evt);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                jButton11ActionPerformed(evt);
             }
         });
 
@@ -253,16 +248,16 @@ public class StockControlPage extends javax.swing.JFrame {
         jLabel3.setText("Main Dishes");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setText("Apperatives");
+        jLabel4.setText("Produce");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel5.setText("Drinks");
+        jLabel5.setText("Breakfast");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel6.setText("Products");
+        jLabel6.setText("Drinks");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel7.setText("Fruits and Vegetables");
+        jLabel7.setText("Addons");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -356,31 +351,31 @@ public class StockControlPage extends javax.swing.JFrame {
         jLabel8.setText("Food Number in Storage");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        String y = Integer.toString(sd.getNumOfFood());
+        String y = Integer.toString(sd.getNumOfFreezer());
         jLabel9.setText(y);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        String u = Integer.toString(sd.getNumOfMeat());
+        String u = Integer.toString(sd.getNumOfMainDishes());
         jLabel10.setText(u);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        String o = Integer.toString(sd.getNumOfFruit());
+        String o = Integer.toString(sd.getNumOfProduce());
         jLabel11.setText(o);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        String p = Integer.toString(sd.getNumOfLegumes());
+        String p = Integer.toString(sd.getNumOfBreakfast());
         jLabel12.setText(p);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        String q = Integer.toString(sd.getNumOfDairy());
+        String q = Integer.toString(sd.getNumOfDrinks());
         jLabel13.setText(q);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        String w = Integer.toString(sd.getNumOfVegetables());
+        String w = Integer.toString(sd.getNumOfAddons());
         jLabel14.setText(w);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jLabel15.setText("in Apperatives");
+        jLabel15.setText("in Produce");
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel16.setText("in Freezer");
@@ -389,13 +384,13 @@ public class StockControlPage extends javax.swing.JFrame {
         jLabel17.setText("in Main Dishes");
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jLabel18.setText("in Drinks");
+        jLabel18.setText("in Breakfast");
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jLabel19.setText("in Vegetables");
+        jLabel19.setText("in Addons");
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jLabel20.setText("in Fruits");
+        jLabel20.setText("in Drinks");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -586,7 +581,7 @@ public class StockControlPage extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {
-        SettingsPage settin = new SettingsPage();
+        Settings settin = new Settings();
         settin.setVisible(true);
         setVisible(false);
     }
@@ -597,7 +592,7 @@ public class StockControlPage extends javax.swing.JFrame {
         setVisible(false);
     }
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
         BilkentMenuPage bil = new BilkentMenuPage();
         bil.setVisible(true);
         setVisible(false);
@@ -626,7 +621,7 @@ public class StockControlPage extends javax.swing.JFrame {
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-        String str = "food";
+        String str = "Freezer";
         jTable1 = newTable(str);
 
         jScrollPane1.setViewportView( jTable1 );
@@ -634,35 +629,35 @@ public class StockControlPage extends javax.swing.JFrame {
     }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        String str = "meat";
+        String str = "Main Dishes";
         jTable1 = newTable(str);
 
         jScrollPane1.setViewportView( jTable1 );
     }
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
-        String str = "fruit";
+        String str = "Produce";
         jTable1 = newTable(str);
 
         jScrollPane1.setViewportView( jTable1 );
     }
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
-        String str = "legumes";
+        String str = "Breakfast";
         jTable1 = newTable(str);
 
         jScrollPane1.setViewportView( jTable1 );
     }
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
-        String str = "dairy";
+        String str = "Drinks";
         jTable1 = newTable(str);
 
         jScrollPane1.setViewportView( jTable1 );
     }
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
-        String str = "vegetable";
+        String str = "Addons";
         jTable1 = newTable(str);
 
         jScrollPane1.setViewportView( jTable1 );
@@ -676,26 +671,26 @@ public class StockControlPage extends javax.swing.JFrame {
     private JTable newTable(String str){
         int f;
         ArrayList<Food> newFoodList = new ArrayList<Food>();
-        if(str.equals("food")){
-            newFoodList.addAll(sd.getFood());
+//        if(str.equals("food")){
+//            newFoodList.addAll(sd.getFood());
+//        }
+        if(str.equals("Produce")){
+            newFoodList.addAll(sd.getProduceList());
         }
-        else if(str.equals("vegetable")){
-            newFoodList.addAll(sd.getVegetableList());
+        else if(str.equals("Main Dishes")){
+            newFoodList.addAll(sd.getMainDishesList());
         }
-        else if(str.equals("meat")){
-            newFoodList.addAll(sd.getMeatList());
+        else if(str.equals("Freezer")){
+            newFoodList.addAll(sd.getFreezerList());
         }
-        else if(str.equals("fruit")){
-            newFoodList.addAll(sd.getFruitList());
-        }
-        else if(str.equals("dairy")){
-            newFoodList.addAll(sd.getDairyList());
-        }
-        else if(str.equals("legumes")){
-            newFoodList.addAll(sd.getLegumesList());
-        }
-        else if(str.equals("drink")){
+        else if(str.equals("Drinks")){
             newFoodList.addAll(sd.getDrinkList());
+        }
+        else if(str.equals("Breakfast")){
+            newFoodList.addAll(sd.getBreakfastList());
+        }
+        else if(str.equals("Addons")){
+            newFoodList.addAll(sd.getAddonsList());
         }
 
         f = newFoodList.size();
