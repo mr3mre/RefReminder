@@ -4,17 +4,17 @@ import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Clock;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.Scanner;
 
 public class TimePassed {
 
     public static String getCurrentDate() {
-        Clock obj = Clock.systemUTC();
-        String[] dateParts = obj.instant().toString().split( "T" );
-        String date = dateParts[0];
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd");
 
-        return date;
+        return formatter.format(date);
     }
 
     public static long getDifferenceInDays() throws IOException, ParseException {
