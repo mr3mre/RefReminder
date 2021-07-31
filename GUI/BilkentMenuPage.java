@@ -1,9 +1,12 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package GUI;
 
 import Logic.PdfReader;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 import java.lang.reflect.Array;
 
@@ -28,6 +31,8 @@ public class BilkentMenuPage extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() throws IOException {
+        PdfReader e = new PdfReader();
+        String[] lines = e.give().split(System.getProperty("line.separator"));
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -37,9 +42,27 @@ public class BilkentMenuPage extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        ScrollPane2 = new ScrollPane();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(840, 510));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.GridLayout(1, 0));
@@ -122,77 +145,231 @@ public class BilkentMenuPage extends javax.swing.JFrame {
         });
         jPanel1.add(jButton7);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setPreferredSize(new java.awt.Dimension(840, 445));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setText("Dinner");
+
+        jButton8.setText("Monday");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+                int n = 0;
+                jLabel8.setText("<html>" + "<br>" + (String) Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                        "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
+                jLabel9.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
+                        "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
+            }
+        });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Amir Aliyev\\Downloads\\bilkentlogo1.png")); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel1.setText("Bilkent Menu");
+
+        jButton9.setText("Tuesday");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+                int n = 10;
+                jLabel8.setText("<html>" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                        "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
+                jLabel9.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
+                        "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel3.setText("Select the Day");
+
+        jButton10.setText("Wednesday");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+                int n = 20;
+                jLabel8.setText("<html>" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                        "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
+                jLabel9.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
+                        "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
+            }
+        });
+
+        jButton11.setText("Thursday");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+                int n = 30;
+                jLabel8.setText("<html>" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                        "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
+                jLabel9.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
+                        "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
+            }
+        });
+
+        jButton12.setText("Friday");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+                int n = 40;
+                jLabel8.setText("<html>" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                        "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
+                jLabel9.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
+                        "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
+            }
+        });
+
+        jButton13.setText("Saturday");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+                int n = 50;
+                jLabel8.setText("<html>" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                        "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
+                jLabel9.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
+                        "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
+            }
+        });
+
+        jButton14.setText("Sunday");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+                int n = 60;
+                jLabel8.setText("<html>" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                        "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
+                jLabel9.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
+                        "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setText("Lunch");
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+        );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 135, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(jLabel2)
+                                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                                .addGap(57, 57, 57)
+                                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                                .addGap(236, 236, 236)
+                                                                .addComponent(jLabel4)))
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel3)
+                                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                                .addComponent(jButton14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(jButton13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(jButton12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(jButton11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(jButton10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                                                .addComponent(jButton9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(jButton8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                                                .addComponent(jLabel5)
+                                                                .addGap(235, 235, 235))
+                                                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(jLabel2)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabel3)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jButton8)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jButton9)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jButton10)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jButton11)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jButton12)
+                                                        .addComponent(jLabel5)))
+                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(jLabel1)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(jButton13)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jButton14))
+                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ScrollPane2)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
-                                .addComponent(ScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE))
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        JPanel panel = new JPanel();
-        PdfReader e = new PdfReader();
-        String[] lines = e.give().split(System.getProperty("line.separator"));
-        int n = 0;
-        JLabel l1;
-        JLabel l2;
-        JLabel l3;
-        JLabel l4;
-        JLabel l5;
-        JLabel l6;
-        JLabel l7;
-        l1 = new JLabel("<html>" + "Monday" + "<br>" + "<br>" + "Lunch" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
-                "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "<br>" + "Dinner" + "<br>" + (String)Array.get(lines, n + 5) +
-                "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) + "<br>" + (String)Array.get(lines, n + 8) +
-                "<br>" + (String)Array.get(lines, n + 9) + "</html>");
-        n += 10;
-        l2 = new JLabel("<html>" + "<br>" + "Tuesday" + "<br>" + "<br>" + "Lunch" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
-                "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "<br>" + "Dinner" + "<br>" + (String)Array.get(lines, n + 5) +
-                "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) + "<br>" + (String)Array.get(lines, n + 8) +
-                "<br>" + (String)Array.get(lines, n + 9) + "</html>");
-        n += 10;
-        l3 = new JLabel("<html>" + "<br>" + "Wednesday" + "<br>" + "<br>" + "Lunch" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
-                "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "<br>" + "Dinner" + "<br>" + (String)Array.get(lines, n + 5) +
-                "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) + "<br>" + (String)Array.get(lines, n + 8) +
-                "<br>" + (String)Array.get(lines, n + 9) + "</html>");
-        n += 10;
-        l4 = new JLabel("<html>" + "<br>" + "Thursday" + "<br>" + "<br>" + "Lunch" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
-                "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "<br>" + "Dinner" + "<br>" + (String)Array.get(lines, n + 5) +
-                "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) + "<br>" + (String)Array.get(lines, n + 8) +
-                "<br>" + (String)Array.get(lines, n + 9) + "</html>");
-        n += 10;
-        l5 = new JLabel("<html>" + "<br>" + "Friday" + "<br>" + "<br>" + "Lunch" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
-                "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "<br>" + "Dinner" + "<br>" + (String)Array.get(lines, n + 5) +
-                "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) + "<br>" + (String)Array.get(lines, n + 8) +
-                "<br>" + (String)Array.get(lines, n + 9) + "</html>");
-        n += 10;
-        l6 = new JLabel("<html>" + "<br>" + "Saturday" + "<br>" + "<br>" + "Lunch" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
-                "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "<br>" + "Dinner" + "<br>" + (String)Array.get(lines, n + 5) +
-                "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) + "<br>" + (String)Array.get(lines, n + 8) +
-                "<br>" + (String)Array.get(lines, n + 9) + "</html>");
-        n += 10;
-        l7 = new JLabel("<html>" + "<br>" + "Sunday" + "<br>" + "<br>" + "Lunch" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
-                "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "<br>" + "Dinner" + "<br>" + (String)Array.get(lines, n + 5) +
-                "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) + "<br>" + (String)Array.get(lines, n + 8) +
-                "<br>" + (String)Array.get(lines, n + 9) + "</html>");
-
-        panel.setLayout(new GridLayout(7,1));
-        panel.setBackground( Color.white );
-        panel.add(l1);
-        panel.add(l2);
-        panel.add(l3);
-        panel.add(l4);
-        panel.add(l5);
-        panel.add(l6);
-        panel.add(l7);
-        ScrollPane2.add(panel);
         pack();
     }// </editor-fold>
 
@@ -228,6 +405,34 @@ public class BilkentMenuPage extends javax.swing.JFrame {
         StockControlPage stckcntrl = new StockControlPage();
         stckcntrl.setVisible(true);
         setVisible(false);
+    }
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
     }
 
     /**
@@ -269,16 +474,31 @@ public class BilkentMenuPage extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify
+    // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private ScrollPane ScrollPane2;
-    // End of variables declaration
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    // End of variables declaration                   
 }
-
