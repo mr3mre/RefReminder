@@ -8,7 +8,7 @@ import com.teamdev.jxbrowser.engine.EngineOptions;
 
 public class EmbeddedBrowser {
 
-    public static Browser openURL(String url) {
+    public static Object[] openURL(String url) {
         // Creating and running Chromium engine
         EngineOptions options =
                 EngineOptions.newBuilder( HARDWARE_ACCELERATED )
@@ -17,6 +17,10 @@ public class EmbeddedBrowser {
         Engine engine = Engine.newInstance( options );
         Browser browser = engine.newBrowser();
 
-        return browser;
+        Object[] browserHelpers = new Object[2];
+        browserHelpers[0] = browser;
+        browserHelpers[1] = engine;
+
+        return browserHelpers;
     }
 }

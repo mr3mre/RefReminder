@@ -7,15 +7,12 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Scanner;
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import javax.swing.table.*;
+
 import APIs.src.java.net.http.SpoonacularAPI;
+import Logic.User;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -584,7 +581,7 @@ public class StockControlPage extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {
-        Settings1 settin = new Settings1();
+        Settings settin = new Settings();
         settin.setVisible(true);
         setVisible(false);
     }
@@ -667,7 +664,7 @@ public class StockControlPage extends javax.swing.JFrame {
     }
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {
-        AutoCompeleteGUI aut = new AutoCompeleteGUI( new SpoonacularAPI( "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254" ));
+        AutoCompleteGUI aut = new AutoCompleteGUI( new SpoonacularAPI( "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254" ));
         aut.setVisible(true);
         setVisible(false);
     }
@@ -706,7 +703,7 @@ public class StockControlPage extends javax.swing.JFrame {
 
         for (int i = 0; i < newFoodList.size(); i++){
             String FoodName = newFoodList.get(i).getFoodName();
-            double Quantity = newFoodList.get(i).getQuantity();
+            double Quantity = newFoodList.get(i).getAmount();
             double Calorie = newFoodList.get(i).getCaloriePerPortion().doubleValue();
             double ExpiryDates = newFoodList.get(i).getExpiryDate();
             Object[] data = {FoodName, Quantity, Calorie, ExpiryDates};
@@ -753,7 +750,7 @@ public class StockControlPage extends javax.swing.JFrame {
 
     public static String textReader() throws FileNotFoundException
     {
-        File file = new File( "filename.txt" );
+        File file = new File("filename.txt");
         Scanner scan = new Scanner( file );
         String name = scan.next();
         scan.close();

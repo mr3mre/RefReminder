@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -97,7 +96,7 @@ public class FoodSelect {
 
     public static String textReader() throws FileNotFoundException
     {
-        File file = new File( "filename.txt" );
+        File file = new File("filename.txt");
         Scanner scan = new Scanner( file );
         String name = scan.next();
         scan.close();

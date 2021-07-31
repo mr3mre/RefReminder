@@ -1,3 +1,5 @@
+package GUI;
+
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -330,7 +332,7 @@ public class Feedback extends javax.swing.JFrame {
 
             statement.executeUpdate();
             
-            Settings1 s = new Settings1();
+            Settings s = new Settings();
             s.setVisible(true);
             setVisible(false);
             
@@ -377,7 +379,7 @@ public class Feedback extends javax.swing.JFrame {
     }                                             
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-    	Settings1 s = new Settings1();
+    	Settings s = new Settings();
         s.setVisible(true);
         setVisible(false);
     }                                        
@@ -435,7 +437,7 @@ public class Feedback extends javax.swing.JFrame {
     
     public static String textReader() throws FileNotFoundException
     {
-        File file = new File( "filename.txt" );
+        File file = new File("filename.txt");
         Scanner scan = new Scanner( file );
         String name = scan.next();
         scan.close();

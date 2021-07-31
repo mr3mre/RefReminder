@@ -9,8 +9,8 @@ import java.awt.*;
 
 public class BrowserPanel {
 
-    public static JPanel makePanel( String url ) {
-        Browser browser = EmbeddedBrowser.openURL( url );
+    public static Object[] makePanel( String url ) {
+        Browser browser = (Browser) EmbeddedBrowser.openURL( url )[0];
         JPanel panel = new JPanel();
 
         SwingUtilities.invokeLater( () -> {
@@ -31,6 +31,10 @@ public class BrowserPanel {
             browser.navigation().loadUrl( addressBar.getText() );
 
         });
-        return panel;
+        Object[] GUIs = new Object[2];
+        GUIs[0] = panel;
+        GUIs[1] = EmbeddedBrowser.openURL( url )[1];
+
+        return GUIs;
     }
 }

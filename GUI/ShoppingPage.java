@@ -1,5 +1,7 @@
 package GUI;
 
+import com.teamdev.jxbrowser.engine.Engine;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -32,7 +34,7 @@ public class ShoppingPage extends javax.swing.JFrame {
         jButton6 = new JButton();
         jButton7 = new JButton();
         JPanel topPanel = new JPanel();
-        JPanel jPanel1 = BrowserPanel.makePanel( "https://www.migros.com.tr/" );
+        JPanel jPanel1 = (JPanel) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[0];
         jPanel1.setPreferredSize( new Dimension( 800, 500 ) );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -129,36 +131,42 @@ public class ShoppingPage extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
         MainMenu mm = new MainMenu();
         mm.setVisible(true);
         setVisible(false);
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
         StockControlPage stckcntrl = new StockControlPage();
         stckcntrl.setVisible(true);
         setVisible(false);
     }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+        ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
         ReciperPage reciper = new ReciperPage();
         reciper.setVisible(true);
         setVisible(false);
     }
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
+        ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
         RestaurantsPage restaurant = new RestaurantsPage();
         restaurant.setVisible(true);
         setVisible(false);
     }
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
-        Settings1 settings = new Settings1();
+        ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
+        Settings settings = new Settings();
         settings.setVisible(true);
         setVisible(false);
     }
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+        ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
         BilkentMenuPage bilmenu = new BilkentMenuPage();
         bilmenu.setVisible(true);
         setVisible(false);
