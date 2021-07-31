@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class TimePassed {
 
-    public String getCurrentDate() {
+    public static String getCurrentDate() {
         Clock obj = Clock.systemUTC();
         String[] dateParts = obj.instant().toString().split( "T" );
         String date = dateParts[0];
@@ -17,9 +17,17 @@ public class TimePassed {
         return date;
     }
 
-    public long getDifferenceInDays() throws IOException, ParseException {
+    public static long getDifferenceInDays() throws IOException, ParseException {
         Scanner inputFile = new Scanner(new File("date.txt"));
-        String line = inputFile.nextLine();
+        String line;
+
+        if ( !inputFile.hasNextLine() ) {
+            line = getCurrentDate();
+        }
+        else {
+            line = inputFile.nextLine();
+        }
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date d1 = sdf.parse(line);
 
@@ -36,5 +44,9 @@ public class TimePassed {
         pw.close();
 
         return differenceDays;
+    }
+
+    public static void main( String[] args) throws IOException, ParseException {
+        System.out.println( getDifferenceInDays() );
     }
 }
