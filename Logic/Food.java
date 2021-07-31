@@ -66,4 +66,3 @@ public class Food {
 
         return foodName;
     }
-}
