@@ -542,28 +542,44 @@ public class SettingsPage extends javax.swing.JFrame {
         }
     }                                        
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {
+
         // TODO add your handling code here:
     }                                         
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // TODO add your handling code here:
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {
+
+        ShoppingPage shop = new ShoppingPage();
+        shop.setVisible(true);
+        setVisible(false);
     }                                         
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // TODO add your handling code here:
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
+
+        BilkentMenuPage bilmenu = new BilkentMenuPage();
+        bilmenu.setVisible(true);
+        setVisible(false);
     }                                         
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // TODO add your handling code here:
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
+
+        RecipeGui reciper = new RecipeGui();
+        reciper.setVisible(true);
+        setVisible(false);
     }                                         
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
+
+        RestaurantsPage restaurant = new RestaurantsPage();
+        restaurant.setVisible(true);
+        setVisible(false);
     }                                        
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
+
+        StockControlPage stckcntrl = new StockControlPage();
+        stckcntrl.setVisible(true);
+        setVisible(false);
     }                                        
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
