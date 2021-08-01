@@ -13,9 +13,11 @@ import org.json.JSONObject;
 public class SpoonacularAPI {
 
     private String apiKey;
+    private String apiKey2 = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254";
+    private String apiKey3 = "da73587c8emsh6ca56b7d9f2a385p1699dcjsnf6a7ee99f8e3";
 
-    public SpoonacularAPI( String apiKey ){
-        this.apiKey = apiKey;
+    public SpoonacularAPI(){
+        apiKey = "2b1ad64154msh266681e9461a336p1bfd1bjsndcdef3e10f2a";;
     }
 
     public String sendRequest(String url) throws IOException, InterruptedException{
@@ -50,6 +52,7 @@ public class SpoonacularAPI {
             JSONObject item = array.getJSONObject( i );
             recipes.add( new Recipe( item.getInt( "id" ), item.getString( "title" ), item.getString( "image" ) ) );
         }
+
         return recipes;
     }
 
@@ -175,13 +178,18 @@ public class SpoonacularAPI {
         String apiKey2 = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254";
         String apiKey3 = "da73587c8emsh6ca56b7d9f2a385p1699dcjsnf6a7ee99f8e3";
         
-        SpoonacularAPI foodApi = new SpoonacularAPI( apiKey );
+        SpoonacularAPI foodApi = new SpoonacularAPI();
         System.out.println();
+        ArrayList<String> ingredients = new ArrayList<String>();
+        ingredients.add( "chicken" );
 
         try {
             // foodApi.getJoke();
             // System.out.println(  foodApi.getJoke() );
 			// System.out.println( foodApi.searchFoodVideos( "potato") );
+            Recipe recipe = foodApi.searchRecipesByIngredients( ingredients ).get(3);
+            System.out.println( recipe.getImageURL() );
+
 			System.out.println( foodApi.getRecipeInformation( foodApi.getRandomRecipe().getID() ) );
         } catch ( IOException | InterruptedException e ) {
             e.printStackTrace();
