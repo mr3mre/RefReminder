@@ -1,28 +1,23 @@
 package GUI;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 import Logic.FoodSelect;
+import Logic.PdfReader;
 import Logic.User;
 import Logic.Food;
 import APIs.src.java.net.http.SpoonacularAPI;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
-/**
- *
- * @author H.Emre Tas
- */
+
 public class MainMenu extends javax.swing.JFrame {
-
-
     /**
      * Creates new form MainPageGui
      */
-    public MainMenu() {
+    public MainMenu() throws IOException {
         try
         {
             user = new User( name );
@@ -45,7 +40,7 @@ public class MainMenu extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    private void initComponents() {
+    private void initComponents() throws IOException {
 
         jPanel1 = new javax.swing.JPanel();
         jButtonMain = new javax.swing.JButton();
@@ -75,9 +70,9 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextAreaLunch = new javax.swing.JTextArea();
+        jLabelLunch = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextAreaDinner = new javax.swing.JTextArea();
+        jLabelDinner = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
@@ -289,35 +284,80 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel7.setBackground(new java.awt.Color(255, 102, 102));
-        jTextAreaLunch.setBackground( new java.awt.Color(255, 102, 102) );
-        jTextAreaDinner.setBackground( new java.awt.Color(255, 102, 102) );
+        jLabelLunch.setBackground( new java.awt.Color(255, 102, 102) );
+        jLabelDinner.setBackground( new java.awt.Color(255, 102, 102) );
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Lunch");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Dinner");
 
-        jTextAreaLunch.setColumns(20);
-        jTextAreaLunch.setRows(5);
-        jScrollPane4.setViewportView(jTextAreaLunch);
-        jTextAreaLunch.setLineWrap( true );
-        jTextAreaLunch.setWrapStyleWord( true );
-
+        jScrollPane4.setViewportView(jLabelLunch);
 
         // TODO add your handling code here:
-        jTextAreaLunch.append( "" );
 
-        jTextAreaLunch.setEditable(false);
-        jTextAreaDinner.setColumns(20);
-        jTextAreaDinner.setRows(5);
-        jTextAreaDinner.setLineWrap( true );
-        jTextAreaDinner.setWrapStyleWord( true );
-
-        jScrollPane5.setViewportView(jTextAreaDinner);
+        jScrollPane5.setViewportView(jLabelDinner);
         // TODO add your handling code here:
-        jTextAreaDinner.append( "" );
 
-        jTextAreaDinner.setEditable(false);
+        jScrollPane4.getViewport().setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane5.getViewport().setBackground(new java.awt.Color(255, 255, 255));
+
+        //setting the bilmenu on main menu
+        Date now = new Date();
+        Calendar c = Calendar.getInstance();
+        c.setTime((Date)now);
+        int day = c.get(Calendar.DAY_OF_WEEK);
+        PdfReader read = new PdfReader();
+        String[] lines = read.give().split(System.getProperty("line.separator"));
+        if(day == 1) {
+            int n = 60;
+            jLabelLunch.setText("<html>" + "<br>" + (String) Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                    "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
+            jLabelDinner.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
+                    "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
+        }
+        if(day == 2) {
+            int n = 0;
+            jLabelLunch.setText("<html>" + "<br>" + (String) Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                    "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
+            jLabelDinner.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
+                    "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
+        }
+        if(day == 3) {
+            int n = 10;
+            jLabelLunch.setText("<html>" + "<br>" + (String) Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                    "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
+            jLabelDinner.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
+                    "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
+        }
+        if(day == 4) {
+            int n = 20;
+            jLabelLunch.setText("<html>" + "<br>" + (String) Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                    "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
+            jLabelDinner.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
+                    "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
+        }
+        if(day == 5) {
+            int n = 30;
+            jLabelLunch.setText("<html>" + "<br>" + (String) Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                    "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
+            jLabelDinner.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
+                    "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
+        }
+        if(day == 6) {
+            int n = 40;
+            jLabelLunch.setText("<html>" + "<br>" + (String) Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                    "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
+            jLabelDinner.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
+                    "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
+        }
+        if(day == 7) {
+            int n = 50;
+            jLabelLunch.setText("<html>" + "<br>" + (String) Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
+                    "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
+            jLabelDinner.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
+                    "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
+        }
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -632,7 +672,11 @@ public class MainMenu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainMenu().setVisible(true);
+                try {
+                    new MainMenu().setVisible(true);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -673,9 +717,9 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTextArea jTextAreaDinner;
+    private javax.swing.JLabel jLabelDinner;
     private javax.swing.JTextArea jTextAreaJokes;
-    private javax.swing.JTextArea jTextAreaLunch;
+    private javax.swing.JLabel jLabelLunch;
     private javax.swing.JTextArea jTextAreaRefri;
     private javax.swing.JTextArea jTextAreaStrange;
     // End of variables declaration
