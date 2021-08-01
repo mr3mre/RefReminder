@@ -133,7 +133,7 @@ public class BilkentMenuPage extends javax.swing.JFrame {
         });
         jPanel1.add(jButton6);
 
-        jButton7.setBackground(new java.awt.Color(0, 51, 204));
+        jButton7.setBackground(new java.awt.Color(0, 255, 204));
         jButton7.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jButton7.setText("Settings");
         jButton7.setPreferredSize(new java.awt.Dimension(120, 35));

@@ -144,7 +144,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        jButtonSettings.setBackground(new java.awt.Color(0, 51, 204));
+        jButtonSettings.setBackground(new java.awt.Color(0, 255, 204));
         jButtonSettings.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jButtonSettings.setText("Settings");
         jButtonSettings.setPreferredSize(new java.awt.Dimension(120, 35));

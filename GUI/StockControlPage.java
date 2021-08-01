@@ -226,7 +226,7 @@ public class StockControlPage extends javax.swing.JFrame {
             }
         });
 
-        jButton13.setBackground(new java.awt.Color(0, 51, 204));
+        jButton13.setBackground(new java.awt.Color(0, 255, 204));
         jButton13.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jButton13.setText("Settings");
         jButton13.setPreferredSize(new java.awt.Dimension(120, 35));
@@ -757,7 +757,7 @@ public class StockControlPage extends javax.swing.JFrame {
     }
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {
-        AddFoodGUI aut = new AddFoodGUI( new SpoonacularAPI( "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254" ));
+        AddFoodGUI aut = new AddFoodGUI( new SpoonacularAPI());
         aut.setVisible(true);
         setVisible(false);
     }
