@@ -32,5 +32,7 @@ Personal Logs
   28.07.2021 Designing the first version of the MainMenu GUI.
   29.07.2021 Working on the rest of the GUIs. Doing additional research on APIs.
   30.07.2021 Research on the necessary Libraries for reading PDFs. 
+  31.07.2021 1st version PDF reader class and updated BilkentMenu page.
+  01.07.2021 PDF reader updated. Daily Bilkent menu panel added to Main Menu. 
   
 
