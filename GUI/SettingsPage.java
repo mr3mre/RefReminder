@@ -556,8 +556,8 @@ public class SettingsPage extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
 
-        BilkentMenuPage bilmenu = new BilkentMenuPage();
-        bilmenu.setVisible(true);
+        //BilkentMenuPage bilmenu = new BilkentMenuPage();
+        //bilmenu.setVisible(true);
         setVisible(false);
     }                                         
 
