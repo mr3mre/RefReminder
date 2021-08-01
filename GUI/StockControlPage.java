@@ -1,6 +1,6 @@
 package GUI;
 import Logic.User;
-
+import Logic.TimePassed;
 import Logic.Food;
 import Logic.FoodSelect;
 
@@ -8,6 +8,11 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.awt.*;
@@ -50,6 +55,38 @@ public class StockControlPage extends javax.swing.JFrame {
         setSize(1500,800);
         setLocationRelativeTo(null);
         initComponents();
+
+        String driver = "com.mysql.cj.jdbc.Driver";
+        String username = "root";
+        String password = "root";
+        String url = "jdbc:mysql://34.141.44.144:3306/" + name;
+
+        try
+        {
+            for(int i  = 0; i < sd.getFood().size(); i++){
+
+                String actualFoodName =sd.getFood().get(i).getFoodName();
+                int actualExpiryDate = sd.getFood().get(i).getExpiryDate() ;
+                int newExpiryDate = actualExpiryDate - (int) TimePassed.getDifferenceInDays();
+                //System.out.println( "   " + newExpiryDate );
+                System.out.println( "   " + TimePassed.getDifferenceInDays() );
+
+                Class.forName( driver );
+                java.sql.Connection conn3 = DriverManager.getConnection( url, username, password );
+                Statement statement = ( ( java.sql.Connection) conn3 ).createStatement();
+                String sql = "UPDATE food SET expirydate = '" + newExpiryDate + "'" + " WHERE foodname = '" + actualFoodName +  "'";
+                statement.executeUpdate(sql);
+            }
+
+        }
+        catch (ClassNotFoundException e) { e.printStackTrace(); }
+
+        catch (SQLException e) { e.printStackTrace(); } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -638,7 +675,7 @@ public class StockControlPage extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {
-        Settings1 settin = new Settings1();
+        SettingsPage settin = new SettingsPage();
         settin.setVisible(true);
         setVisible(false);
     }
@@ -650,8 +687,8 @@ public class StockControlPage extends javax.swing.JFrame {
     }
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
-        BilkentMenuPage bil = new BilkentMenuPage();
-        bil.setVisible(true);
+       // BilkentMenuPage bil = new BilkentMenuPage();
+       // bil.setVisible(true);
         setVisible(false);
     }
 
@@ -662,7 +699,7 @@ public class StockControlPage extends javax.swing.JFrame {
     }
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
-        ReciperPage rec = new ReciperPage();
+        RecipeGui rec = new RecipeGui();
         rec.setVisible(true);
         setVisible(false);
     }
@@ -720,7 +757,7 @@ public class StockControlPage extends javax.swing.JFrame {
     }
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {
-        AutoCompleteGUI aut = new AutoCompleteGUI( new SpoonacularAPI( "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254" ));
+        AddFoodGUI aut = new AddFoodGUI( new SpoonacularAPI( "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254" ));
         aut.setVisible(true);
         setVisible(false);
     }
