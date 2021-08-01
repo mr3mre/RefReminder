@@ -380,7 +380,7 @@ public class BilkentMenuPage extends javax.swing.JFrame {
     }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        ReciperPage reciper = new ReciperPage();
+        RecipeGui reciper = new RecipeGui();
         reciper.setVisible(true);
         setVisible(false);
     }
