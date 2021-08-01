@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -75,6 +76,7 @@ public class RecipePage extends javax.swing.JFrame {
         ingredients = new ArrayList<>();
         liss = new DefaultListModel();
         foodList2 = new ArrayList<>();
+        fs = new FoodSelect();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,8 +89,9 @@ public class RecipePage extends javax.swing.JFrame {
         }
         System.out.println(Arrays.toString(strArray));
 
+        String[] foods = fs.getFood().stream().map(Food::getFoodName).toArray( String[]::new );
         jComboBox1.setEditable(true);
-        jComboBox1.setModel(new DefaultComboBoxModel<>(new String[] { "yemek1", "yemek2" }));
+        jComboBox1.setModel(new DefaultComboBoxModel<String>( foods ));
         jComboBox1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -231,7 +234,11 @@ public class RecipePage extends javax.swing.JFrame {
         jButtonNext.setText("Next");
         jButtonNext.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                jButtonNextActionPerformed(evt);
+                try {
+                    jButtonNextActionPerformed(evt);
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -247,7 +254,7 @@ public class RecipePage extends javax.swing.JFrame {
         });
         
         jList1.setModel(new AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
 
@@ -390,9 +397,9 @@ public class RecipePage extends javax.swing.JFrame {
         info.setVisible(true);
     }
 
-    private void jButtonNextActionPerformed(ActionEvent evt) {
+    private void jButtonNextActionPerformed(ActionEvent evt) throws IOException, InterruptedException {
         order++;
-
+        jButtonSearchActionPerformed( evt );
     }
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -448,6 +455,7 @@ public class RecipePage extends javax.swing.JFrame {
             }
         }
 
+        System.out.println( ingredients );
         recipes = api.searchRecipesByIngredients( ingredients );
         recipe = recipes.get( order );
         getRecipe( recipe );
@@ -515,5 +523,6 @@ public class RecipePage extends javax.swing.JFrame {
     ArrayList<String> ingredients;
     DefaultListModel liss;
     ArrayList<String> foodList2;
+    FoodSelect fs;
     // End of variables declaration
 }

@@ -5,6 +5,7 @@ package GUI;/*
  */
 
 import APIs.src.java.net.http.SpoonacularAPI;
+import APIs.src.java.net.http.YoutubeViewer;
 import Logic.Recipe;
 
 import javax.swing.*;
@@ -38,7 +39,6 @@ public class InformationFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         editorPane  = new javax.swing.JEditorPane();
-        jPanelVideo = new javax.swing.JPanel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
@@ -46,14 +46,12 @@ public class InformationFrame extends javax.swing.JFrame {
         jLabelNameIngredients = new javax.swing.JLabel();
         recipe = RecipePage.getRecipe();
         api = new SpoonacularAPI();
+        liss = new DefaultListModel();
 
         ArrayList<String> foodDetails = api.getRecipeInformation( recipe.getID() );
         String instructions = foodDetails.get(0);
         String healthBar = foodDetails.get(1);
 
-        for( int count = 2; count< foodDetails.size(); count++){
-            System.out.println(foodDetails.get(count));
-        }
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(240, 248, 255));
@@ -65,8 +63,11 @@ public class InformationFrame extends javax.swing.JFrame {
         editorPane.setEditable(false);
         jScrollPane1.setViewportView(editorPane );
 
+        String url =  api.searchFoodVideos( recipe.getRecipeName());
+        System.out.println( url );
+        jPanelVideo = YoutubeViewer.getBrowserPanel( url );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanelVideo);
-        jPanelVideo.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -93,6 +94,11 @@ public class InformationFrame extends javax.swing.JFrame {
             public int getSize() { return strings.size(); }
             public String getElementAt(int i) { return strings.get(i); }
         });
+
+        for( int count = 2; count< foodDetails.size(); count++){
+            liss.addElement( foodDetails.get(count) );
+        }
+        jList1.setModel(liss);
         jScrollPane2.setViewportView(jList1);
 
         jLabelName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -208,5 +214,6 @@ public class InformationFrame extends javax.swing.JFrame {
     private javax.swing.JEditorPane editorPane ;
     private Recipe recipe;
     private SpoonacularAPI api;
+    private DefaultListModel liss;
     // End of variables declaration
 }
