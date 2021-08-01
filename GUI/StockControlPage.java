@@ -172,7 +172,11 @@ public class StockControlPage extends javax.swing.JFrame {
         jButton1.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                try {
+                    jButton1ActionPerformed(evt);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -687,8 +691,8 @@ public class StockControlPage extends javax.swing.JFrame {
     }
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
-       // BilkentMenuPage bil = new BilkentMenuPage();
-       // bil.setVisible(true);
+        // BilkentMenuPage bil = new BilkentMenuPage();
+        // bil.setVisible(true);
         setVisible(false);
     }
 
@@ -699,7 +703,7 @@ public class StockControlPage extends javax.swing.JFrame {
     }
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
-        RecipeGui rec = new RecipeGui();
+        RecipePage rec = new RecipePage();
         rec.setVisible(true);
         setVisible(false);
     }
@@ -708,7 +712,7 @@ public class StockControlPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         MainMenu main = new MainMenu();
         main.setVisible(true);
         setVisible(false);

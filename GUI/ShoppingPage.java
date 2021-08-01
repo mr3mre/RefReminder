@@ -51,7 +51,11 @@ public class ShoppingPage extends javax.swing.JFrame {
         jButton1.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                try {
+                    jButton1ActionPerformed(evt);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
         topPanel.add(jButton1);
@@ -135,7 +139,7 @@ public class ShoppingPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
         MainMenu mm = new MainMenu();
         mm.setVisible(true);
@@ -151,7 +155,7 @@ public class ShoppingPage extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
-        RecipeGui reciper = new RecipeGui();
+        RecipePage reciper = new RecipePage();
         reciper.setVisible(true);
         setVisible(false);
     }

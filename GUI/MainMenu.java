@@ -115,7 +115,7 @@ public class MainMenu extends javax.swing.JFrame {
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
-                RecipeGui recipe = new RecipeGui();
+                RecipePage recipe = new RecipePage();
                 recipe.setVisible(true);
                 setVisible(false);
             }

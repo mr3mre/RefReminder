@@ -25,7 +25,7 @@ public class BrowserPanel {
             addressBar.addActionListener(e ->
                     browser.navigation().loadUrl( addressBar.getText() ) );
             panel.add( view, BorderLayout.CENTER );
-            panel.setSize( 800, 500 );
+            panel.setSize( 600, 300 );
             panel.setVisible( true );
 
             browser.navigation().loadUrl( addressBar.getText() );

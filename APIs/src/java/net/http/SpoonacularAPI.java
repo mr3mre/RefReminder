@@ -44,7 +44,7 @@ public class SpoonacularAPI {
             }
         }
         String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
-                	 "findByIngredients?ingredients=" + ingredients + "&ranking=2&ignorePantry=true&number=5";
+                "findByIngredients?ingredients=" + ingredients + "&ranking=2&ignorePantry=true&number=5";
 
         JSONArray array = new JSONArray( sendRequest( url )  );
 
@@ -63,12 +63,15 @@ public class SpoonacularAPI {
 
         JSONObject object = new JSONObject( sendRequest( url ) );
         information.add( object.getString( "instructions" ) );
+        information.add( "" + object.getInt( "spoonacularScore" ) );
+
         JSONArray array = object.getJSONArray( "extendedIngredients" );
 
         for ( int i = 0; i < array.length(); i++ ) {
             JSONObject item = array.getJSONObject( i );
-            information.add( String.valueOf( item.getInt( "id" ) ) );
+            information.add( String.valueOf( item.getString( "name" ) ) );
         }
+
         return information;
     }
 
@@ -97,8 +100,8 @@ public class SpoonacularAPI {
         }
 
         String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/videos/" +
-                	 "search?offset=0&number=10&" +
-                	 "maxLength=999&minLength=0&query=" + name;
+                "search?offset=0&number=10&" +
+                "maxLength=999&minLength=0&query=" + name;
 
         JSONObject object = new JSONObject( sendRequest( url ) );
         JSONArray videos = new JSONArray( object.getJSONArray( "videos" ) );
@@ -122,7 +125,7 @@ public class SpoonacularAPI {
         String[] foodList = new String[8];
 
         String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/autocomplete?query=" +
-                	 foodName + "&number=4&metaInformation=true";
+                foodName + "&number=4&metaInformation=true";
 
         JSONArray array = new JSONArray( sendRequest( url ) );
 
@@ -142,7 +145,7 @@ public class SpoonacularAPI {
         Food food = null;
 
         String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/" + foodID +
-                	 "/information?unit=gram&amount=100";
+                "/information?unit=gram&amount=100";
 
         JSONObject object = new JSONObject(  sendRequest( url ) );
 
@@ -177,23 +180,44 @@ public class SpoonacularAPI {
         String apiKey = "2b1ad64154msh266681e9461a336p1bfd1bjsndcdef3e10f2a";
         String apiKey2 = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254";
         String apiKey3 = "da73587c8emsh6ca56b7d9f2a385p1699dcjsnf6a7ee99f8e3";
-        
+
         SpoonacularAPI foodApi = new SpoonacularAPI();
         System.out.println();
-        ArrayList<String> ingredients = new ArrayList<String>();
+        ArrayList<String> ingredients = new ArrayList<>();
         ingredients.add( "chicken" );
 
         try {
             // foodApi.getJoke();
             // System.out.println(  foodApi.getJoke() );
-			// System.out.println( foodApi.searchFoodVideos( "potato") );
-            Recipe recipe = foodApi.searchRecipesByIngredients( ingredients ).get(3);
+            // System.out.println( foodApi.searchFoodVideos( "potato") );
+            Recipe recipe = foodApi.searchRecipesByIngredients( ingredients ).get(0);
+            ArrayList<String> foodDetails = foodApi.getRecipeInformation( recipe.getID() );
+            String instructions = foodDetails.get(0);
+            String healthBar = foodDetails.get(1);
+            System.out.println( recipe.getID() );
+            System.out.println( instructions );
+            System.out.println( healthBar );
+
+            for( int count = 2; count< foodDetails.size(); count++){
+                System.out.println(foodDetails.get(count));
+            }
+
+//            ArrayList<Recipe> recipes = foodApi.searchRecipesByIngredients( ingredients );
+//
+//            for ( int count = 0; count < recipes.size(); count++){
+//                Recipe recipe = recipes.get(count);
+//                ArrayList<String> foodDetails = foodApi.getFoodInformation( recipe.getID() );
+//                String instructions = foodDetails.get(0);
+//                String healthBar = foodDetails.get(1);
+//                System.out.println( instructions );
+//                System.out.println( healthBar );
+//            }
+
             System.out.println( recipe.getImageURL() );
 
-			System.out.println( foodApi.getRecipeInformation( foodApi.getRandomRecipe().getID() ) );
+            //System.out.println( foodApi.getRecipeInformation( foodApi.getRandomRecipe().getID() ) );
         } catch ( IOException | InterruptedException e ) {
             e.printStackTrace();
         }
-	}
+    }
 }
-

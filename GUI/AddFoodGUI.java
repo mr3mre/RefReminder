@@ -627,7 +627,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddFoodGUI( new SpoonacularAPI( apiKey2 ) ).setVisible(true);
+                new AddFoodGUI( new SpoonacularAPI() ).setVisible(true);
             }
         });
     }

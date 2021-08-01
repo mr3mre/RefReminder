@@ -112,7 +112,11 @@ public class SettingsPage extends javax.swing.JFrame {
         jButton1.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                try {
+                    jButton1ActionPerformed(evt);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -568,7 +572,7 @@ public class SettingsPage extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
 
-        RecipeGui reciper = new RecipeGui();
+        RecipePage reciper = new RecipePage();
         reciper.setVisible(true);
         setVisible(false);
     }                                         
@@ -587,7 +591,7 @@ public class SettingsPage extends javax.swing.JFrame {
         setVisible(false);
     }                                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
     	 MainMenu main = new MainMenu();
          main.setVisible(true);
          setVisible(false);
