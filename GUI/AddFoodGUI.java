@@ -288,15 +288,12 @@ public class AddFoodGUI extends javax.swing.JFrame {
 
 
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         this.dispose();
         new StockControlPage().setVisible(true);
     }
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         String amountStr = "";
-
         amountStr = findJustDigit( jTextFieldAmount.getText() );
 
         if( ! amountStr.equals( "" ) )
@@ -330,7 +327,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
         /**
          *
          */
-        //System.out.println( "ID: " + food.getId() + " Name: " + food.toString() + " Main: " + food.getMain() + " Calorie: " + food.getCaloriePerPortion() );
+        System.out.println( "ID: " + food.getId() + " Name: " + food.toString() + " Main: " + food.getMain() + " Calorie: " + food.getCaloriePerPortion() );
         if( food.getMain().contains( ";" ) ){
             //System.out.println( "Heyyy");
             String[] mains = food.getMain().split(";");
@@ -339,43 +336,50 @@ public class AddFoodGUI extends javax.swing.JFrame {
                 // System.out.println( "Main: " +mains[index] );
                 if ( mains[index].equals("Meat") || mains[index].equals( "Seafood")   || mains[index].equals( "Baking" ) ){
                     food.setMain( "Main Dishes" );
-                    food.setExpiryDate( 30 );
+                    food.setExpiryDate( 180 );
+                    break;
                 }
                 else if ( mains[index].equals( "Health Foods" ) || mains[index].equals( "Produce" )|| mains[index].equals( "Dried Fruits" ) || mains[index].equals( "Nuts" ) || mains[index].equals( "Pasta and Rice" ) ){
                     if( food.getMain().equals( "Dried Fruits" ) || mains[index].equals( "Nuts" ) )
                         food.setExpiryDate( 365 );
                     else
-                        food.setExpiryDate( 7 );
+                        food.setExpiryDate( 21 );
                     food.setMain( "Produce" );
+                    break;
                 }
                 else if ( mains[index].equals( "Refrigerated" ) || mains[index].equals( "Frozen" ) ){
                     food.setMain( "Freezer" );
                     food.setExpiryDate( 365 );
+                    break;
                 }
                 else if ( mains[index].equals( "Tea and Coffee" ) || mains[index].equals( "Beverages" ) || mains[index].equals( "Alcoholic Beverages" ) ){
                     food.setMain( "Drink" );
                     food.setExpiryDate( 365 );
+                    break;
                 }
                 else if ( mains[index].equals( "Bakery/Bread" ) || mains[index].equals( "Nut butters, Jams, and Honey" ) || mains[index].equals( "Bread" ) || mains[index].equals( "Milk, Eggs, Other Dairy" ) || mains[index].equals( "Cheese" ) || mains[index].equals( "Cereal" ) ){
                     food.setMain( "Breakfast" );
-                    food.setExpiryDate( 14 );
+                    food.setExpiryDate( 60 );
+                    break;
                 }
                 else if ( mains[index].equals( "Condiments" ) || mains[index].equals( "Ethnic Foods" ) || mains[index].equals( "Spices and Seasonings" ) || mains[index].equals( "Oil, Vinegar, Salad Dressing" ) || mains[index].equals( "Savory Snacks" ) || mains[index].equals( "Sweet Snacks" ) || mains[index].equals( "Canned and Jarred" ) || mains[index].equals( "Gourmet" ) || mains[index].equals( "Grilling Supplies" ) || mains[index].equals( "Online" ) || mains[index].equals( "Homemade" )){
                     food.setMain( "Food Addons" );
+                    food.setExpiryDate( 365 );
+                    break;
                 }
-                break;
+
             }
         }
         else{
             if ( food.getMain().equals( "Meat" ) || food.getMain().equals( "Seafood" ) ||  food.getMain().equals( "Baking" ) ){
                 food.setMain( "Main Dishes" );
-                food.setExpiryDate( 30 );
+                food.setExpiryDate( 180 );
             }
             else if ( food.getMain().equals( "Health Foods" ) || food.getMain().equals( "Produce" ) || food.getMain().equals( "Dried Fruits" ) || food.getMain().equals( "Nuts" ) || food.getMain().equals( "Pasta and Rice" ) ) {
                 if( food.getMain().equals( "Dried Fruits" ) || food.getMain().equals( "Nuts" ))
                     food.setExpiryDate( 365 );
                 else{
-                    food.setExpiryDate( 7 );
+                    food.setExpiryDate( 21 );
                 }
                 food.setMain("Produce");
             }
@@ -389,14 +393,15 @@ public class AddFoodGUI extends javax.swing.JFrame {
             }
             else if ( food.getMain().equals( "Bakery/Bread" ) || food.getMain().equals( "Nut butters, Jams, and Honey" ) || food.getMain().equals( "Bread" ) || food.getMain().equals( "Milk, Eggs, Other Dairy" ) || food.getMain().equals( "Cheese" ) || food.getMain().equals( "Cereal" )) {
                 food.setMain("Breakfast");
-                food.setExpiryDate( 14 );
+                food.setExpiryDate( 60 );
             }
             else if ( food.getMain().equals( "Ethnic Foods" ) || food.getMain().equals( "Condiments" ) || food.getMain().equals( "Spices and Seasonings" ) || food.getMain().equals( "Oil, Vinegar, Salad Dressing" ) || food.getMain().equals( "Savory Snacks" ) || food.getMain().equals( "Sweet Snacks" ) || food.getMain().equals( "Canned and Jarred" ) || food.getMain().equals( "Gourmet" ) || food.getMain().equals( "Grilling Supplies" ) || food.getMain().equals( "Online" ) || food.getMain().equals( "Homemade" )) {
                 food.setMain( "Food Addons" );
+                food.setExpiryDate( 365 );
             }
         }
 
-        //System.out.println( "ID: " + food.getId() + " Name: " + food.toString() + " Main: " + food.getMain() + " Expiry Date: " + food.getExpiryDate() + " Calorie: " + food.getCaloriePerPortion() );
+        System.out.println( "ID: " + food.getId() + " Name: " + food.toString() + " Main: " + food.getMain() + " Expiry Date: " + food.getExpiryDate() + " Calorie: " + food.getCaloriePerPortion() );
 
         ////////
         ////////
