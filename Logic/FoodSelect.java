@@ -83,6 +83,8 @@ public class FoodSelect {
 
                 while (resultset.next()) {
                     food = new Food(resultset.getInt("id"), resultset.getString("foodname"), resultset.getString("main"), (Number)resultset.getDouble("calorie"));
+                    food.setAmount( resultset.getDouble("quantity"));
+                    food.setExpiryDate( resultset.getInt("expirydate" ));
                     list.add(food);
 
                 }
