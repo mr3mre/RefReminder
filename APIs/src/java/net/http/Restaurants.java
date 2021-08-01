@@ -1,5 +1,8 @@
 package APIs.src.java.net.http;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -27,7 +30,15 @@ public class Restaurants {
 				.build();
 		HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 //		System.out.println( response.body() );
-		
+		JSONObject object = new JSONObject( response.body() );
+		System.out.println( object );
+		JSONObject object2 = object.getJSONObject("results");
+		JSONArray array = object2.getJSONArray( "data" );
+		JSONObject object3 = (JSONObject) array.get(0);
+
+		JSONObject object4 = object3.getJSONObject("result_object");
+		//object4.getString("name" );
+		//System.out.println( object4 );
 //		System.out.println( str.substring( index + 14, str.indexOf( "," , index) - 1 ) );
 		
 //		JSONArray array = new JSONArray( response.body() );
@@ -38,33 +49,57 @@ public class Restaurants {
 		int index = str.indexOf( "location_id" );
 		String locId = str.substring( index + 14, str.indexOf( "," , index) - 1 );
 
+		//object4.getString("name" )
 		return locId;
 	}
 	
-	public static void getRestaurants( String apiKey, String locId ) throws IOException, InterruptedException{
+	public static JSONArray getRestaurants( String apiKey, String locId ) throws IOException, InterruptedException{
 		
 		HttpRequest request = HttpRequest.newBuilder()
 				.uri(URI.create("https://worldwide-restaurants.p.rapidapi.com/search"))
 				.header("content-type", "application/x-www-form-urlencoded")
 				.header("x-rapidapi-key", apiKey )
 				.header("x-rapidapi-host", "worldwide-restaurants.p.rapidapi.com")
-				.method("POST", HttpRequest.BodyPublishers.ofString("language=en_US&limit=30&location_id=" + locId + "&currency=USD"))
+				.method("POST", HttpRequest.BodyPublishers.ofString("language=en_US&limit=200&location_id=" + locId + "&currency=USD"))
 				.build();
 		HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-		System.out.println(response.body());
-		
-//		File file = new File("/Users/emre/A.txt");
-//	    FileWriter writer;
-//	    try {
-//	        writer = new FileWriter(file, true);
-//	        PrintWriter printer = new PrintWriter(writer);
-//	        printer.append( response.body() );
-//	        printer.close();
-//	    } catch (IOException e) {
-//	        // TODO Auto-generated catch block
-//	        e.printStackTrace();
-//	    }
-		
+
+		JSONObject object = new JSONObject( response.body() );
+		JSONObject object2 = object.getJSONObject( "results" );
+		JSONArray array = object2.getJSONArray( "data" );
+
+
+//		for ( int count = 0; count< array.length(); count++){
+//			JSONObject object3 = (JSONObject) array.get(count);
+//			object3.getString("description" );
+//			object3.getString("email" );
+//			object3.getString("website" );
+//			object3.getString("address" );
+//			object3.getString("name" );
+//
+//			System.out.println( object3.getString("name" ) );
+//			System.out.println( object3.getString("description" ) );
+//			System.out.println( object3.getString("ranking" ) );
+//			if (  ( (String) object3.toString()).contains( "email" ) )
+//				System.out.println( object3.getString("email" ) );
+//
+//			if (  ( (String) object3.toString()).contains( "price_level" ) ) {
+//				System.out.println(object3.getString("price_level"));
+//			}
+//			else if (  ( (String) object3.toString()).contains( "price" ) ) {
+//				System.out.println(object3.getString("price"));
+//			}
+//			System.out.println( object3.getString("website" ) );
+//			System.out.println( object3.getString("address" ) );
+//
+//			JSONArray arrayCuisine = object3.getJSONArray( "cuisine" );
+//			for ( int index = 0; index< arrayCuisine.length(); index++) {
+//				JSONObject objectCuisine = (JSONObject) arrayCuisine.get(index);
+//				System.out.println( objectCuisine.getString("name" ) );
+//			}
+//		}
+
+		return array;
 	}
 	
 	public static void main( String[] args) throws IOException, InterruptedException
@@ -72,8 +107,12 @@ public class Restaurants {
 		
 		String api = "2b1ad64154msh266681e9461a336p1bfd1bjsndcdef3e10f2a";
 		String api2 = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254";
-		
-		getRestaurants( api2, getLocation( api, "Anka" ) );
+
+		String ankaraId = ""+ 298656;
+		//System.out.println( getLocation( api2, "Ankara" ) );
+
+		//getLocation( api2, "Ankara" )
+		getRestaurants( api, ankaraId );
 		
 //		JSONArray array = new JSONArray( response.body() );
 //
