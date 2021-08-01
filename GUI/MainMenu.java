@@ -10,6 +10,7 @@ import Logic.Food;
 import APIs.src.java.net.http.SpoonacularAPI;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 /**
  *
@@ -106,6 +107,9 @@ public class MainMenu extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+                StockControlPage stock = new StockControlPage();
+                stock.setVisible(true);
+                setVisible(false);
             }
         });
 
@@ -113,6 +117,14 @@ public class MainMenu extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jButton3.setText("Reciper");
         jButton3.setPreferredSize(new java.awt.Dimension(120, 35));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+                RecipeGui recipe = new RecipeGui();
+                recipe.setVisible(true);
+                setVisible(false);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(255, 51, 0));
         jButton4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -121,6 +133,9 @@ public class MainMenu extends javax.swing.JFrame {
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
+                RestaurantsPage restaurant = new RestaurantsPage();
+                restaurant.setVisible(true);
+                setVisible(false);
             }
         });
 
@@ -131,6 +146,14 @@ public class MainMenu extends javax.swing.JFrame {
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
+                BilkentMenuPage bilmenu = null;
+                try {
+                    bilmenu = new BilkentMenuPage();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                bilmenu.setVisible(true);
+                setVisible(false);
             }
         });
 
@@ -141,6 +164,9 @@ public class MainMenu extends javax.swing.JFrame {
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
+                ShoppingPage shop = new ShoppingPage();
+                shop.setVisible(true);
+                setVisible(false);
             }
         });
 
@@ -151,6 +177,9 @@ public class MainMenu extends javax.swing.JFrame {
         jButtonSettings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSettingsActionPerformed(evt);
+                SettingsPage settings = new SettingsPage();
+                settings.setVisible(true);
+                setVisible(false);
             }
         });
 
@@ -531,6 +560,10 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
