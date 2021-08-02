@@ -5,6 +5,7 @@ Group Meetings
   31.07.2021 14:00 - 16:00
   31.07.2021 22:30 - 24:00
   01.08.2021 Basically whole day.
+  02.08.2021 12:00 - 3:00
   
   
 Personal Logs
@@ -22,6 +23,7 @@ Personal Logs
   29.07.2021 worked on Worldwide Restaurants Rest API, getting data from Bilkent Cafeteria Menu
   30.07.2021 working on restaurants rest API and adding foods to the database( autocompelete gui)
   31.07.2021 fixing bug in autocompelete gui and stockcontrol page
+  01.08.2021 Updated Main Menu GUI. Coding RestaurantsPage and fixing restaurants Rest API.
   
   Eren Karakaş
   28.07.2021 Creating methods from Spoonacular API and adjusting Recipe and Food classes accordingly.
