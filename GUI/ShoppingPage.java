@@ -14,11 +14,11 @@ import java.net.URISyntaxException;
 public class ShoppingPage extends javax.swing.JFrame {
 
     /**
-     * Creates new form Shopping
+     * Creates new ShoppingPage
      */
     public ShoppingPage() {
-        setSize(1200,800);
-        setLocationRelativeTo(null);
+        setSize( 1200,800 );
+        setLocationRelativeTo( null );
         initComponents();
     }
 
@@ -41,7 +41,7 @@ public class ShoppingPage extends javax.swing.JFrame {
         JPanel jPanel1 = (JPanel) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[0];
         jPanel1.setPreferredSize( new Dimension( 800, 500 ) );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation( javax.swing.WindowConstants.EXIT_ON_CLOSE );
         jPanel1.setLayout(new java.awt.GridLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -187,6 +187,8 @@ public class ShoppingPage extends javax.swing.JFrame {
     }
 
     /**
+     * Main method to test the class
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -210,7 +212,7 @@ public class ShoppingPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ShoppingPage().setVisible(true);
+                new ShoppingPage().setVisible( true );
             }
         });
     }

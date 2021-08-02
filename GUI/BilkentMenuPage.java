@@ -35,7 +35,7 @@ public class BilkentMenuPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() throws IOException {
         PdfReader e = new PdfReader();
-        String[] lines = e.give().split(System.getProperty("line.separator"));
+        String[] lines = e.give().split(System.getProperty( "line.separator" ) );
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -63,74 +63,74 @@ public class BilkentMenuPage extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(840, 510));
+        setDefaultCloseOperation( javax.swing.WindowConstants.EXIT_ON_CLOSE );
+        setBackground(new java.awt.Color( 255, 255, 255 ) );
+        setPreferredSize(new java.awt.Dimension(840, 510 ) );
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel1.setBackground(new java.awt.Color( 255, 255, 255 ) );
+        jPanel1.setLayout(new java.awt.GridLayout( 1, 0));
 
-        jButton1.setBackground(new java.awt.Color(255, 102, 255));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jButton1.setText("Main Menu");
-        jButton1.setToolTipText("");
-        jButton1.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1.setBackground(new java.awt.Color( 255, 102, 255 ) );
+        jButton1.setFont(new java.awt.Font( "Times New Roman", 0, 12 ) );
+        jButton1.setText( "Main Menu" );
+        jButton1.setToolTipText( "" );
+        jButton1.setPreferredSize(new java.awt.Dimension(120, 35 ) );
+        jButton1.addActionListener( new java.awt.event.ActionListener() {
+            public void actionPerformed( java.awt.event.ActionEvent evt ) {
                 try {
-                    jButton1ActionPerformed(evt);
-                } catch (IOException ex) {
+                    jButton1ActionPerformed( evt );
+                } catch ( IOException ex ) {
                     ex.printStackTrace();
                 }
             }
         });
-        jPanel1.add(jButton1);
+        jPanel1.add( jButton1 );
 
-        jButton2.setBackground(new java.awt.Color(255, 51, 51));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jButton2.setText("Stock Control");
-        jButton2.setPreferredSize(new java.awt.Dimension(120, 35));
+        jButton2.setBackground(new java.awt.Color(255, 51, 51 ) );
+        jButton2.setFont( new java.awt.Font( "Times New Roman", 0, 12 ) );
+        jButton2.setText( "Stock Control" );
+        jButton2.setPreferredSize( new java.awt.Dimension(120, 35 ) );
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton2ActionPerformed( evt );
             }
         });
         jPanel1.add(jButton2);
 
-        jButton3.setBackground(new java.awt.Color(0, 153, 0));
-        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jButton3.setText("Reciper");
-        jButton3.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton3.setPreferredSize(new java.awt.Dimension(120, 35));
+        jButton3.setBackground(new java.awt.Color( 0, 153, 0 ) );
+        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 12 ) );
+        jButton3.setText( "Reciper" );
+        jButton3.setPreferredSize( new java.awt.Dimension(120, 35 ) );
+        jButton3.setPreferredSize( new java.awt.Dimension(120, 35 ) );
         jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed( java.awt.event.ActionEvent evt ) {
                 try {
-                    jButton3ActionPerformed(evt);
-                } catch (IOException | InterruptedException ex) {
+                    jButton3ActionPerformed( evt );
+                } catch ( IOException | InterruptedException ex ) {
                     ex.printStackTrace();
                 }
             }
         });
-        jPanel1.add(jButton3);
+        jPanel1.add( jButton3 );
 
-        jButton4.setBackground(new java.awt.Color(255, 51, 0));
-        jButton4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jButton4.setText("Restaurants");
-        jButton4.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton4.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+        jButton4.setBackground( new java.awt.Color(255, 51, 0 ) );
+        jButton4.setFont( new java.awt.Font("Times New Roman", 0, 12 ) ); // NOI18N
+        jButton4.setText( "Restaurants" );
+        jButton4.setPreferredSize( new java.awt.Dimension(120, 35 ) );
+        jButton4.setPreferredSize( new java.awt.Dimension(120, 35 ) );
+        jButton4.addActionListener( new java.awt.event.ActionListener() {
+            public void actionPerformed( java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed( evt );
             }
         });
-        jPanel1.add(jButton4);
+        jPanel1.add( jButton4 );
 
-        jButton5.setBackground(new java.awt.Color(51, 153, 255));
-        jButton5.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jButton5.setText("Bilkent Menu");
-        jButton5.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton5.setPreferredSize(new java.awt.Dimension(120, 35));
-        jPanel1.add(jButton5);
+        jButton5.setBackground(new java.awt.Color(51, 153, 255 ) );
+        jButton5.setFont(new java.awt.Font("Times New Roman", 0, 12 ) ); // NOI18N
+        jButton5.setText( "Bilkent Menu" );
+        jButton5.setPreferredSize( new java.awt.Dimension(120, 35 ) );
+        jButton5.setPreferredSize( new java.awt.Dimension(120, 35 ) );
+        jPanel1.add( jButton5 );
 
         jButton6.setBackground(new java.awt.Color(102, 255, 102));
         jButton6.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -174,7 +174,7 @@ public class BilkentMenuPage extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Amir Aliyev\\Downloads\\bilkentlogo1.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("bilkentlogo1.png")); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
         jLabel1.setText("Bilkent Menu");

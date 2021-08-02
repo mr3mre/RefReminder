@@ -27,18 +27,18 @@ import java.util.stream.Collectors;
 
 /**
  *
- * @author goksu
+ * @author Goksu, Eren, Emre
  */
 public class RecipePage extends javax.swing.JFrame {
     private static Recipe recipe;
 
     /**
-     * Creates new form RecipeGui
+     * Creates new form RecipePage
      */
     public RecipePage() throws IOException, InterruptedException {
         sd = new FoodSelect();
-        setSize(1200,800);
-        setLocationRelativeTo(null);
+        setSize(1200,800 );
+        setLocationRelativeTo( null );
         initComponents();
     }
 
@@ -81,37 +81,39 @@ public class RecipePage extends javax.swing.JFrame {
         foodList2 = new ArrayList<>();
         fs = new FoodSelect();
 
+        // Gets a random recipe before a recipe is called to fill the empty panel
         recipe = api.getRandomRecipe();
         getRecipe( recipe );
 
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
 
-        jPanel1.setBackground(new Color(255, 255, 255));
-        String[] strArray = new String[sd.getFood().size()];
+        jPanel1.setBackground( new Color(255, 255, 255 ) );
+        String[] strArray = new String[ sd.getFood().size() ];
 
-        for(int i = 0; i < sd.getFood().size(); i++) {
+        // Get food from the storage to display
+        for( int i = 0; i < sd.getFood().size(); i++ ) {
             strArray[i] = sd.getFood().get(i).getFoodName();
 
         }
         System.out.println(Arrays.toString(strArray));
 
-        String[] foods = fs.getFood().stream().map(Food::getFoodName).toArray( String[]::new );
-        jComboBox1.setEditable(true);
-        jComboBox1.setModel(new DefaultComboBoxModel<String>( foods ));
-        jComboBox1.addActionListener(new ActionListener() {
+        // Stores foods in an array, displays in a ComboBox
+        String[] foods = fs.getFood().stream().map( Food::getFoodName ).toArray( String[]::new );
+        jComboBox1.setEditable( true );
+        jComboBox1.setModel( new DefaultComboBoxModel<String>( foods ) );
+        jComboBox1.addActionListener( new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jComboBox1ActionPerformed( evt );
             }
         });
 
-        jButton1.setBackground(new Color(255, 102, 255));
-        jButton1.setFont(new Font("Times New Roman", 0, 12)); // NOI18N
-        jButton1.setText("Main Menu");
-        jButton1.setPreferredSize(new Dimension(120, 35));
-        jButton1.addActionListener(new ActionListener() {
+        jButton1.setBackground( new Color(255, 102, 255 ) );
+        jButton1.setFont( new Font("Times New Roman", 0, 12) );
+        jButton1.setText( "Main Menu" );
+        jButton1.setPreferredSize( new Dimension(120, 35 ) );
+        jButton1.addActionListener( new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-
             }
         });
 
@@ -211,30 +213,30 @@ public class RecipePage extends javax.swing.JFrame {
 
         jButton2.setText("New Random");
         jButton2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
+            public void actionPerformed( ActionEvent evt ) {
                 try {
-                    jButton2ActionPerformed(evt);
+                    jButton2ActionPerformed( evt );
                 } catch (IOException | InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         });
 
-        jLabel2.setFont(new Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Get Random Recipe!");
+        jLabel2.setFont( new Font("Tahoma", 1, 12 ) );
+        jLabel2.setText( "Get Random Recipe!" );
 
         jButtonAdd.setText("Add");
-        jButtonAdd.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
+        jButtonAdd.addActionListener( new ActionListener() {
+            public void actionPerformed( ActionEvent evt ) {
                 jButtonAddActionPerformed(evt);
             }
         });
 
         jButtonSearch.setText("Search");
         jButtonSearch.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
+            public void actionPerformed( ActionEvent evt ) {
                 try {
-                    jButtonSearchActionPerformed(evt);
+                    jButtonSearchActionPerformed( evt );
                 } catch (IOException | InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -263,16 +265,16 @@ public class RecipePage extends javax.swing.JFrame {
             }
         });
         
-        jList1.setModel(new AbstractListModel<String>() {
+        jList1.setModel( new AbstractListModel<String>() {
             String[] strings = { };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public String getElementAt( int i ) { return strings[i]; }
 
             public String[] getElements() {
                 return strings;
             }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView( jList1 );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -381,39 +383,58 @@ public class RecipePage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
-    private void jButtonAddActionPerformed(ActionEvent evt) {
+    /**
+     * Adds ingredients from the ComboBoxto JList
+     *
+     * @param evt Action event
+     */
+    private void jButtonAddActionPerformed( ActionEvent evt ) {
         foodList2 = new ArrayList<String>();
 
         String foodName = (String) jComboBox1.getSelectedItem();
 
-        liss.addElement(foodName);
-        foodList2.add(foodName);
+        liss.addElement( foodName );
+        foodList2.add( foodName );
 
-        jList1.setModel(liss);
+        jList1.setModel( liss );
 
 
-        for(int h = 0; h < liss.size(); h++){
+        for( int h = 0; h < liss.size(); h++ ){
             if(liss.getElementAt(h).equals(foodName)){
                 jComboBox1.addItem( jComboBox1.getItemAt( jComboBox1.getSelectedIndex() ) );
             }
 
         }
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView( jList1 );
     }
 
-    private void jButtonDetailsActionPerformed(ActionEvent evt) throws IOException, InterruptedException {
+    /**
+     * Creates a new InformationFrame to display details
+     *
+     * @param evt Action event
+     * @throws IOException
+     * @throws InterruptedException
+     */
+    private void jButtonDetailsActionPerformed( ActionEvent evt ) throws IOException, InterruptedException {
         InformationFrame info = new InformationFrame();
-        info.setVisible(true);
+        info.setVisible( true );
     }
 
+    /**
+     * Searches for the next recipe
+     *
+     * @param evt Action event
+     * @throws IOException
+     * @throws InterruptedException
+     */
     private void jButtonNextActionPerformed(ActionEvent evt) throws IOException, InterruptedException {
-        if ( order < recipes.size() - 1) {
+        if ( order < recipes.size() - 1 ) {
             order++;
         }
         if ( recipes.size() != 0 ) {
-            recipe = recipes.get(order);
-            getRecipe(recipe);
+            recipe = recipes.get( order );
+            getRecipe( recipe );
         }
     }
 
@@ -424,8 +445,8 @@ public class RecipePage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         this.dispose();
         try {
-            new MainMenu().setVisible(true);
-        } catch (IOException e) {
+            new MainMenu().setVisible( true );
+        } catch ( IOException e ) {
             e.printStackTrace();
         }
     }
@@ -441,12 +462,8 @@ public class RecipePage extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
         this.dispose();
         try {
-            new RestaurantsPage().setVisible(true);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (URISyntaxException e) {
+            new RestaurantsPage().setVisible( true );
+        } catch ( InterruptedException | IOException | URISyntaxException e ) {
             e.printStackTrace();
         }
     }
@@ -455,7 +472,7 @@ public class RecipePage extends javax.swing.JFrame {
         this.dispose();
         try {
             new BilkentMenuPage().setVisible(true);
-        } catch (IOException e) {
+        } catch ( IOException e ) {
             e.printStackTrace();
         }
     }
@@ -474,34 +491,54 @@ public class RecipePage extends javax.swing.JFrame {
         getRecipe( recipe );
     }
 
+    /**
+     * General method to get the recipe and display its contents
+     *
+     * @param recipe Recipe object
+     * @throws IOException
+     * @throws InterruptedException
+     */
     private void getRecipe( Recipe recipe ) throws IOException, InterruptedException {
         jLabelName.setText( recipe.getRecipeName() );
         URL url = new URL( recipe.getImageURL() );
         BufferedImage image = ImageIO.read( url );
-        Image resizedImage = image.getScaledInstance( 320, 240, Image.SCALE_SMOOTH);
+
+        Image resizedImage = image.getScaledInstance( 320, 240, Image.SCALE_SMOOTH );
         jLabelImage.setIcon( new ImageIcon( resizedImage ) );
     }
 
+    /**
+     * Searches recipes with selected ingredients
+     *
+     * @param evt Action event
+     * @throws IOException
+     * @throws InterruptedException
+     */
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException {
         order = 0;
 
         ingredients = new ArrayList<>();
-        for (int i = 0; i < jList1.getModel().getSize(); i++) {
-            ingredients.add(jList1.getModel().getElementAt(i));
+        for ( int i = 0; i < jList1.getModel().getSize(); i++ ) {
+            ingredients.add( jList1.getModel().getElementAt( i ) );
         }
 
         System.out.println( ingredients );
         recipes = api.searchRecipesByIngredients( ingredients );
+
+        // Checks if there are recipes, gets a random one if there is not
         try {
-            recipe = recipes.get(order);
+            recipe = recipes.get( order );
         }
         catch ( Exception e ) {
             recipe = api.getRandomRecipe();
         }
+
         getRecipe( recipe );
     }
 
     /**
+     * Main method to test the class
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {

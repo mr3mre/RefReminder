@@ -8,7 +8,6 @@ import APIs.src.java.net.http.SpoonacularAPI;
 import APIs.src.java.net.http.YoutubeViewer;
 import Logic.Recipe;
 import chrriis.dj.nativeswing.swtimpl.NativeInterface;
-import org.bouncycastle.crypto.ec.ECElGamalDecryptor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author emre
+ * @author Emre, Eren, Amir
  */
 public class InformationFrame extends javax.swing.JFrame {
 
@@ -60,17 +59,17 @@ public class InformationFrame extends javax.swing.JFrame {
         String url =  api.searchFoodVideos( recipe.getRecipeName() );
         jPanelVideo = YoutubeViewer.getBrowserPanel( url );
 
-
+        // Checks if the recipe has instructions
         try {
-            instructions = foodDetails.get(0);
+            instructions = foodDetails.get( 0 );
         }
         catch ( Exception e ) {
             instructions = "There were no instructions for the selected recipe.";
         }
 
-
+        // Checks if the recipe has health score
         try {
-            healthBar = foodDetails.get(1);
+            healthBar = foodDetails.get( 1 );
         }
         catch ( Exception e ) {
             healthBar = "0";
@@ -80,33 +79,36 @@ public class InformationFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(240, 248, 255));
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14));
         jLabel1.setText("Health Score");
 
-        editorPane.setContentType("text/html");
+        // Clear the text from HTML formatting
+        editorPane.setContentType( "text/html" );
         editorPane.setText( instructions );
-        editorPane.setEditable(false);
-        jScrollPane1.setViewportView(editorPane );
+        editorPane.setEditable( false );
+        jScrollPane1.setViewportView( editorPane );
 
-        jProgressBar1.setBackground(new java.awt.Color(240, 248, 255));
-        jProgressBar1.setMaximum(0);
-        jProgressBar1.setMaximum(100);
-        jProgressBar1.setValue(Integer.parseInt(healthBar));
-        jProgressBar1.setStringPainted(true);
-        jProgressBar1.setForeground(Color.black);
-        double percentage = (Integer.parseInt(healthBar) / (double)100) * 100;
-        int ab = (int) percentage;
-        String s = Double.toString(ab);;
-        jProgressBar1.setString("% "+ s);
+        // Calculates the percentage with the health bar
+        jProgressBar1.setBackground( new java.awt.Color(240, 248, 255 ) );
+        jProgressBar1.setMaximum( 0 );
+        jProgressBar1.setMaximum( 100 );
+        jProgressBar1.setValue(Integer.parseInt( healthBar ) );
+        jProgressBar1.setStringPainted( true );
+        jProgressBar1.setForeground( Color.black );
+        double percentage = ( Integer.parseInt( healthBar ) / ( double ) 100 ) * 100;
+        int percentageNum = ( int ) percentage;
+        String percentageString = Double.toString( percentageNum );;
+        jProgressBar1.setString( "% "+ percentageString);
 
-        jList1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jList1.setFont( new java.awt.Font( "Lucida Grande", 0, 14 ) );
+        jList1.setModel( new javax.swing.AbstractListModel<String>() {
             ArrayList<String> strings = new ArrayList<>();
             public int getSize() { return strings.size(); }
-            public String getElementAt(int i) { return strings.get(i); }
+            public String getElementAt( int i ) { return strings.get( i ); }
         });
 
-        for( int count = 2; count< foodDetails.size(); count++){
+        // Checks if there are ingredients, adds them
+        for( int count = 2; count< foodDetails.size(); count++ ){
             try {
                 liss.addElement( foodDetails.get( count ) );
             }
@@ -114,14 +116,15 @@ public class InformationFrame extends javax.swing.JFrame {
                 System.out.println( "Could not add the ingredient." );
             }
         }
+
         jList1.setModel(liss);
         jScrollPane2.setViewportView(jList1);
 
-        jLabelName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelName.setFont(new java.awt.Font("Tahoma", 1, 14 ) );
         jLabelName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelName.setText( recipe.getRecipeName() );
 
-        jLabelNameIngredients.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNameIngredients.setFont(new java.awt.Font( "Tahoma", 1, 12 ) );
         jLabelNameIngredients.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNameIngredients.setText("Ingredients");
 
@@ -185,7 +188,9 @@ public class InformationFrame extends javax.swing.JFrame {
     }// </editor-fold>
 
     /**
-     * @param args the command line arguments
+     * Main method to test the class
+     *
+     * @param args Command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -206,11 +211,11 @@ public class InformationFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater( new Runnable() {
             public void run() {
                 try {
-                    new InformationFrame().setVisible(true);
-                } catch (IOException | InterruptedException e) {
+                    new InformationFrame().setVisible( true );
+                } catch ( IOException | InterruptedException e ) {
                     e.printStackTrace();
                 }
             }
