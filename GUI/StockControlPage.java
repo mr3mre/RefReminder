@@ -48,6 +48,7 @@ public class StockControlPage extends javax.swing.JFrame {
             user = new User( name );
 
             name = textReader();
+            System.out.println( name );
         }
         catch(FileNotFoundException e)
         {
@@ -80,13 +81,7 @@ public class StockControlPage extends javax.swing.JFrame {
             }
 
         }
-        catch (ClassNotFoundException e) { e.printStackTrace(); }
-
-        catch (SQLException e) { e.printStackTrace(); } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        catch (ClassNotFoundException | IOException | SQLException | ParseException e) { e.printStackTrace(); }
 
     }
 
@@ -197,7 +192,13 @@ public class StockControlPage extends javax.swing.JFrame {
         jButton10.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                try {
+                    jButton10ActionPerformed(evt);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -207,7 +208,11 @@ public class StockControlPage extends javax.swing.JFrame {
         jButton9.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                try {
+                    jButton9ActionPerformed(evt);
+                } catch (URISyntaxException | IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -698,20 +703,12 @@ public class StockControlPage extends javax.swing.JFrame {
         }
     }
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) throws URISyntaxException, IOException, InterruptedException {
         this.dispose();
-        try {
-            new RestaurantsPage().setVisible(true);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
+        new RestaurantsPage().setVisible(true);
     }
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException {
         this.dispose();
         new RecipePage().setVisible(true);
     }

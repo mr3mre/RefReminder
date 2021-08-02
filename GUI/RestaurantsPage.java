@@ -20,17 +20,17 @@ import java.net.URISyntaxException;
 
 /**
  *
- * @author H.Emre Tas
+ * @author Amir Aliyev
  */
 public class RestaurantsPage extends javax.swing.JFrame {
 
     /**
      * Creates new form restaurants
      */
-    public RestaurantsPage() throws InterruptedException, IOException, URISyntaxException {
-        initComponents();
-        setPreferredSize( new Dimension( 650, 355 ));
+    public RestaurantsPage() throws URISyntaxException, IOException, InterruptedException {
+        setSize(1200,800);
         setLocationRelativeTo(null);
+        initComponents();
     }
 
     /**
@@ -40,7 +40,7 @@ public class RestaurantsPage extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    private void initComponents() throws IOException, InterruptedException, URISyntaxException {
+    private void initComponents() throws URISyntaxException, IOException, InterruptedException {
 
         jPanel1 = new JPanel();
         jLabelEmail = new JLabel();
@@ -207,7 +207,11 @@ public class RestaurantsPage extends javax.swing.JFrame {
         jButton10.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                try {
+                    jButton10ActionPerformed(evt);
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -352,7 +356,7 @@ public class RestaurantsPage extends javax.swing.JFrame {
         new StockControlPage().setVisible(true);
     }
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException {
         this.dispose();
         new RecipePage().setVisible(true);
     }

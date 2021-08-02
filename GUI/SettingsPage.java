@@ -137,7 +137,11 @@ public class SettingsPage extends javax.swing.JFrame {
         jButton9.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                try {
+                    jButton9ActionPerformed(evt);
+                } catch (URISyntaxException | IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -147,7 +151,11 @@ public class SettingsPage extends javax.swing.JFrame {
         jButton10.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                try {
+                    jButton10ActionPerformed(evt);
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -567,23 +575,15 @@ public class SettingsPage extends javax.swing.JFrame {
         new BilkentMenuPage().setVisible(true);
     }                                         
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException {
         this.dispose();
         new RecipePage().setVisible(true);
     }                                         
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) throws URISyntaxException, IOException, InterruptedException {
         this.dispose();
-        try {
-            new RestaurantsPage().setVisible(true);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-    }                                        
+        new RestaurantsPage().setVisible(true);
+    }
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
         this.dispose();

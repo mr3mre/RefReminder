@@ -38,8 +38,10 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
  * @author goksu
  */
 class WelcomePage2 extends javax.swing.JFrame {
+
+    User name1;
 	
-    ImageIcon icon = new ImageIcon("C:\\Users\\goksu\\Desktop\\Proje\\DatabaseDeneme\\RefReminderIcon3.png");
+    ImageIcon icon = new ImageIcon("icon.png");
     
     private Hashtable<String, String[]> subItems = new Hashtable<String, String[]>();
     
@@ -366,7 +368,7 @@ class WelcomePage2 extends javax.swing.JFrame {
     
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {                                         
         
-    	String name = jTextField1.getText();
+    	name = jTextField1.getText();
         String userPassword = jPasswordField1.getText();
         
         if( !name.equals("") && !userPassword.equals("") )
@@ -416,8 +418,8 @@ class WelcomePage2 extends javax.swing.JFrame {
     }  
     
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {                                         
-    	String name = jTextField3.getText();
-        User name1 = new User( name );
+    	name = jTextField3.getText();
+        name1 = new User( name );
         String email = jTextField4.getText();
         String userPassword = jPasswordField2.getText();
         String country = (String) jComboBox1.getSelectedItem();
@@ -610,9 +612,10 @@ class WelcomePage2 extends javax.swing.JFrame {
             message.setFrom( new InternetAddress( accountEmail ));
             message.setRecipient( Message.RecipientType.TO, new InternetAddress( recipient ));
             message.setSubject( "Welcome to RefReminder! (Confirmation Mail)" );
-            message.setText(" Welcome to RefReminder!\n" +  "We are glad to see you here.\n" + "Let's begin to explore the application!" );
+            message.setText(" Welcome to RefReminder!\n" +  "We are glad to see you here.\n" + "Let's begin to explore the application!"
+            + "\n\nYour username: " + name + "\nYour password: " + name1.getPassword() );
             Transport.send(message); 
-            System.out.println( "Message is sent successfully" );   
+            System.out.println( "Message is sent successfully" );
         } 
         catch (AddressException e)
         {
@@ -654,5 +657,6 @@ class WelcomePage2 extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private String name;
     // End of variables declaration                   
 }

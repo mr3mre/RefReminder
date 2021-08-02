@@ -35,8 +35,10 @@ public class RecipePage extends javax.swing.JFrame {
     /**
      * Creates new form RecipeGui
      */
-    public RecipePage() {
+    public RecipePage() throws IOException, InterruptedException {
         sd = new FoodSelect();
+        setSize(1200,800);
+        setLocationRelativeTo(null);
         initComponents();
     }
 
@@ -47,7 +49,7 @@ public class RecipePage extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    private void initComponents() {
+    private void initComponents() throws IOException, InterruptedException {
 
         jPanel1 = new JPanel();
         jComboBox1 = new JComboBox<>();
@@ -78,6 +80,9 @@ public class RecipePage extends javax.swing.JFrame {
         liss = new DefaultListModel();
         foodList2 = new ArrayList<>();
         fs = new FoodSelect();
+
+        recipe = api.getRandomRecipe();
+        getRecipe( recipe );
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -179,7 +184,7 @@ public class RecipePage extends javax.swing.JFrame {
         jPanel2.setBackground(new Color(255, 255, 255));
         jPanel2.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
         jLabelName.setHorizontalAlignment(SwingConstants.CENTER);
-        jLabelName.setText("jLabel4");
+        jLabelName.setText(recipe.getRecipeName());
         jLabelName.setFont(new Font("Lucida Grande", 1, 13));
 
         GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
@@ -403,8 +408,11 @@ public class RecipePage extends javax.swing.JFrame {
     }
 
     private void jButtonNextActionPerformed(ActionEvent evt) throws IOException, InterruptedException {
-        order++;
-        jButtonSearchActionPerformed( evt );
+        if ( order < 9 ) {
+            order++;
+        }
+        recipe = recipes.get( order );
+        getRecipe( recipe );
     }
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -473,16 +481,21 @@ public class RecipePage extends javax.swing.JFrame {
     }
 
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException {
-        if ( order == 0 ) {
-            ingredients = new ArrayList<>();
-            for (int i = 0; i < jList1.getModel().getSize(); i++) {
-                ingredients.add(jList1.getModel().getElementAt(i));
-            }
+        order = 0;
+
+        ingredients = new ArrayList<>();
+        for (int i = 0; i < jList1.getModel().getSize(); i++) {
+            ingredients.add(jList1.getModel().getElementAt(i));
         }
 
         System.out.println( ingredients );
         recipes = api.searchRecipesByIngredients( ingredients );
-        recipe = recipes.get( order );
+        try {
+            recipe = recipes.get(order);
+        }
+        catch ( Exception e ) {
+            recipe = api.getRandomRecipe();
+        }
         getRecipe( recipe );
     }
 
@@ -510,7 +523,11 @@ public class RecipePage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RecipePage().setVisible(true);
+                try {
+                    new RecipePage().setVisible(true);
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

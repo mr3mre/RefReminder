@@ -2,14 +2,18 @@ package GUI;
 
 import Logic.Food;
 import APIs.src.java.net.http.SpoonacularAPI;
+import Logic.User;
 
 import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.KeyAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.swing.*;
 /*
@@ -29,6 +33,16 @@ public class AddFoodGUI extends javax.swing.JFrame {
      */
     public AddFoodGUI(SpoonacularAPI foodApi ) {
         this.foodApi = foodApi;
+
+        try
+        {
+            name = textReader();
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("1");
+        }
+
         initComponents();
         setBackground( new Color( 100,150,250 ) );
         setPreferredSize( new Dimension( 561, 284) );
@@ -288,12 +302,15 @@ public class AddFoodGUI extends javax.swing.JFrame {
 
 
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
         this.dispose();
         new StockControlPage().setVisible(true);
     }
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
         String amountStr = "";
+
         amountStr = findJustDigit( jTextFieldAmount.getText() );
 
         if( ! amountStr.equals( "" ) )
@@ -327,7 +344,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
         /**
          *
          */
-        System.out.println( "ID: " + food.getId() + " Name: " + food.toString() + " Main: " + food.getMain() + " Calorie: " + food.getCaloriePerPortion() );
+        //System.out.println( "ID: " + food.getId() + " Name: " + food.toString() + " Main: " + food.getMain() + " Calorie: " + food.getCaloriePerPortion() );
         if( food.getMain().contains( ";" ) ){
             //System.out.println( "Heyyy");
             String[] mains = food.getMain().split(";");
@@ -336,50 +353,43 @@ public class AddFoodGUI extends javax.swing.JFrame {
                 // System.out.println( "Main: " +mains[index] );
                 if ( mains[index].equals("Meat") || mains[index].equals( "Seafood")   || mains[index].equals( "Baking" ) ){
                     food.setMain( "Main Dishes" );
-                    food.setExpiryDate( 180 );
-                    break;
+                    food.setExpiryDate( 30 );
                 }
                 else if ( mains[index].equals( "Health Foods" ) || mains[index].equals( "Produce" )|| mains[index].equals( "Dried Fruits" ) || mains[index].equals( "Nuts" ) || mains[index].equals( "Pasta and Rice" ) ){
                     if( food.getMain().equals( "Dried Fruits" ) || mains[index].equals( "Nuts" ) )
                         food.setExpiryDate( 365 );
                     else
-                        food.setExpiryDate( 21 );
+                        food.setExpiryDate( 7 );
                     food.setMain( "Produce" );
-                    break;
                 }
                 else if ( mains[index].equals( "Refrigerated" ) || mains[index].equals( "Frozen" ) ){
                     food.setMain( "Freezer" );
                     food.setExpiryDate( 365 );
-                    break;
                 }
                 else if ( mains[index].equals( "Tea and Coffee" ) || mains[index].equals( "Beverages" ) || mains[index].equals( "Alcoholic Beverages" ) ){
                     food.setMain( "Drink" );
                     food.setExpiryDate( 365 );
-                    break;
                 }
                 else if ( mains[index].equals( "Bakery/Bread" ) || mains[index].equals( "Nut butters, Jams, and Honey" ) || mains[index].equals( "Bread" ) || mains[index].equals( "Milk, Eggs, Other Dairy" ) || mains[index].equals( "Cheese" ) || mains[index].equals( "Cereal" ) ){
                     food.setMain( "Breakfast" );
-                    food.setExpiryDate( 60 );
-                    break;
+                    food.setExpiryDate( 14 );
                 }
                 else if ( mains[index].equals( "Condiments" ) || mains[index].equals( "Ethnic Foods" ) || mains[index].equals( "Spices and Seasonings" ) || mains[index].equals( "Oil, Vinegar, Salad Dressing" ) || mains[index].equals( "Savory Snacks" ) || mains[index].equals( "Sweet Snacks" ) || mains[index].equals( "Canned and Jarred" ) || mains[index].equals( "Gourmet" ) || mains[index].equals( "Grilling Supplies" ) || mains[index].equals( "Online" ) || mains[index].equals( "Homemade" )){
                     food.setMain( "Food Addons" );
-                    food.setExpiryDate( 365 );
-                    break;
                 }
-
+                break;
             }
         }
         else{
             if ( food.getMain().equals( "Meat" ) || food.getMain().equals( "Seafood" ) ||  food.getMain().equals( "Baking" ) ){
                 food.setMain( "Main Dishes" );
-                food.setExpiryDate( 180 );
+                food.setExpiryDate( 30 );
             }
             else if ( food.getMain().equals( "Health Foods" ) || food.getMain().equals( "Produce" ) || food.getMain().equals( "Dried Fruits" ) || food.getMain().equals( "Nuts" ) || food.getMain().equals( "Pasta and Rice" ) ) {
                 if( food.getMain().equals( "Dried Fruits" ) || food.getMain().equals( "Nuts" ))
                     food.setExpiryDate( 365 );
                 else{
-                    food.setExpiryDate( 21 );
+                    food.setExpiryDate( 7 );
                 }
                 food.setMain("Produce");
             }
@@ -393,20 +403,18 @@ public class AddFoodGUI extends javax.swing.JFrame {
             }
             else if ( food.getMain().equals( "Bakery/Bread" ) || food.getMain().equals( "Nut butters, Jams, and Honey" ) || food.getMain().equals( "Bread" ) || food.getMain().equals( "Milk, Eggs, Other Dairy" ) || food.getMain().equals( "Cheese" ) || food.getMain().equals( "Cereal" )) {
                 food.setMain("Breakfast");
-                food.setExpiryDate( 60 );
+                food.setExpiryDate( 14 );
             }
             else if ( food.getMain().equals( "Ethnic Foods" ) || food.getMain().equals( "Condiments" ) || food.getMain().equals( "Spices and Seasonings" ) || food.getMain().equals( "Oil, Vinegar, Salad Dressing" ) || food.getMain().equals( "Savory Snacks" ) || food.getMain().equals( "Sweet Snacks" ) || food.getMain().equals( "Canned and Jarred" ) || food.getMain().equals( "Gourmet" ) || food.getMain().equals( "Grilling Supplies" ) || food.getMain().equals( "Online" ) || food.getMain().equals( "Homemade" )) {
                 food.setMain( "Food Addons" );
-                food.setExpiryDate( 365 );
             }
         }
 
-        System.out.println( "ID: " + food.getId() + " Name: " + food.toString() + " Main: " + food.getMain() + " Expiry Date: " + food.getExpiryDate() + " Calorie: " + food.getCaloriePerPortion() );
+        //System.out.println( "ID: " + food.getId() + " Name: " + food.toString() + " Main: " + food.getMain() + " Expiry Date: " + food.getExpiryDate() + " Calorie: " + food.getCaloriePerPortion() );
 
         ////////
         ////////
         //////// Database
-        String name = "testuser";
 
         int id1 = food.getId();
         String foodname1 = food.getFoodName(); //
@@ -509,6 +517,15 @@ public class AddFoodGUI extends javax.swing.JFrame {
         return true;
     }
 
+    public static String textReader() throws FileNotFoundException
+    {
+        File file = new File("filename.txt");
+        Scanner scan = new Scanner( file );
+        String name = scan.next();
+        scan.close();
+        return name;
+    }
+
     public static String findJustDigit( String str ){
         String data = "";
         for( int count = 0; count < str.length(); count++ ){
@@ -566,6 +583,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
             jLabel3.setText( "" );
             jLabel4.setText( "" );
         }
+
     }
 
     private DefaultListModel listModel;
@@ -594,6 +612,8 @@ public class AddFoodGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldAmount;
+    private String name;
+    private User user;
     // End of variables declaration
 
     /**
@@ -612,13 +632,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Remove.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Remove.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Remove.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
             java.util.logging.Logger.getLogger(Remove.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -632,4 +646,3 @@ public class AddFoodGUI extends javax.swing.JFrame {
         });
     }
 }
-

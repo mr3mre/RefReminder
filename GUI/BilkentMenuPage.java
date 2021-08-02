@@ -21,6 +21,8 @@ public class BilkentMenuPage extends javax.swing.JFrame {
      * Creates new form BilkentMenuPage
      */
     public BilkentMenuPage() throws IOException {
+        setSize(1200,800);
+        setLocationRelativeTo(null);
         initComponents();
     }
 
@@ -102,7 +104,11 @@ public class BilkentMenuPage extends javax.swing.JFrame {
         jButton3.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                try {
+                    jButton3ActionPerformed(evt);
+                } catch (IOException | InterruptedException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
         jPanel1.add(jButton3);
@@ -383,7 +389,7 @@ public class BilkentMenuPage extends javax.swing.JFrame {
         new MainMenu().setVisible(true);
     }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException {
         this.dispose();
         try {
             new RestaurantsPage().setVisible(true);

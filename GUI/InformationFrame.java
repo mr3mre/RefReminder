@@ -7,6 +7,8 @@ package GUI;/*
 import APIs.src.java.net.http.SpoonacularAPI;
 import APIs.src.java.net.http.YoutubeViewer;
 import Logic.Recipe;
+import chrriis.dj.nativeswing.swtimpl.NativeInterface;
+import org.bouncycastle.crypto.ec.ECElGamalDecryptor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,6 +25,8 @@ public class InformationFrame extends javax.swing.JFrame {
      * Creates new form frame
      */
     public InformationFrame() throws IOException, InterruptedException {
+        setSize(1200,800);
+        setLocationRelativeTo(null);
         initComponents();
     }
 
@@ -45,37 +49,44 @@ public class InformationFrame extends javax.swing.JFrame {
         jLabelName = new javax.swing.JLabel();
         jLabelNameIngredients = new javax.swing.JLabel();
         recipe = RecipePage.getRecipe();
+        jPanelVideo = new JPanel();
         api = new SpoonacularAPI();
         liss = new DefaultListModel();
 
         ArrayList<String> foodDetails = api.getRecipeInformation( recipe.getID() );
-        String instructions = foodDetails.get(0);
-        String healthBar = foodDetails.get(1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        NativeInterface.open();
+        System.out.println( recipe.getRecipeName() );
+        String url =  api.searchFoodVideos( recipe.getRecipeName() );
+        jPanelVideo = YoutubeViewer.getBrowserPanel( url );
+
+
+        try {
+            instructions = foodDetails.get(0);
+        }
+        catch ( Exception e ) {
+            instructions = "There were no instructions for the selected recipe.";
+        }
+
+
+        try {
+            healthBar = foodDetails.get(1);
+        }
+        catch ( Exception e ) {
+            healthBar = "0";
+        }
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(240, 248, 255));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel1.setText("Health Score");
 
+        editorPane.setContentType("text/html");
         editorPane.setText( instructions );
         editorPane.setEditable(false);
         jScrollPane1.setViewportView(editorPane );
-
-        String url =  api.searchFoodVideos( recipe.getRecipeName());
-        System.out.println( url );
-        jPanelVideo = YoutubeViewer.getBrowserPanel( url );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanelVideo);
-        jPanel2Layout.setHorizontalGroup(
-                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 265, Short.MAX_VALUE)
-        );
 
         jProgressBar1.setBackground(new java.awt.Color(240, 248, 255));
         jProgressBar1.setMaximum(0);
@@ -96,7 +107,12 @@ public class InformationFrame extends javax.swing.JFrame {
         });
 
         for( int count = 2; count< foodDetails.size(); count++){
-            liss.addElement( foodDetails.get(count) );
+            try {
+                liss.addElement( foodDetails.get( count ) );
+            }
+            catch ( Exception e ) {
+                System.out.println( "Could not add the ingredient." );
+            }
         }
         jList1.setModel(liss);
         jScrollPane2.setViewportView(jList1);
@@ -123,7 +139,7 @@ public class InformationFrame extends javax.swing.JFrame {
                                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jPanelVideo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jPanelVideo)
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE))
                                 .addGap(31, 31, 31))
                         .addComponent(jLabelName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -135,7 +151,7 @@ public class InformationFrame extends javax.swing.JFrame {
                                 .addComponent(jLabelName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jPanelVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jPanelVideo)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addComponent(jLabelNameIngredients, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -215,5 +231,7 @@ public class InformationFrame extends javax.swing.JFrame {
     private Recipe recipe;
     private SpoonacularAPI api;
     private DefaultListModel liss;
+    private String instructions;
+    private String healthBar;
     // End of variables declaration
 }

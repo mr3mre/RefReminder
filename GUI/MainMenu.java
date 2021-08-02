@@ -113,7 +113,19 @@ public class MainMenu extends javax.swing.JFrame {
         jButton3.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                try {
+                    jButton3ActionPerformed(evt);
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+                RecipePage recipe = null;
+                try {
+                    recipe = new RecipePage();
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+                recipe.setVisible(true);
+                setVisible(false);
 
             }
         });
@@ -588,7 +600,7 @@ public class MainMenu extends javax.swing.JFrame {
         new StockControlPage().setVisible(true);
     }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException {
         this.dispose();
         new RecipePage().setVisible(true);
     }
@@ -597,9 +609,7 @@ public class MainMenu extends javax.swing.JFrame {
         this.dispose();
         try {
             new RestaurantsPage().setVisible(true);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (InterruptedException | IOException e) {
             e.printStackTrace();
         } catch (URISyntaxException e) {
             e.printStackTrace();

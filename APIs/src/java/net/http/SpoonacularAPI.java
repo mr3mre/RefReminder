@@ -16,9 +16,10 @@ public class SpoonacularAPI {
     private String apiKey2 = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254";
     private String apiKey3 = "da73587c8emsh6ca56b7d9f2a385p1699dcjsnf6a7ee99f8e3";
     private String apiKey4 = "2b1ad64154msh266681e9461a336p1bfd1bjsndcdef3e10f2a";
+    private String apiKey5 = "faacc421edmsh15a90bfe13716c2p1c26f3jsnb71ff1a1e797";
 
     public SpoonacularAPI(){
-        apiKey = apiKey4;;
+        apiKey = apiKey5;;
     }
 
     public String sendRequest(String url) throws IOException, InterruptedException{
@@ -66,7 +67,12 @@ public class SpoonacularAPI {
         String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + recipeID + "/information";
 
         JSONObject object = new JSONObject( sendRequest( url ) );
-        information.add( object.getString( "instructions" ) );
+        try {
+            information.add(object.getString("instructions"));
+        }
+        catch ( Exception JSONException ) {
+            information.add( "There were no instructions for the selected recipe.");
+        }
         information.add( "" + object.getInt( "spoonacularScore" ) );
 
         JSONArray array = object.getJSONArray( "extendedIngredients" );
@@ -120,7 +126,14 @@ public class SpoonacularAPI {
             }
         }
 
-        String id = videos.getJSONObject( indexOfMax ).getString( "youTubeId" );
+        String id;
+
+        try {
+            id = videos.getJSONObject(indexOfMax).getString("youTubeId");
+        }
+        catch ( Exception e ) {
+            id = "NpEaa2P7qZI";
+        }
 
         return "https://www.youtube.com/embed/" + id;
     }
@@ -180,12 +193,14 @@ public class SpoonacularAPI {
         return object.getString( "text" );
     }
 
-    public static void main( String[] args ) {
+    public static void main( String[] args ) throws IOException, InterruptedException {
         String apiKey = "2b1ad64154msh266681e9461a336p1bfd1bjsndcdef3e10f2a";
         String apiKey2 = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254";
         String apiKey3 = "da73587c8emsh6ca56b7d9f2a385p1699dcjsnf6a7ee99f8e3";
 
         SpoonacularAPI foodApi = new SpoonacularAPI();
+        System.out.println( foodApi.searchFoodVideos( "chicken soup" ));
+        /*
         System.out.println();
         ArrayList<String> ingredients = new ArrayList<>();
         ingredients.add( "chicken" );
@@ -223,5 +238,7 @@ public class SpoonacularAPI {
         } catch ( IOException | InterruptedException e ) {
             e.printStackTrace();
         }
+
+         */
     }
 }
