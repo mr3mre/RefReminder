@@ -2,6 +2,11 @@ package Logic;
 
 import java.math.BigDecimal;
 
+/**
+* Food class for foods' detailed information 
+* @author H.Emre Tas
+* @date 28.07.2021
+*/
 public class Food {
 
     public final static int AMOUNT = 100;
