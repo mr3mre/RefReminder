@@ -53,7 +53,7 @@ public class StockControlPage extends javax.swing.JFrame {
         {
             System.out.println("1");
         }
-        setSize(1500,800);
+        setSize( 1088,630 );
         setLocationRelativeTo(null);
         initComponents();
 
