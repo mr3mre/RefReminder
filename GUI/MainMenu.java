@@ -120,8 +120,21 @@ public class MainMenu extends javax.swing.JFrame {
         jButton3.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-                RecipeGui recipe = new RecipeGui();
+                try {
+                    jButton3ActionPerformed(evt);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                RecipePage recipe = null;
+                try {
+                    recipe = new RecipePage();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 recipe.setVisible(true);
                 setVisible(false);
             }
