@@ -21,7 +21,7 @@ public class BilkentMenuPage extends javax.swing.JFrame {
      * Creates new form BilkentMenuPage
      */
     public BilkentMenuPage() throws IOException {
-        setSize(1200,800);
+        setSize(840,510);
         setLocationRelativeTo(null);
         initComponents();
     }
