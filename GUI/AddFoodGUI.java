@@ -19,7 +19,7 @@ import javax.swing.*;
  */
 
 /**
- *
+ * Adding food that user selected to storage. To search food that user wants to add, the app is calling Spoonacular Rest Api methods and give some results to user.
  * @author H.Emre
  * @date 31.07.2021
  */
