@@ -2,7 +2,7 @@
  * YoutubeViewer class
  * @author Eren, Emre
  * @version 1.0
- * 02/08/2021
+ * 31/07/2021
  */
 
 
@@ -14,6 +14,11 @@ import chrriis.dj.nativeswing.swtimpl.components.JWebBrowser;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Returns a JPanel that contains the YouTube video from the given URL
+ * @author Eren, Emre
+ * @date 31.07.2021
+ */
 public class YoutubeViewer extends JPanel {
 
     /**

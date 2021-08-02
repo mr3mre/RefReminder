@@ -2,7 +2,7 @@
  * EmbeddedBrowser class
  * @author Eren
  * @version 1.0
- * 02/08/2021
+ * 31/07/2021
  */
 
 
@@ -14,6 +14,11 @@ import com.teamdev.jxbrowser.browser.Browser;
 import com.teamdev.jxbrowser.engine.Engine;
 import com.teamdev.jxbrowser.engine.EngineOptions;
 
+/**
+ * Returns an embedded browser that navigates to given URL
+ * @author Eren
+ * @date 31.07.2021
+ */
 public class EmbeddedBrowser {
 
     /**

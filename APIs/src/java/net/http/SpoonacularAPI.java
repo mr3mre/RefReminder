@@ -2,7 +2,7 @@
  * SpoonacularAPI class
  * @author Eren, Emre
  * @version 1.0
- * 02/08/2021
+ * 31/07/2021
  */
 
 
@@ -18,6 +18,11 @@ import Logic.Recipe;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+/**
+ * API to get recipes, ingredients, jokes about food and random information about food.
+ * @author Eren, Emre
+ * @date 31.07.2021
+ */
 public class SpoonacularAPI {
 
     // API keys to connect to API

@@ -2,7 +2,7 @@
  * Restaurants class
  * @author Emre
  * @version 1.0
- * 02/08/2021
+ * 31/07/2021
  */
 
 
@@ -20,6 +20,11 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+/**
+ * API to get restaurants in a city
+ * @author Emre
+ * @date 31.07.2021
+ */
 public class Restaurants {
 
 	/**
