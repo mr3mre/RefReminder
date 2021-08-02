@@ -24,6 +24,7 @@ Personal Logs
   30.07.2021 working on restaurants rest API and adding foods to the database( autocompelete gui)
   31.07.2021 fixing bug in autocompelete gui and stockcontrol page
   01.08.2021 Updated Main Menu GUI. Coding RestaurantsPage and fixing restaurants Rest API.
+  02.07.2021 Fixing bugs and adding documentation.
   
   Eren Karakaş
   28.07.2021 Creating methods from Spoonacular API and adjusting Recipe and Food classes accordingly.
