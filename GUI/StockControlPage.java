@@ -26,8 +26,8 @@ import APIs.src.java.net.http.SpoonacularAPI;
  */
 
 /**
- *
  * @author goksu
+ * @author H.Emre Tas
  */
 public class StockControlPage extends javax.swing.JFrame {
     String name;
@@ -48,7 +48,6 @@ public class StockControlPage extends javax.swing.JFrame {
             user = new User( name );
 
             name = textReader();
-            System.out.println( name );
         }
         catch(FileNotFoundException e)
         {
@@ -70,8 +69,6 @@ public class StockControlPage extends javax.swing.JFrame {
                 String actualFoodName =sd.getFood().get(i).getFoodName();
                 int actualExpiryDate = sd.getFood().get(i).getExpiryDate() ;
                 int newExpiryDate = actualExpiryDate - (int) TimePassed.getDifferenceInDays();
-                //System.out.println( "   " + newExpiryDate );
-                System.out.println( "   " + TimePassed.getDifferenceInDays() );
 
                 Class.forName( driver );
                 java.sql.Connection conn3 = DriverManager.getConnection( url, username, password );
@@ -81,7 +78,13 @@ public class StockControlPage extends javax.swing.JFrame {
             }
 
         }
-        catch (ClassNotFoundException | IOException | SQLException | ParseException e) { e.printStackTrace(); }
+        catch (ClassNotFoundException e) { e.printStackTrace(); }
+
+        catch (SQLException e) { e.printStackTrace(); } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -148,6 +151,8 @@ public class StockControlPage extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
 
+        jTable1.setEnabled(false);
+
         jProgressBar1.setMaximum(MY_MINIMUM);
         jProgressBar1.setMaximum(MY_MAXIMUM);
         updateBar(sd.getFood().size());
@@ -168,11 +173,7 @@ public class StockControlPage extends javax.swing.JFrame {
         jButton1.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton1ActionPerformed(evt);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -192,13 +193,7 @@ public class StockControlPage extends javax.swing.JFrame {
         jButton10.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton10ActionPerformed(evt);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                jButton10ActionPerformed(evt);
             }
         });
 
@@ -210,7 +205,11 @@ public class StockControlPage extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
                     jButton9ActionPerformed(evt);
-                } catch (URISyntaxException | IOException | InterruptedException e) {
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (URISyntaxException e) {
                     e.printStackTrace();
                 }
             }
@@ -236,7 +235,7 @@ public class StockControlPage extends javax.swing.JFrame {
             }
         });
 
-        jButton13.setBackground(new java.awt.Color(0, 255, 204));
+        jButton13.setBackground(new java.awt.Color(0, 51, 204));
         jButton13.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jButton13.setText("Settings");
         jButton13.setPreferredSize(new java.awt.Dimension(120, 35));
@@ -427,7 +426,7 @@ public class StockControlPage extends javax.swing.JFrame {
         jLabel14.setText(w);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jLabel15.setText("in Apperatives");
+        jLabel15.setText("in Produce");
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel16.setText("in Freezer");
@@ -436,13 +435,13 @@ public class StockControlPage extends javax.swing.JFrame {
         jLabel17.setText("in Main Dishes");
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jLabel18.setText("in Drinks");
+        jLabel18.setText("in Breakfast");
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jLabel19.setText("in Vegetables");
+        jLabel19.setText("in Addons");
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jLabel20.setText("in Fruits");
+        jLabel20.setText("in Drinks");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -514,10 +513,20 @@ public class StockControlPage extends javax.swing.JFrame {
         jLabel21.setText("Warnings");
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel24.setText("jLabel24");
+        String warningMessage = "";
+        String warning = findWarning(0);
+        if( !warning.equals( "" )){
+            jLabel24.setText( warning + " will be expired in 5 days!");
+        }
+        else{
+            jLabel24.setText( "There is no food expiring in 5 days!" );
+        }
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel25.setText("jLabel25");
+        String warning2 = findWarning(1);
+        if( !warning2.equals( "" )){
+            jLabel25.setText( warning + " will be expired in 5 days!");
+        }
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -685,41 +694,47 @@ public class StockControlPage extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {
-        this.dispose();
-        new SettingsPage().setVisible(true);
+        SettingsPage settin = new SettingsPage();
+        settin.setVisible(true);
+        setVisible(false);
     }
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {
-        this.dispose();
-        new ShoppingPage().setVisible(true);
+        ShoppingPage shop = new ShoppingPage();
+        shop.setVisible(true);
+        setVisible(false);
     }
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
-        this.dispose();
-        try {
-            new BilkentMenuPage().setVisible(true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+       // BilkentMenuPage bil = new BilkentMenuPage();
+       // bil.setVisible(true);
+        setVisible(false);
     }
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) throws URISyntaxException, IOException, InterruptedException {
-        this.dispose();
-        new RestaurantsPage().setVisible(true);
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException, URISyntaxException {
+        RestaurantsPage res = new RestaurantsPage();
+        res.setVisible(true);
+        setVisible(false);
     }
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException {
-        this.dispose();
-        new RecipePage().setVisible(true);
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
+        RecipeGui rec = new RecipeGui();
+        rec.setVisible(true);
+        setVisible(false);
     }
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
-        this.dispose();
-        new MainMenu().setVisible(true);
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        try{
+            MainMenu mm = new MainMenu();
+            mm.setVisible(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        dispose();
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -820,14 +835,29 @@ public class StockControlPage extends javax.swing.JFrame {
 
         for (int i = 0; i < newFoodList.size(); i++){
             String FoodName = newFoodList.get(i).getFoodName();
-            double Quantity = newFoodList.get(i).getAmount();
-            double Calorie = newFoodList.get(i).getCaloriePerPortion().doubleValue();
-            double ExpiryDates = newFoodList.get(i).getExpiryDate();
+            int Quantity = (int) newFoodList.get(i).getAmount();
+            int Calorie = (int) newFoodList.get(i).getCaloriePerPortion().doubleValue();
+            int ExpiryDates = newFoodList.get(i).getExpiryDate();
             Object[] data = {FoodName, Quantity, Calorie, ExpiryDates};
             tableModel.addRow(data);
 
         }
-        return new JTable(tableModel);
+        JTable table = new JTable(tableModel);
+        table.setEnabled(false);
+        return table;
+    }
+
+    private String findWarning( int count ){
+        String fName = "";
+        for ( int i = 0; i < sd.getFood().size(); i++){
+            if( sd.getFood().get(i).getExpiryDate() < 5 ){
+                fName = sd.getFood().get(i).getFoodName();
+                if ( count == 1 )
+                    break;
+                count++;
+            }
+        }
+        return fName;
     }
 
     public void updateBar(int newValue) {
