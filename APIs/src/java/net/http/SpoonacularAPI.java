@@ -81,7 +81,7 @@ public class SpoonacularAPI {
         }
 
         String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
-                "findByIngredients?ingredients=" + ingredients + "&ranking=2&ignorePantry=true&number=5";
+                "findByIngredients?ingredients=" + ingredients + "&ranking=2&ignorePantry=true&number=10";
 
         // Gets data from JSON file
         JSONArray array = new JSONArray( sendRequest( url )  );
