@@ -1,6 +1,6 @@
 /*
  * Restaurants class
- * @author @mr3mre
+ * @author Emre
  * @version 1.0
  * 31/07/2021
  */
