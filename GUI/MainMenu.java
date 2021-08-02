@@ -109,9 +109,6 @@ public class MainMenu extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
-                StockControlPage stock = new StockControlPage();
-                stock.setVisible(true);
-                setVisible(false);
             }
         });
 
@@ -128,16 +125,6 @@ public class MainMenu extends javax.swing.JFrame {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                RecipePage recipe = null;
-                try {
-                    recipe = new RecipePage();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                recipe.setVisible(true);
-                setVisible(false);
             }
         });
 
@@ -149,15 +136,7 @@ public class MainMenu extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
                 RestaurantsPage restaurant = null;
-                try {
-                    restaurant = new RestaurantsPage();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException | URISyntaxException e) {
-                    e.printStackTrace();
-                }
-                restaurant.setVisible(true);
-                setVisible(false);
+
             }
         });
 
@@ -168,14 +147,6 @@ public class MainMenu extends javax.swing.JFrame {
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
-                BilkentMenuPage bilmenu = null;
-                try {
-                    bilmenu = new BilkentMenuPage();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                bilmenu.setVisible(true);
-                setVisible(false);
             }
         });
 
@@ -186,9 +157,6 @@ public class MainMenu extends javax.swing.JFrame {
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
-                ShoppingPage shop = new ShoppingPage();
-                shop.setVisible(true);
-                setVisible(false);
             }
         });
 
@@ -199,9 +167,6 @@ public class MainMenu extends javax.swing.JFrame {
         jButtonSettings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSettingsActionPerformed(evt);
-                SettingsPage settings = new SettingsPage();
-                settings.setVisible(true);
-                setVisible(false);
             }
         });
 
