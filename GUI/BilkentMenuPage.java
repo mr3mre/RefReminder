@@ -9,6 +9,7 @@ import Logic.PdfReader;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.net.URISyntaxException;
 
 /**
  *
@@ -137,7 +138,7 @@ public class BilkentMenuPage extends javax.swing.JFrame {
         });
         jPanel1.add(jButton6);
 
-        jButton7.setBackground(new java.awt.Color(0, 51, 204));
+        jButton7.setBackground(new java.awt.Color(0, 255, 204));
         jButton7.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jButton7.setText("Settings");
         jButton7.setPreferredSize(new java.awt.Dimension(120, 35));
@@ -378,37 +379,49 @@ public class BilkentMenuPage extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
-        MainMenu mm = new MainMenu();
-        mm.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new MainMenu().setVisible(true);
     }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        RecipePage reciper = new RecipePage();
-        reciper.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        try {
+            new RestaurantsPage().setVisible(true);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
     }
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
-        RestaurantsPage restaurant = new RestaurantsPage();
-        restaurant.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        try {
+            new RestaurantsPage().setVisible(true);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
     }
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
-        ShoppingPage shop = new ShoppingPage();
-        shop.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new ShoppingPage().setVisible(true);
     }
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        this.dispose();
+        new SettingsPage().setVisible(true);
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-        StockControlPage stckcntrl = new StockControlPage();
-        stckcntrl.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new StockControlPage().setVisible(true);
     }
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {

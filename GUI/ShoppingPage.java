@@ -5,6 +5,7 @@ import com.teamdev.jxbrowser.engine.Engine;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 /**
  *
@@ -141,44 +142,46 @@ public class ShoppingPage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
-        MainMenu mm = new MainMenu();
-        mm.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new MainMenu().setVisible(true);
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
-        StockControlPage stckcntrl = new StockControlPage();
-        stckcntrl.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new StockControlPage().setVisible(true);
     }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
-        RecipePage reciper = new RecipePage();
-        reciper.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new RecipePage().setVisible(true);
     }
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
-        RestaurantsPage restaurant = new RestaurantsPage();
-        restaurant.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        try {
+            new RestaurantsPage().setVisible(true);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
     }
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
-        SettingsPage settings = new SettingsPage();
-        settings.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new SettingsPage().setVisible(true);
     }
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
-        BilkentMenuPage bilmenu = new BilkentMenuPage();
-        bilmenu.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new BilkentMenuPage().setVisible(true);
     }
 
     /**

@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -679,33 +680,40 @@ public class StockControlPage extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {
-        SettingsPage settin = new SettingsPage();
-        settin.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new SettingsPage().setVisible(true);
     }
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {
-        ShoppingPage shop = new ShoppingPage();
-        shop.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new ShoppingPage().setVisible(true);
     }
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
-        // BilkentMenuPage bil = new BilkentMenuPage();
-        // bil.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        try {
+            new BilkentMenuPage().setVisible(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
-        RestaurantsPage res = new RestaurantsPage();
-        res.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        try {
+            new RestaurantsPage().setVisible(true);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
     }
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
-        RecipePage rec = new RecipePage();
-        rec.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new RecipePage().setVisible(true);
     }
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -713,9 +721,8 @@ public class StockControlPage extends javax.swing.JFrame {
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
-        MainMenu main = new MainMenu();
-        main.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new MainMenu().setVisible(true);
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {

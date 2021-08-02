@@ -171,7 +171,7 @@ public class RestaurantsPage extends javax.swing.JFrame {
             }
         });
 
-        jButton16.setBackground(new java.awt.Color(0, 51, 204));
+        jButton16.setBackground(new java.awt.Color(0, 255, 204));
         jButton16.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jButton16.setText("Settings");
         jButton16.setPreferredSize(new java.awt.Dimension(120, 35));
@@ -328,21 +328,16 @@ public class RestaurantsPage extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        ShoppingPage sp = new ShoppingPage();
-        sp.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new ShoppingPage().setVisible(true);
     }
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        SettingsPage s = new SettingsPage();
-        s.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new SettingsPage().setVisible(true);
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         try{
             MainMenu mm = new MainMenu();
             mm.setVisible(true);
@@ -353,17 +348,13 @@ public class RestaurantsPage extends javax.swing.JFrame {
     }
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        StockControlPage stckcntrl = new StockControlPage();
-        stckcntrl.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new StockControlPage().setVisible(true);
     }
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        RecipeGui reciper = new RecipeGui();
-        reciper.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new RecipePage().setVisible(true);
     }
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -371,10 +362,8 @@ public class RestaurantsPage extends javax.swing.JFrame {
     }
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
-        // TODO add your handling code here:
-        BilkentMenuPage bilmenu = new BilkentMenuPage();
-        bilmenu.setVisible(true);
-        setVisible(false);
+        this.dispose();
+        new BilkentMenuPage().setVisible(true);
     }
 
 

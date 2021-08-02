@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -105,6 +106,7 @@ public class RecipePage extends javax.swing.JFrame {
         jButton1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+
             }
         });
 
@@ -115,6 +117,7 @@ public class RecipePage extends javax.swing.JFrame {
         jButton8.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton8ActionPerformed(evt);
+
             }
         });
 
@@ -135,6 +138,7 @@ public class RecipePage extends javax.swing.JFrame {
         jButton9.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton9ActionPerformed(evt);
+
             }
         });
 
@@ -158,13 +162,14 @@ public class RecipePage extends javax.swing.JFrame {
             }
         });
 
-        jButton13.setBackground(new Color(0, 51, 204));
+        jButton13.setBackground(new Color(0, 255, 204));
         jButton13.setFont(new Font("Times New Roman", 0, 12)); // NOI18N
         jButton13.setText("Settings");
         jButton13.setPreferredSize(new Dimension(120, 35));
         jButton13.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton13ActionPerformed(evt);
+
             }
         });
 
@@ -407,31 +412,51 @@ public class RecipePage extends javax.swing.JFrame {
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        this.dispose();
+        try {
+            new MainMenu().setVisible(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
+        this.dispose();
+        new StockControlPage().setVisible(true);    }
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        this.dispose();
+        try {
+            new RestaurantsPage().setVisible(true);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
     }
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        this.dispose();
+        try {
+            new BilkentMenuPage().setVisible(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
+        this.dispose();
+        new ShoppingPage().setVisible(true);    }
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        this.dispose();
+        new SettingsPage().setVisible(true);
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException {

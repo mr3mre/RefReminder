@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.net.URISyntaxException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
@@ -102,9 +103,7 @@ public class MainMenu extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
-                StockControlPage stock = new StockControlPage();
-                stock.setVisible(true);
-                setVisible(false);
+
             }
         });
 
@@ -115,9 +114,7 @@ public class MainMenu extends javax.swing.JFrame {
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
-                RecipePage recipe = new RecipePage();
-                recipe.setVisible(true);
-                setVisible(false);
+
             }
         });
 
@@ -128,9 +125,7 @@ public class MainMenu extends javax.swing.JFrame {
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
-                RestaurantsPage restaurant = new RestaurantsPage();
-                restaurant.setVisible(true);
-                setVisible(false);
+
             }
         });
 
@@ -141,14 +136,7 @@ public class MainMenu extends javax.swing.JFrame {
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
-                BilkentMenuPage bilmenu = null;
-                try {
-                    bilmenu = new BilkentMenuPage();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                bilmenu.setVisible(true);
-                setVisible(false);
+
             }
         });
 
@@ -159,9 +147,7 @@ public class MainMenu extends javax.swing.JFrame {
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
-                ShoppingPage shop = new ShoppingPage();
-                shop.setVisible(true);
-                setVisible(false);
+
             }
         });
 
@@ -172,9 +158,7 @@ public class MainMenu extends javax.swing.JFrame {
         jButtonSettings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSettingsActionPerformed(evt);
-                SettingsPage settings = new SettingsPage();
-                settings.setVisible(true);
-                setVisible(false);
+
             }
         });
 
@@ -600,27 +584,45 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        this.dispose();
+        new StockControlPage().setVisible(true);
     }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        this.dispose();
+        new RecipePage().setVisible(true);
     }
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        this.dispose();
+        try {
+            new RestaurantsPage().setVisible(true);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
     }
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        this.dispose();
+        try {
+            new BilkentMenuPage().setVisible(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        this.dispose();
+        new ShoppingPage().setVisible(true);
     }
 
     private void jButtonSettingsActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        this.dispose();
+        new SettingsPage().setVisible(true);
     }
 
     public static String textReader() throws FileNotFoundException
