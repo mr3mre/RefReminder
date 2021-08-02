@@ -26,6 +26,7 @@ import APIs.src.java.net.http.SpoonacularAPI;
  */
 
 /**
+ * StockControlPage - This page shows food in users' storage in a categorized way
  * @author goksu
  * @author H.Emre Tas
  */
@@ -810,6 +811,11 @@ public class StockControlPage extends javax.swing.JFrame {
         return name;
     }
 
+    /**
+     * Creating a table 
+     * @param str String food aisles
+     * @return table JTable that will be displayed on the page
+     */
     private JTable newTable(String str){
         int f;
         ArrayList<Food> newFoodList = new ArrayList<Food>();
@@ -857,6 +863,11 @@ public class StockControlPage extends javax.swing.JFrame {
         return table;
     }
 
+    /**
+     * Finding food warning which will be expired in 5 days
+     * @param count int 
+     * @return fName String name of the food
+     */
     private String findWarning( int count ){
         String fName = "";
         for ( int i = 0; i < sd.getFood().size(); i++){
