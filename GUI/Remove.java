@@ -67,7 +67,7 @@ public class Remove extends javax.swing.JFrame {
         {
             System.out.println("1");
         }
-        setSize(938,578);
+        setSize(455,309);
         setLocationRelativeTo(null);
         initComponents();
     }
