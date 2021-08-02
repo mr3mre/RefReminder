@@ -13,9 +13,14 @@ Amir Aliyev - User, SettingsPage and Feedback classes. First version of UI for S
 
 Tools:
 IDE: NetBeans, Eclipse, IntelliJ Idea, VSCode.
-Libraries: DJNativeSwing.jar, PDFOne.jar, swt_win64.jar 
-
-
+Libraries:  ( DJNativeSwing-SWT.jar DJNativeSwing.jar, swt.jar ) - Embedding youtube video
+            ( javax.activation-1.2.0.jar javax.mail.jar ) - For Sql database
+            ( json-20210307.jar )- accessing Rest Api data easily 
+            ( jxbrowser-7.17.jar, jxbrowser-mac-7.17.jar, jxbrowser-win64-7.17.jar, jxbrowser-swing-7.17.jar ) - Embedding browser
+            ( mysql-connector-java-8.0.26.jar )- accessing sql database
+            ( pdfbox-2.0.24.jar, pdfbox-app-2.0.24.jar, pdfbox-tools-2.0.24.jar ) - PDF Viewing
+            ( swingx-autocomplete-1.6.5-1.jar, swingx-common-1.6.5-1.jar )- AutoCompleteSearch
+            
 
 How to Setup:
 This app requires 64-bit versions of operating systems to play a video in it. 
