@@ -193,7 +193,13 @@ public class StockControlPage extends javax.swing.JFrame {
         jButton10.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                try {
+                    jButton10ActionPerformed(evt);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -706,8 +712,8 @@ public class StockControlPage extends javax.swing.JFrame {
     }
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
-       // BilkentMenuPage bil = new BilkentMenuPage();
-       // bil.setVisible(true);
+        // BilkentMenuPage bil = new BilkentMenuPage();
+        // bil.setVisible(true);
         setVisible(false);
     }
 
@@ -717,8 +723,8 @@ public class StockControlPage extends javax.swing.JFrame {
         setVisible(false);
     }
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
-        RecipeGui rec = new RecipeGui();
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException {
+        RecipePage rec = new RecipePage();
         rec.setVisible(true);
         setVisible(false);
     }
