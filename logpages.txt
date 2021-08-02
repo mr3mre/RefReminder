@@ -4,6 +4,7 @@ Group Meetings
   30.07.2021 21:00 - 23:00
   31.07.2021 14:00 - 16:00
   31.07.2021 22:30 - 24:00
+  01.08.2021 Basically whole day.
   
   
 Personal Logs
@@ -13,7 +14,6 @@ Personal Logs
   29.07.2021 - Modifying user class to make connection between user and database. Creating User SettingsPage class with GUI.
   30.07.2021 - Modifying user class to apply changes of address variable. Creating new welcomepage with comboboxes and prepare these comboboxes with using array and hashmap. Creating "update address" panel to settings page and add this hashmap and selection organization to the settings class. Making Feedback page much more detailed to use. Working on GUI about these pages as i mentioned before.
   31.07.2021 - Creating Remove class with database connection, GUI and class. Updating BilkentMenuPage GUI. Modfying StockControlPage with some database connection improvement. Creating MainMenu GUI page. Creating RecipeGUI page. Improving some database connections about many classes.
-  01.08.2021 - General bug fixing
   
   H. Emre Taş 
   28.07.2021 worked on Rest API, and playing a youtube video on a JFrame 
@@ -26,6 +26,7 @@ Personal Logs
   29.07.2021 More methods for the API to get Food information, Recipe videos etc. Pulling necessary data from JSON files and returning useful/formatted data.
   30.07.2021 Embedded browser to display Recipe videos and Sanal Market. Methods to get information from Recipes.
   31.07.2021 A way to get how many days have passed to edit expiry dates.  Updated/refined some classes.
+  01.08.2021 Updated expiry dates with time zones. Coded RecipePage and details frame.
   
   
   Amir Aliyev
