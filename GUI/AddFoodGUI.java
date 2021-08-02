@@ -19,7 +19,7 @@ import javax.swing.*;
  */
 
 /**
- *
+ * Adding food that user selected to storage. To search food that user wants to add, the app is calling Spoonacular Rest Api methods and give some results to user.
  * @author H.Emre
  * @date 31.07.2021
  */
@@ -327,6 +327,11 @@ public class AddFoodGUI extends javax.swing.JFrame {
 
     }
 
+    
+    /**
+     * Adding all foods that user selected to sql database when the button is pressed
+     * @param evt ActionEvent
+     */
     private void jButtonAddAllActionPerformed(java.awt.event.ActionEvent evt) {
         /**
          *
@@ -463,7 +468,10 @@ public class AddFoodGUI extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(f,"All list has been added to storage.");
     }
 
-    public class labelsListener extends MouseAdapter{
+    /**
+     * Labels Listener Class to display results of Spoonacular API method when user search wanted food 
+     */
+    private class labelsListener extends MouseAdapter{
         private int index;
         private AddFoodGUI frame;
         //Constructor
@@ -522,7 +530,13 @@ public class AddFoodGUI extends javax.swing.JFrame {
         }
     }
 
-    public static boolean containFood( JTable jTable1 , String foodName ){
+    /**
+     * Finding whether table contains food that is selected before 
+     * @param jJTable1 JTable 
+     * @param foodName String 
+     * @return boolean 
+     */
+    private static boolean containFood( JTable jTable1 , String foodName ){
         for ( int i = 0; i< jTable1.getRowCount(); i++) {
             if (jTable1.getValueAt(i, 0) != null)
                 if (jTable1.getValueAt(i, 0).equals(foodName))
@@ -531,7 +545,12 @@ public class AddFoodGUI extends javax.swing.JFrame {
         return true;
     }
 
-    public static String findJustDigit( String str ){
+    /**
+     * Finding just digits when user add amount of food to storage
+     * @param str String all text in text field
+     * @return data String string that contains just digits
+     */
+    private static String findJustDigit( String str ){
         String data = "";
         for( int count = 0; count < str.length(); count++ ){
             if ( Character.isDigit( str.charAt( count ) ) )
@@ -540,6 +559,9 @@ public class AddFoodGUI extends javax.swing.JFrame {
         return data;
     }
 
+    /**
+     * Updating labels
+     */
     public void updateLabels(){
 
         if ( foodList != null && foodList.length != 0 ) {
