@@ -34,7 +34,7 @@ public class MainMenu extends javax.swing.JFrame {
         {
             System.out.println("1");
         }
-        setSize(1200,800);
+        setSize(1050,500);
         setLocationRelativeTo(null);
         initComponents();
     }
