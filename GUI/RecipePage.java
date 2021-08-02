@@ -408,11 +408,13 @@ public class RecipePage extends javax.swing.JFrame {
     }
 
     private void jButtonNextActionPerformed(ActionEvent evt) throws IOException, InterruptedException {
-        if ( order < 9 ) {
+        if ( order < recipes.size() - 1) {
             order++;
         }
-        recipe = recipes.get( order );
-        getRecipe( recipe );
+        if ( recipes.size() != 0 ) {
+            recipe = recipes.get(order);
+            getRecipe(recipe);
+        }
     }
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {
