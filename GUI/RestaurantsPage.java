@@ -19,9 +19,10 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 /**
- *
- * @author Amir Aliyev
- */
+* Restaurants Page - This page gives a random restaurant and its details in users' city
+* @author H.Emre Tas
+* @date 01.07.2021
+*/
 public class RestaurantsPage extends javax.swing.JFrame {
 
     /**
