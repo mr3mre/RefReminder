@@ -1,40 +1,60 @@
+/*
+ * YoutubeViewer class
+ * @author Eren, Emre
+ * @version 1.0
+ * 02/08/2021
+ */
+
+
 package APIs.src.java.net.http;
 
 import chrriis.dj.nativeswing.swtimpl.NativeInterface;
 import chrriis.dj.nativeswing.swtimpl.components.JWebBrowser;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class YoutubeViewer extends JPanel {
 
+    /**
+     * Constructs the YoutubeViewer panel
+     *
+     * @param url URL of the YouTube video
+     */
     public  YoutubeViewer( String url ) {
-        super(new BorderLayout());
-        JPanel webBrowserPanel = new JPanel(new BorderLayout());
-        webBrowserPanel.setBorder(BorderFactory.createTitledBorder(""));
+        super( new BorderLayout() );
+
+        JPanel webBrowserPanel = new JPanel( new BorderLayout() );
+        webBrowserPanel.setBorder( BorderFactory.createTitledBorder( "" ) );
+
         final JWebBrowser webBrowser = new JWebBrowser();
         webBrowser.navigate(url );
-        webBrowserPanel.add(webBrowser, BorderLayout.CENTER);
-        add(webBrowserPanel, BorderLayout.CENTER);
+        webBrowserPanel.add( webBrowser, BorderLayout.CENTER );
+        add( webBrowserPanel, BorderLayout.CENTER );
     }
 
-    public static void main(String[] args) {
+    /**
+     * Main method to test YoutubeViewer
+     *
+     * @param args Command line arguments
+     */
+    public static void main( String[] args ) {
         NativeInterface.open();
-        SwingUtilities.invokeLater(new Runnable() {
+        SwingUtilities.invokeLater( new Runnable() {
             public void run() {
-                JFrame frame = new JFrame("YouTube Viewer");
+                JFrame frame = new JFrame( "YouTube Viewer" );
                 JPanel panel = new JPanel();
+                panel = getBrowserPanel(  "https://www.youtube.com/embed/Cr0EWwaTk?fs=1%22" );
+
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                panel = getBrowserPanel( "https://www.youtube.com/embed/Cr0EWwaTk?fs=1%22" );
                 frame.setSize( panel.getSize() );
-                frame.add( panel, BorderLayout.CENTER);
-                frame.setVisible(true);
+                frame.add( panel, BorderLayout.CENTER );
+                frame.setVisible( true );
             }
         });
         NativeInterface.runEventPump();
         // don't forget to properly close native components
-        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+        Runtime.getRuntime().addShutdownHook( new Thread( new Runnable() {
             @Override
             public void run() {
                 NativeInterface.close();
@@ -42,12 +62,19 @@ public class YoutubeViewer extends JPanel {
         }));
     }
 
+    /**
+     * Initializes a JPanel that contains the YouTube video
+     *
+     * @param url URL of the YouTube video
+     * @return JPanel that contains the browser
+     */
     public static JPanel getBrowserPanel( String url ) {
         JPanel webBrowserPanel = new JPanel(new BorderLayout());
         JWebBrowser webBrowser = new JWebBrowser();
-        webBrowserPanel.add(webBrowser, BorderLayout.CENTER);
+
+        webBrowserPanel.add( webBrowser, BorderLayout.CENTER) ;
         webBrowserPanel.setSize( new Dimension( 600, 400 ) );
-        webBrowser.setBarsVisible(false);
+        webBrowser.setBarsVisible( false );
         webBrowser.navigate( url );
         return webBrowserPanel;
     }
