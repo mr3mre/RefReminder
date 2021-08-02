@@ -204,6 +204,7 @@ public class SpoonacularAPI {
      * @throws InterruptedException
      */
     public String[] getFoodId( String foodName ) throws IOException, InterruptedException {
+        foodName = foodName.replaceAll( "[^a-zA-Z]", "" );
         String[] foodList = new String[8];
 
         String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/autocomplete?query=" +

@@ -4,12 +4,15 @@ import Logic.Food;
 import APIs.src.java.net.http.SpoonacularAPI;
 
 import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.KeyAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.swing.*;
 /*
@@ -30,6 +33,15 @@ public class AddFoodGUI extends javax.swing.JFrame {
      */
     public AddFoodGUI(SpoonacularAPI foodApi ) {
         this.foodApi = foodApi;
+        try
+        {
+            name = textReader();
+        }
+        catch( FileNotFoundException e)
+        {
+            System.out.println("1");
+        }
+
         initComponents();
         setBackground( new Color( 100,150,250 ) );
         setPreferredSize( new Dimension( 561, 284) );
@@ -370,7 +382,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
                         food.setExpiryDate( 60 );
                         break;
                     }
-                    else if ( mains[index].equals( "Condiments" ) || mains[index].equals( "Ethnic Foods" ) || mains[index].equals( "Spices and Seasonings" ) || mains[index].equals( "Oil, Vinegar, Salad Dressing" ) || mains[index].equals( "Savory Snacks" ) || mains[index].equals( "Sweet Snacks" ) || mains[index].equals( "Canned and Jarred" ) || mains[index].equals( "Gourmet" ) || mains[index].equals( "Grilling Supplies" ) || mains[index].equals( "Online" ) || mains[index].equals( "Homemade" )){
+                    else if ( mains[index].equals( "Condiments" ) || mains[index].equals( "Ethnic Foods" ) || mains[index].equals( "Spices and Seasonings" ) || mains[index].equals( "Oil, Vinegar, Salad Dressing" ) || mains[index].equals( "Savory Snacks" ) || mains[index].equals( "Sweet Snacks" ) || mains[index].equals( "Canned and Jarred" ) || mains[index].equals( "Gourmet" ) || mains[index].equals( "Grilling Supplies" ) || mains[index].equals( "Online" ) || mains[index].equals( "Homemade" ) || mains[index] == null || mains[index].equals( "" )){
                         food.setMain( "Food Addons" );
                         food.setExpiryDate( 365 );
                         break;
@@ -403,17 +415,13 @@ public class AddFoodGUI extends javax.swing.JFrame {
                     food.setMain("Breakfast");
                     food.setExpiryDate( 60 );
                 }
-                else if ( food.getMain().equals( "Ethnic Foods" ) || food.getMain().equals( "Condiments" ) || food.getMain().equals( "Spices and Seasonings" ) || food.getMain().equals( "Oil, Vinegar, Salad Dressing" ) || food.getMain().equals( "Savory Snacks" ) || food.getMain().equals( "Sweet Snacks" ) || food.getMain().equals( "Canned and Jarred" ) || food.getMain().equals( "Gourmet" ) || food.getMain().equals( "Grilling Supplies" ) || food.getMain().equals( "Online" ) || food.getMain().equals( "Homemade" )) {
+                else if ( food.getMain().equals( "Ethnic Foods" ) || food.getMain().equals( "Condiments" ) || food.getMain().equals( "Spices and Seasonings" ) || food.getMain().equals( "Oil, Vinegar, Salad Dressing" ) || food.getMain().equals( "Savory Snacks" ) || food.getMain().equals( "Sweet Snacks" ) || food.getMain().equals( "Canned and Jarred" ) || food.getMain().equals( "Gourmet" ) || food.getMain().equals( "Grilling Supplies" ) || food.getMain().equals( "Online" ) || food.getMain().equals( "Homemade" ) || food.getMain() == null || food.getMain().equals( "" )) {
                     food.setMain( "Food Addons" );
                     food.setExpiryDate( 365 );
                 }
             }
 
             System.out.println( "ID: " + food.getId() + " Name: " + food.toString() + " Main: " + food.getMain() + " Expiry Date: " + food.getExpiryDate() + " Calorie: " + food.getCaloriePerPortion() );
-            ////////
-            ////////
-            //////// Database
-            String name = "testuser";
 
             int id1 = food.getId();
             String foodname1 = food.getFoodName(); //
@@ -466,6 +474,15 @@ public class AddFoodGUI extends javax.swing.JFrame {
         JFrame f = new JFrame();
         f.setBackground( new Color( 100,150,250 ) );
         JOptionPane.showMessageDialog(f,"All list has been added to storage.");
+    }
+
+    public static String textReader() throws FileNotFoundException
+    {
+        File file = new File("filename.txt");
+        Scanner scan = new Scanner( file );
+        String name = scan.next();
+        scan.close();
+        return name;
     }
 
     /**
@@ -532,7 +549,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
 
     /**
      * Finding whether table contains food that is selected before 
-     * @param jJTable1 JTable 
+     * @param jTable1 JTable
      * @param foodName String 
      * @return boolean 
      */
@@ -613,6 +630,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
 
     }
 
+
     private ArrayList<Food> foods;
     private DefaultListModel listModel;
     public final static Font FONT = new Font( "Comic Sans MS" , Font.PLAIN, 12);
@@ -640,6 +658,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldAmount;
+    private String name;
     // End of variables declaration
 
     /**

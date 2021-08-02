@@ -79,7 +79,7 @@ public class RestaurantsPage extends javax.swing.JFrame {
 
         user = new User( "" );
 
-        String api = "2b1ad64154msh266681e9461a336p1bfd1bjsndcdef3e10f2a";
+        String api = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254";
 
         JSONArray array = Restaurants.getRestaurants( api, Restaurants.getLocation( api,  user.getProvince() ) );
         int random = (int) ( Math.random() * array.length() );
