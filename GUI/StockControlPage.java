@@ -227,7 +227,11 @@ public class StockControlPage extends javax.swing.JFrame {
         jButton11.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                try {
+                    jButton11ActionPerformed(evt);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -711,9 +715,9 @@ public class StockControlPage extends javax.swing.JFrame {
         setVisible(false);
     }
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
-        // BilkentMenuPage bil = new BilkentMenuPage();
-        // bil.setVisible(true);
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
+        BilkentMenuPage bil = new BilkentMenuPage();
+        bil.setVisible(true);
         setVisible(false);
     }
 
