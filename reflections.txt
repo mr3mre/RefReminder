@@ -1,5 +1,6 @@
 Göksu Şenerkek
 
+Before I started the project, I was quite pessimistic. I thought that the project would not be finished and I saw the project as a very difficult target. When I started to do the project, I saw that it was actually not that difficult and could be done easily with teamwork. In particular, I learned new things such as using and connecting to the database. We worked as a team while learning new things. The most challenging thing for me in this regard was the use of github and the codes were constantly getting mixed up. If I started the project once again, I would like to get a faster interface by making database improvement. I spent almost 1 week on the project, including only the code and GUI design phase. In addition, we have thought about the project stages in before as many times. Taking part in such a project gave me experience. Now think that I can develope new Java Apps much better.
   
 H. Emre Taş 
   
