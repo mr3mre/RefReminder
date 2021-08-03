@@ -7,7 +7,13 @@ H. Emre Taş
   
 Eren Karakaş
 
-I learned new technologies such as APIs and databases. Also, this project was the biggest project I have ever done, so I learned a lot about operating in a team. Updating the project and debugging was sometimes hard with four different people working on the project, but it was not too bad. For me, the most challenging aspect of the project was trying to code similarly to other members when everyone is working at the same time. If I had to start over, I would be more focused on using GitHub effectively with group members. I spent a week or two purely coding and a lot more time planning before that, similar to other group members. I am proud of what we achieved.
+I learned new technologies such as APIs and databases. Also, this project was the biggest project 
+I have ever done, so I learned a lot about operating in a team. Updating the project and debugging 
+was sometimes hard with four different people working on the project, but it was not too bad. For me, 
+the most challenging aspect of the project was trying to code similarly to other members when everyone 
+is working at the same time. If I had to start over, I would be more focused on using GitHub effectively
+with group members. I spent a week or two purely coding and a lot more time planning before that, similar 
+to other group members. I am proud of what we achieved.
   
 Amir Aliyev
 
