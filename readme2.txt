@@ -25,4 +25,4 @@ Libraries:  ( DJNativeSwing-SWT.jar DJNativeSwing.jar, swt.jar ) - Embedding you
 
 How to Setup:
 This app requires 64-bit versions of operating systems to play a video in it. 
-This app is in the .jar format along with the source codes. The user needs a JDK (v11 is preferred) in order to run this .jar file. Open the jar file in its own file and do not change filename.txt.
+This app is in the .jar format along with the source codes. Unfortunately, to run the programm, users should execute thorught IDE. 
