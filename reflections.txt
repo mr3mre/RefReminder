@@ -25,3 +25,12 @@ to other group members. I am proud of what we achieved.
   
 Amir Aliyev
 
+While working on this project I strenghened my understanding of Java. I also learned how to use various Java Libraries.
+Additionally working with a group taught me a lot about teamwork and how important communication is. Considering time limit 
+we had working with team of 4 was really hard but in the end we managed to complete project. If i had to start over I would 
+explore more Libraries to add to our projet thus making it more efficient. Additionally, I would focus on GitHub even more as
+keeping it updated regulary is very important for project. For the last implementation part I spent around 10 days for coding. 
+But the planning and research processes started way before and it took us weeks to come up with a final idea on how to implement 
+the project. I think it was a good experience to take part in this project especially with great teammates like mine. Even though 
+it was not a perfect project I think we did a really decent job considering the conditions. In the end I can say that I am proud 
+of myself and my teammates for the work we have done.
