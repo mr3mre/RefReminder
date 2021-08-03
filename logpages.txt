@@ -18,6 +18,7 @@ Personal Logs
   31.07.2021 - Creating Remove class with database connection, GUI and class. Updating BilkentMenuPage GUI. Modfying StockControlPage with some database connection improvement. Creating MainMenu GUI page. Creating RecipeGUI page. Improving some database connections about many classes.
   01.08.2021 - General bug fixing  
   02.07.2021 - General bug fixing and final check
+  
   H. Emre Taş 
   28.07.2021 worked on Rest API, and playing a youtube video on a JFrame 
   29.07.2021 worked on Worldwide Restaurants Rest API, getting data from Bilkent Cafeteria Menu
