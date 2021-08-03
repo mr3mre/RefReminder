@@ -4,34 +4,27 @@ Group Meetings
   30.07.2021 21:00 - 23:00
   31.07.2021 14:00 - 16:00
   31.07.2021 22:30 - 24:00
-  01.08.2021 Basically whole day.
-  02.08.2021 12:00 - 3:00
   
   
 Personal Logs
-
   Göksu Şenerkek
   27.07.2021 - Learning some databases and working on it. Creating some database table to connect with our variables.
   28.07.2021 - Creating database connection and making remote server connection by using Google Cloud Service. Creating WelcomePage to obtain login and register specs. Creating Feedback GUI and Feedback page with database connection. Making e-mail verification integration. 
   29.07.2021 - Modifying user class to make connection between user and database. Creating User SettingsPage class with GUI.
   30.07.2021 - Modifying user class to apply changes of address variable. Creating new welcomepage with comboboxes and prepare these comboboxes with using array and hashmap. Creating "update address" panel to settings page and add this hashmap and selection organization to the settings class. Making Feedback page much more detailed to use. Working on GUI about these pages as i mentioned before.
   31.07.2021 - Creating Remove class with database connection, GUI and class. Updating BilkentMenuPage GUI. Modfying StockControlPage with some database connection improvement. Creating MainMenu GUI page. Creating RecipeGUI page. Improving some database connections about many classes.
-  01.08.2021 - General bug fixing
   
   H. Emre Taş 
   28.07.2021 worked on Rest API, and playing a youtube video on a JFrame 
   29.07.2021 worked on Worldwide Restaurants Rest API, getting data from Bilkent Cafeteria Menu
   30.07.2021 working on restaurants rest API and adding foods to the database( autocompelete gui)
   31.07.2021 fixing bug in autocompelete gui and stockcontrol page
-  01.08.2021 Updated Main Menu GUI. Coding RestaurantsPage and fixing restaurants Rest API.
-  02.07.2021 Fixing bugs and adding documentation.
   
   Eren Karakaş
   28.07.2021 Creating methods from Spoonacular API and adjusting Recipe and Food classes accordingly.
   29.07.2021 More methods for the API to get Food information, Recipe videos etc. Pulling necessary data from JSON files and returning useful/formatted data.
   30.07.2021 Embedded browser to display Recipe videos and Sanal Market. Methods to get information from Recipes.
   31.07.2021 A way to get how many days have passed to edit expiry dates.  Updated/refined some classes.
-  01.08.2021 Updated expiry dates with time zones. Coded RecipePage and details frame.
   
   
   Amir Aliyev
@@ -40,7 +33,6 @@ Personal Logs
   29.07.2021 Working on the rest of the GUIs. Doing additional research on APIs.
   30.07.2021 Research on the necessary Libraries for reading PDFs. 
   31.07.2021 1st version PDF reader class and updated BilkentMenu page.
-  01.07.2021 PDF reader updated. Daily Bilkent menu panel added to Main Menu. Small tweaks to GUIs and ActionListeners updated.
-  02.07.2021 Doing last checks and some small bug fixes.
+  01.07.2021 PDF reader updated. Daily Bilkent menu panel added to Main Menu. 
   
 
