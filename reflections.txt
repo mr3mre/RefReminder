@@ -13,7 +13,7 @@ H. Emre Taş
 
 It was my biggest and hardest project. I learned a lot how to search effectively, collobrate with teammates effectively. I realised that
 coding is not big part of the problem since design is more important. Most parts of our code would be more effecient such that one can more easily
-edit the code. 
+edit the code. We should have spend more on designing code. Overall, it was worth it to work so hard.
   
  
 Eren Karakaş
