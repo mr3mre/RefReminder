@@ -32,6 +32,7 @@ Personal Logs
   30.07.2021 Embedded browser to display Recipe videos and Sanal Market. Methods to get information from Recipes.
   31.07.2021 A way to get how many days have passed to edit expiry dates.  Updated/refined some classes.
   01.08.2021 Updated expiry dates with time zones. Coded RecipePage and details frame.
+  02.08.2021 Bug fixing and adding documentation.
   
   
   Amir Aliyev
