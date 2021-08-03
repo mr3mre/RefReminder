@@ -2,7 +2,7 @@ CS 102 Group Project 1F
 RefReminder 
 A basic java desktop application that aims to automate looking up food nutrient values, logging those values, calculating an optimal diet, deciding on which recipe to cook, and integrate them to modern life, while providing a hassle-free user in-terface that can fit to average end-user
 
-The application is completed. 
+The application is completed and is in a fully fuctioning state.
 
 Göksu Şenerkek - Database connections, Main Menu GUI and Class, Feedback GUI and Class, Welcome Page GUI and class, StockControlPage GUI and Most of the class, User Class, FoodSelect Class, Settings Class and GUI, Remove food Class and GUI, remote server setting, some of other GUI's.
 Hayrullah Emre Taş - Recipe, Recommendation class, and MenuBar class. I learned a bit how to use APIs. Some methods of these classes will be completed.
