@@ -1,9 +1,4 @@
 package GUI;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 import java.awt.*;
 
@@ -43,6 +38,7 @@ public class RestaurantsPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() throws URISyntaxException, IOException, InterruptedException {
 
+        // GUI properties
         jPanel1 = new JPanel();
         jLabelEmail = new JLabel();
         jLabelPrice = new JLabel();
@@ -79,26 +75,19 @@ public class RestaurantsPage extends javax.swing.JFrame {
 
         user = new User( "" );
 
-        String api = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254";
+        String api = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254system.out";
 
         JSONArray array = Restaurants.getRestaurants( api, Restaurants.getLocation( api,  user.getProvince() ) );
         int random = (int) ( Math.random() * array.length() );
-        System.out.println( array.length());
-        System.out.println( random );
 
         jLabelAddress.setText("Address");
         JSONObject object3 = (JSONObject) array.get( random - 1 );
-//			object3.getString("description" );
-//			object3.getString("email" );
-//			object3.getString("website" );
-//			object3.getString("address" );
-//			object3.getString("name" );
 
         jTextPane1.setLineWrap( true );
         jTextPane1.setWrapStyleWord( true );
         jTextPane1.setEditable(false);
         jTextPane1.setText( object3.getString("description" ) );
-        if (  ( (String) object3.toString()).contains( "description" ) ) {
+        if (  ( object3.toString()).contains( "description" ) ) {
             jTextPane1.setText( "Description cannot found!" );
         }
 
@@ -107,24 +96,24 @@ public class RestaurantsPage extends javax.swing.JFrame {
 
         jLabelPrice.setText( object3.getString("ranking" ) );
 
-        if (  ( (String) object3.toString()).contains( "email" ) ) {
+        // Get restaurant email
+        if (  ( object3.toString()).contains( "email" ) ) {
             String urlmail = object3.getString("email");
-            //jLabelLink.setText( "<HTML><FONT color=\"#000099\""+ url +"</FONT>");
             jLabelEmail.setText(urlmail);
             jLabelEmail.setForeground(Color.blue);
             String mail = "mailto:" + urlmail + "?subject=About%20Your%20Restaurants";
             jLabelEmail.addMouseListener(new linkListener());
         }
 
-
-        if (  ( (String) object3.toString()).contains( "website" ) ) {
+        // Get restaurant website
+        if (  ( object3.toString()).contains( "website" ) ) {
             url = object3.getString("website");
-            //jLabelLink.setText( "<HTML><FONT color=\"#000099\""+ url +"</FONT>");
             jLabelLink.setText(url);
             jLabelLink.setForeground(Color.blue);
             uri = new URI(url);
             jLabelLink.addMouseListener(new linkListener());
         }
+
         jTextPaneAddress.setLineWrap( true );
         jTextPaneAddress.setWrapStyleWord( true );
         jTextPaneAddress.setEditable(false);
@@ -135,11 +124,14 @@ public class RestaurantsPage extends javax.swing.JFrame {
         jTextPane1.setBackground(new java.awt.Color(240, 248, 255));
         jScrollPane1.setViewportView(jTextPane1);
         jLabelName1.setText( object3.getString("name" ) );
-        //System.out.println( object3.getString("name" ) );
-        if (  ( (String) object3.toString()).contains( "price_level" ) ) {
+
+        // Get restaurant price level
+        if (  ( object3.toString()).contains( "price_level" ) ) {
             jLabelName1.setText( object3.getString("name" ) + "\t" + object3.getString("price_level"));
         }
-        else if (  ( (String) object3.toString()).contains( "price" ) ) {
+
+        // Get restaurant price
+        else if (  ( object3.toString()).contains( "price" ) ) {
             jLabelName1.setText( object3.getString("name" ) + "\t" + object3.getString("price"));
         }
 
@@ -149,12 +141,12 @@ public class RestaurantsPage extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+
         jScrollPane2.setViewportView(jList1);
         JSONArray arrayCuisine = object3.getJSONArray( "cuisine" );
         for ( int index = 0; index< arrayCuisine.length(); index++) {
             JSONObject objectCuisine = (JSONObject) arrayCuisine.get(index);
             list.addElement( objectCuisine.getString("name" ));
-            System.out.println(  objectCuisine.getString("name" ));
         }
         jList1.setModel( list );
 
@@ -234,12 +226,14 @@ public class RestaurantsPage extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
                     jButton11ActionPerformed(evt);
-                } catch (IOException e) {
+                }
+                catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         });
 
+        // Layout
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -332,16 +326,31 @@ public class RestaurantsPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
+    /**
+     * Open Shopping page
+     *
+     * @param evt Action event
+     */
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {
         this.dispose();
         new ShoppingPage().setVisible(true);
     }
 
+    /**
+     * Open Settings page
+     *
+     * @param evt Action event
+     */
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {
         this.dispose();
         new SettingsPage().setVisible(true);
     }
 
+    /**
+     * Open MainMenu page
+     *
+     * @param evt Action event
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         try{
             MainMenu mm = new MainMenu();
@@ -352,11 +361,21 @@ public class RestaurantsPage extends javax.swing.JFrame {
         dispose();
     }
 
+    /**
+     * Open StockControl page
+     *
+     * @param evt Action event
+     */
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
         this.dispose();
         new StockControlPage().setVisible(true);
     }
 
+    /**
+     * Open Recipe page
+     *
+     * @param evt Action event
+     */
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException {
         this.dispose();
         new RecipePage().setVisible(true);
@@ -366,17 +385,26 @@ public class RestaurantsPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
+    /**
+     * Open Bilkent menu page
+     *
+     * @param evt Action event
+     */
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         this.dispose();
         new BilkentMenuPage().setVisible(true);
     }
 
 
+    /**
+     * Opens default desktop app to email
+     */
     private class mailListener extends MouseAdapter {
         @Override
         public void mouseClicked(MouseEvent e) {
             Desktop desktop = Desktop.getDesktop();
             String message = "mailto:" + mail + "?subject=About%20Your%20Restaurant";
+
             URI uri = URI.create(message);
             try {
                 desktop.mail(uri);

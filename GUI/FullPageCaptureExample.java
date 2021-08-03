@@ -1,10 +1,3 @@
-/*
- * Christopher Deckers (chrriis@nextencia.net)
- * http://www.nextencia.net
- *
- * See the file "readme.txt" for information on usage and redistribution of
- * this file, and for a DISCLAIMER OF ALL WARRANTIES.
- */
 package GUI;
 
 import java.awt.BorderLayout;
@@ -46,10 +39,13 @@ public class FullPageCaptureExample {
     JPanel contentPane = new JPanel(new BorderLayout());
     JPanel webBrowserPanel = new JPanel(new BorderLayout());
     webBrowserPanel.setBorder(BorderFactory.createTitledBorder("Native Web Browser component"));
+
+    // Setup web browser
     final JWebBrowser webBrowser = new JWebBrowser();
     webBrowser.navigate("http://www.google.com");
     webBrowserPanel.add(webBrowser, BorderLayout.CENTER);
     contentPane.add(webBrowserPanel, BorderLayout.CENTER);
+
     // Create an panel with a screen capture button.
     JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 4, 4));
     JButton captureButton = new JButton("Full-page capture");
@@ -71,14 +67,18 @@ public class FullPageCaptureExample {
         		"  height = Math.max(height, document.body.scrollHeight);" + LS +
         		"}" + LS +
         		"return width + '/' + height;");
+
         // This may happen from time to time so we have to fail gracefully.
         int index = result == null? -1: result.indexOf("/");
+
         if(index < 0) {
           JOptionPane.showMessageDialog(webBrowser, "An error occurred while capturing the full-page", "Full-page capture failure", JOptionPane.ERROR_MESSAGE);
-        } else {
+        }
+        else {
           NativeComponent nativeComponent = webBrowser.getNativeComponent();
           Dimension originalSize = nativeComponent.getSize();
           Dimension imageSize = new Dimension(Integer.parseInt(result.substring(0, index)), Integer.parseInt(result.substring(index + 1)));
+
           // We add some artificial spacing because with scrollbars logic it is likely to be wrong...
           imageSize.width = Math.max(originalSize.width, imageSize.width + 50);
           imageSize.height = Math.max(originalSize.height, imageSize.height + 50);
@@ -88,17 +88,22 @@ public class FullPageCaptureExample {
           nativeComponent.setSize(originalSize);
           Window window = SwingUtilities.getWindowAncestor(webBrowser);
           JDialog dialog;
+
           if(window instanceof Frame) {
             dialog = new JDialog((Frame)window, "Full-page capture", true);
-          } else {
+          }
+          else {
             dialog = new JDialog((Dialog)window, "Full-page capture", true);
           }
+
           int tWidth = THUMBNAIL_SIZE.width;
           int tHeight = THUMBNAIL_SIZE.height;
           final ImageIcon imageIcon;
+
           if(imageSize.width <= tWidth && imageSize.height <= tHeight) {
             imageIcon = new ImageIcon(image);
-          } else {
+          }
+          else {
             float ratio1 = imageSize.width / (float)imageSize.height;
             float ratio2 = tWidth / (float)tHeight;
             int width = ratio1 > ratio2? tWidth: Math.round(tWidth * ratio1 / ratio2);
@@ -112,11 +117,15 @@ public class FullPageCaptureExample {
         }
       }
     });
+
     southPanel.add(captureButton);
     contentPane.add(southPanel, BorderLayout.SOUTH);
     return contentPane;
   }
 
+  /**
+   * @param args command line arguments
+   */
   /* Standard main method to try that test as a standalone application. */
   public static void main(String[] args) {
     NativeInterface.open();

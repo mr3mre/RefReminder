@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 /**
 * Food class for foods' detailed information 
-* @author H.Emre Tas
+* @author H.Emre Tas, Eren
 * @date 28.07.2021
 */
 public class Food {
@@ -17,6 +17,14 @@ public class Food {
     private Number caloriePerPortion;
     private double amount;
 
+    /**
+     * Constructs a Food instance
+     *
+     * @param id Food id in database
+     * @param foodName Food name
+     * @param main Food aisle
+     * @param calorie Calorie value
+     */
     public Food( int id, String foodName, String main, Number calorie ) {
         this.id = id;
         this.foodName = foodName;
@@ -24,6 +32,7 @@ public class Food {
         caloriePerPortion = calorie;
     }
 
+    // Getters and setters
     public double getAmount() { return amount; }
 
     public void setAmount( double amount) { this.amount = amount; }

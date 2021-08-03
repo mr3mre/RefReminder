@@ -58,7 +58,8 @@ public class YoutubeViewer extends JPanel {
             }
         });
         NativeInterface.runEventPump();
-        // don't forget to properly close native components
+
+        // Don't forget to properly close native components
         Runtime.getRuntime().addShutdownHook( new Thread( new Runnable() {
             @Override
             public void run() {
@@ -77,9 +78,12 @@ public class YoutubeViewer extends JPanel {
         JPanel webBrowserPanel = new JPanel(new BorderLayout());
         JWebBrowser webBrowser = new JWebBrowser();
 
+        // Set the panel for browser
         webBrowserPanel.add( webBrowser, BorderLayout.CENTER) ;
         webBrowserPanel.setSize( new Dimension( 600, 400 ) );
         webBrowser.setBarsVisible( false );
+
+        // Open URL in browser
         webBrowser.navigate( url );
         return webBrowserPanel;
     }

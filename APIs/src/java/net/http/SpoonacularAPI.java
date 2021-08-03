@@ -73,7 +73,6 @@ public class SpoonacularAPI {
         for ( int i = 0; i < ingredientList.size(); i++ ) {
             String ingredient = ingredientList.get( i );
             ingredient = ingredient.replaceAll( "[^a-zA-Z]", "" );
-            System.out.println( ingredient );
             ingredients.append( ingredient );
             if ( i != ingredientList.size() - 1 ) {
                 ingredients.append( "%2C" );
@@ -288,6 +287,7 @@ public class SpoonacularAPI {
      * @throws InterruptedException
      */
     public static void main( String[] args ) throws IOException, InterruptedException {
+        // API keys to use in API
         String apiKey = "2b1ad64154msh266681e9461a336p1bfd1bjsndcdef3e10f2a";
         String apiKey2 = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254";
         String apiKey3 = "da73587c8emsh6ca56b7d9f2a385p1699dcjsnf6a7ee99f8e3";
@@ -303,9 +303,9 @@ public class SpoonacularAPI {
         ingredients.add( "chicken" );
 
         try {
-            // foodApi.getJoke();
-            // System.out.println(  foodApi.getJoke() );
-            // System.out.println( foodApi.searchFoodVideos( "potato") );
+            foodApi.getJoke();
+            System.out.println(  foodApi.getJoke() );
+            System.out.println( foodApi.searchFoodVideos( "potato") );
             Recipe recipe = foodApi.searchRecipesByIngredients( ingredients ).get(0);
             ArrayList<String> foodDetails = foodApi.getRecipeInformation( recipe.getID() );
             String instructions = foodDetails.get(0);
@@ -318,16 +318,16 @@ public class SpoonacularAPI {
                 System.out.println(foodDetails.get(count));
             }
 
-//            ArrayList<Recipe> recipes = foodApi.searchRecipesByIngredients( ingredients );
-//
-//            for ( int count = 0; count < recipes.size(); count++){
-//                Recipe recipe = recipes.get(count);
-//                ArrayList<String> foodDetails = foodApi.getFoodInformation( recipe.getID() );
-//                String instructions = foodDetails.get(0);
-//                String healthBar = foodDetails.get(1);
-//                System.out.println( instructions );
-//                System.out.println( healthBar );
-//            }
+            ArrayList<Recipe> recipes = foodApi.searchRecipesByIngredients( ingredients );
+
+            for ( int count = 0; count < recipes.size(); count++){
+                Recipe recipe = recipes.get(count);
+                ArrayList<String> foodDetails = foodApi.getFoodInformation( recipe.getID() );
+                String instructions = foodDetails.get(0);
+                String healthBar = foodDetails.get(1);
+                System.out.println( instructions );
+                System.out.println( healthBar );
+            }
 
             System.out.println( recipe.getImageURL() );
 

@@ -85,7 +85,7 @@ public class User {
         catch(SQLException e ) { e.printStackTrace();} catch (ClassNotFoundException e) { e.printStackTrace(); }
     }
 
-
+    // Getters and setters
     public String getUsername()
     {
         return this.name;
@@ -112,6 +112,12 @@ public class User {
         return this.email;
     }
 
+    /**
+     * Get username from file
+     *
+     * @return Username
+     * @throws FileNotFoundException
+     */
     public static String textReader() throws FileNotFoundException
     {
         File file = new File("filename.txt");

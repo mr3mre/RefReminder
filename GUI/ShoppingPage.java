@@ -150,36 +150,66 @@ public class ShoppingPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
+    /**
+     * Open MainMenu page, close Chromium engine
+     *
+     * @param evt Action event
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
         this.dispose();
         new MainMenu().setVisible(true);
     }
 
+    /**
+     * Open StockControl page, close Chromium engine
+     *
+     * @param evt Action event
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
         this.dispose();
         new StockControlPage().setVisible(true);
     }
 
+    /**
+     * Open Recipe page, close Chromium engine
+     *
+     * @param evt Action event
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
         this.dispose();
         new RecipePage().setVisible(true);
     }
 
+    /**
+     * Open Restaurants page, close Chromium engine
+     *
+     * @param evt Action event
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) throws URISyntaxException, IOException, InterruptedException {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
         this.dispose();
         new RestaurantsPage().setVisible(true);
     }
 
+    /**
+     * Open Settings page, close Chromium engine
+     *
+     * @param evt Action event
+     */
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
         this.dispose();
         new SettingsPage().setVisible(true);
     }
 
+    /**
+     * Open Bilkent menu page, close Chromium engine
+     *
+     * @param evt Action event
+     */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         ((Engine) BrowserPanel.makePanel( "https://www.migros.com.tr/" )[1]).close();
         this.dispose();
@@ -217,8 +247,7 @@ public class ShoppingPage extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify
-    private javax.swing.JPanel jPanel1;
+    // Variables declaration
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

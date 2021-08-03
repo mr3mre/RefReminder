@@ -25,6 +25,7 @@ public class FoodSelect {
     String username;
 
     public FoodSelect(){
+        // Get username from file
         try
         {
 
@@ -37,6 +38,7 @@ public class FoodSelect {
         FoodSelected = null;
         foodList = getFoodFromSQL("food");
 
+        // Get food from database
         produceList = getFoodFromSQL("Produce");
         breakfastList = getFoodFromSQL("Breakfast");
         mainDishesList = getFoodFromSQL("Main Dishes");
@@ -44,28 +46,21 @@ public class FoodSelect {
         drinkList = getFoodFromSQL("Drink");
         addonsList = getFoodFromSQL("Food Addons");
 
+        // Add food to ArrayLists
         foodList.addAll(produceList);
         foodList.addAll(breakfastList);
         foodList.addAll(mainDishesList);
         foodList.addAll(freezerList);
         foodList.addAll(addonsList);
         foodList.addAll(drinkList);
-
-
-//        System.out.println(foodList);
-//        System.out.println(vegetableList);
-//        System.out.println(fruitList);
-//        System.out.println(meatList);
-//        System.out.println(legumesList);
-//        System.out.println(dairyList);
-//        System.out.println(drinkList);
     }
 
-    public Food selectFood(ArrayList<Food> list, int index){
-        return list.get(index);
-    }
-
-
+    /**
+     * Gets foods from the database
+     *
+     * @param name Food name
+     * @return ArrayList of food
+     */
     public ArrayList<Food> getFoodFromSQL(String name) {
 
         try {
@@ -92,13 +87,20 @@ public class FoodSelect {
                 return list;
 
 
-        }catch(Exception e){
+        }
+        catch(Exception e){
             System.out.println(e);
             return null;
         }
 
     }
 
+    /**
+     * Get username from file
+     *
+     * @return Username
+     * @throws FileNotFoundException
+     */
     public static String textReader() throws FileNotFoundException
     {
         File file = new File("filename.txt");
@@ -107,6 +109,8 @@ public class FoodSelect {
         scan.close();
         return name;
     }
+
+    // Getters and setters
     public ArrayList<Food> getFood (){
         return foodList;
     }
@@ -134,6 +138,8 @@ public class FoodSelect {
 
         return drinkList;
     }
+
+    // Get foods from their aisles
     public int getNumOfArrayList( ArrayList<Food> food1){
         return food1.size();
     }

@@ -13,6 +13,12 @@ public class PdfReader {
     String text;
     URL bilmenu;
 
+    /**
+     * Gets PDF contents
+     *
+     * @return Text from PDF
+     * @throws IOException
+     */
     public String give() throws IOException {
         bilmenu = new URL("http://kafemud.bilkent.edu.tr/kumanya_menusu.pdf");
         PDDocument document = PDDocument.load(bilmenu.openStream());
