@@ -10,9 +10,12 @@ In addition, we have thought about the project stages in before as many times.
 Taking part in such a project gave me experience. Now think that I can develope new Java Apps much better.
   
 H. Emre Taş 
+
+It was my biggest and hardest project. I learned a lot how to search effectively, collobrate with teammates effectively. I realised that
+coding is not big part of the problem since design is more important. Most parts of our code would be more effecient such that one can more easily
+edit the code. 
   
-  
-  
+ 
 Eren Karakaş
 
 I learned new technologies such as APIs and databases. Also, this project was the biggest project 
