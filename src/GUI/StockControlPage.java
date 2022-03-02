@@ -64,10 +64,10 @@ public class StockControlPage extends javax.swing.JFrame {
         initComponents();
 
         // Connect to database and pull the storage
-        String driver = "com.mysql.cj.jdbc.Driver";
+        String driver = "";
         String username = "root";
         String password = "root";
-        String url = "jdbc:mysql://34.141.44.144:3306/" + name;
+        String url = "" + name;
 
         try
         {
