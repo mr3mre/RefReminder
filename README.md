@@ -2,17 +2,6 @@
 
 A basic java desktop application that aims to automate looking up food nutrient values, logging those values, calculating an optimal diet, deciding on which recipe to cook, and integrate them to modern life, while providing a hassle-free user in-terface that can fit to average end-user
 
-
-# Emre 
-- Rest API connections such as Spoonacular and Restaurants API, worked on StockControlPage, Main Menu, Pdf reader, playing a youtube video in a frame.  
-# Göksu 
-- Database connections, Main Menu GUI and Class, Feedback GUI and Class, Welcome Page GUI and class, StockControlPage GUI and Most of the class, User Class, FoodSelect Class, Settings Class and GUI, Remove food Class and GUI, remote server setting, some of other GUI's.
-# Eren  
-- Food and Storage classes, some early work in SceneBuilder and SQL to learn workflow
-# Amir 
-- First version of User, SettingsPage and Feedback classes. First version of GUIs. BilkentMenu page. PDFReader class. Some parts of final version of Main Menu. Action Listeners. General bug fixing
-
-
 # Tools:
 IDE: NetBeans, Eclipse, IntelliJ Idea, VSCode.
 # Libraries:  
@@ -28,3 +17,14 @@ IDE: NetBeans, Eclipse, IntelliJ Idea, VSCode.
 # How to Setup:
 This app requires 64-bit versions of operating systems to play a video in it. 
 This app is in the .jar format along with the source codes. Unfortunately, to run the programm, users should execute thorught IDE. 
+
+# Designers
+
+Emre 
+- Rest API connections such as Spoonacular and Restaurants API, worked on StockControlPage, Main Menu, Pdf reader, playing a youtube video in a frame.  
+Göksu 
+- Database connections, Main Menu GUI and Class, Feedback GUI and Class, Welcome Page GUI and class, StockControlPage GUI and Most of the class, User Class, FoodSelect Class, Settings Class and GUI, Remove food Class and GUI, remote server setting, some of other GUI's.
+Eren  
+- Food and Storage classes, some early work in SceneBuilder and SQL to learn workflow
+Amir 
+- First version of User, SettingsPage and Feedback classes. First version of GUIs. BilkentMenu page. PDFReader class. Some parts of final version of Main Menu. Action Listeners. General bug fixing
