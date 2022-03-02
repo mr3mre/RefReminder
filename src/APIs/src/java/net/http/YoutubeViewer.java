@@ -49,7 +49,7 @@ public class YoutubeViewer extends JPanel {
             public void run() {
                 JFrame frame = new JFrame( "YouTube Viewer" );
                 JPanel panel = new JPanel();
-                panel = getBrowserPanel(  "https://www.youtube.com/embed/Cr0EWwaTk?fs=1%22" );
+                panel = getBrowserPanel(  "" );
 
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 frame.setSize( panel.getSize() );
