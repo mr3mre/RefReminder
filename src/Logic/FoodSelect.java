@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 /**
  * @author Goksu
- * @author H.Emre
+ * @author emre
  */
 public class FoodSelect {
 
@@ -68,7 +68,7 @@ public class FoodSelect {
                 Food food;
                 ArrayList<Food> list = new ArrayList<Food>();
                 java.sql.Connection connect = DriverManager.getConnection(
-                        "jdbc:mysql://34.141.44.144:3306/" + username, "root", "root");
+                        "" + username, "root", "root");
 
                 PreparedStatement statement = ((java.sql.Connection) connect).prepareStatement("SELECT * FROM food WHERE main = '" + name + "'");
 
