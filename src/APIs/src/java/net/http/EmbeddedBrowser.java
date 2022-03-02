@@ -31,7 +31,7 @@ public class EmbeddedBrowser {
         // Creating and running Chromium engine
         EngineOptions options =
                 EngineOptions.newBuilder( HARDWARE_ACCELERATED )
-                        .licenseKey( "1BNDHFSC1FZUESGWGCUAM19XMT9T6UG3HOHD0SB57WJNEBCJICZFYGZH2Y9F2H4ZWYIDCO" )
+                        .licenseKey( "" )
                         .build();
         Engine engine = Engine.newInstance( options );
         Browser browser = engine.newBrowser();
