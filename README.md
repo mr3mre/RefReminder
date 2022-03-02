@@ -1,7 +1,7 @@
 # Welcome to RefReminder 
 
-RefReminder 
 A basic java desktop application that aims to automate looking up food nutrient values, logging those values, calculating an optimal diet, deciding on which recipe to cook, and integrate them to modern life, while providing a hassle-free user in-terface that can fit to average end-user
+
 
 # Emre 
 - Rest API connections such as Spoonacular and Restaurants API, worked on StockControlPage, Main Menu, Pdf reader, playing a youtube video in a frame.  
@@ -13,7 +13,7 @@ A basic java desktop application that aims to automate looking up food nutrient 
 - First version of User, SettingsPage and Feedback classes. First version of GUIs. BilkentMenu page. PDFReader class. Some parts of final version of Main Menu. Action Listeners. General bug fixing
 
 
-Tools:
+# Tools:
 IDE: NetBeans, Eclipse, IntelliJ Idea, VSCode.
 Libraries:  ( DJNativeSwing-SWT.jar DJNativeSwing.jar, swt.jar ) - Embedding youtube video
             ( javax.activation-1.2.0.jar javax.mail.jar ) - For Sql database
@@ -24,6 +24,6 @@ Libraries:  ( DJNativeSwing-SWT.jar DJNativeSwing.jar, swt.jar ) - Embedding you
             ( swingx-autocomplete-1.6.5-1.jar, swingx-common-1.6.5-1.jar )- AutoCompleteSearch
             
 
-How to Setup:
+# How to Setup:
 This app requires 64-bit versions of operating systems to play a video in it. 
 This app is in the .jar format along with the source codes. Unfortunately, to run the programm, users should execute thorught IDE. 
