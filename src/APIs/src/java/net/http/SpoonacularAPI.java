@@ -27,10 +27,10 @@ public class SpoonacularAPI {
 
     // API keys to connect to API
     private String apiKey;
-    private String apiKey2 = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254";
-    private String apiKey3 = "da73587c8emsh6ca56b7d9f2a385p1699dcjsnf6a7ee99f8e3";
-    private String apiKey4 = "2b1ad64154msh266681e9461a336p1bfd1bjsndcdef3e10f2a";
-    private String apiKey5 = "faacc421edmsh15a90bfe13716c2p1c26f3jsnb71ff1a1e797";
+    private String apiKey2 = "";
+    private String apiKey3 = "";
+    private String apiKey4 = "";
+    private String apiKey5 = "";
 
     public SpoonacularAPI(){
         apiKey = apiKey5;;
@@ -288,9 +288,9 @@ public class SpoonacularAPI {
      */
     public static void main( String[] args ) throws IOException, InterruptedException {
         // API keys to use in API
-        String apiKey = "2b1ad64154msh266681e9461a336p1bfd1bjsndcdef3e10f2a";
-        String apiKey2 = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254";
-        String apiKey3 = "da73587c8emsh6ca56b7d9f2a385p1699dcjsnf6a7ee99f8e3";
+        String apiKey = "";
+        String apiKey2 = "";
+        String apiKey3 = "";
 
         SpoonacularAPI foodApi = new SpoonacularAPI();
         System.out.println( foodApi.searchFoodVideos( "chicken soup" ) );
