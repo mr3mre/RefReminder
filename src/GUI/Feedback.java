@@ -289,9 +289,9 @@ public class Feedback extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
     	try{
-            Class.forName( "com.mysql.cj.jdbc.Driver" );
+            Class.forName( "" );
             java.sql.Connection connect = DriverManager.getConnection(
-                    "jdbc:mysql://34.141.44.144:3306/feedback" , "root", "root" );
+                    "" , "root", "root" );
 
             Statement statement1 = ((java.sql.Connection) connect).createStatement();
             
