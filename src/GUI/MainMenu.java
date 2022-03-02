@@ -17,8 +17,8 @@ import java.util.Scanner;
 /**
 * Main Menu GUI - The page gives user some information about their storage, current day of bilkent menu, and some interesting jokes and facts
 * @author goksu
-* @author H.Emre Tas
-* @author Amir Aliyev
+* @author emre
+* @author amir
 */
 public class MainMenu extends javax.swing.JFrame {
     /**
