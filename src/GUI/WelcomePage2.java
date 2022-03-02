@@ -372,7 +372,7 @@ class WelcomePage2 extends javax.swing.JFrame {
         try
         {
             String driver = "com.mysql.cj.jdbc.Driver";
-            String url = "jdbc:mysql://34.141.44.144:3306/user";
+            String url = "";
             String username = "root";
             String password = "root";
             Class.forName(driver);
@@ -428,7 +428,7 @@ class WelcomePage2 extends javax.swing.JFrame {
         String province = (String) jComboBox2.getSelectedItem();
 
         String driver = "com.mysql.cj.jdbc.Driver";
-        String url = "jdbc:mysql://34.141.44.144:3306/user";
+        String url = "";
         String username = "root";
         String password = "root";
 
