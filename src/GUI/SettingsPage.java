@@ -465,10 +465,10 @@ public class SettingsPage extends javax.swing.JFrame {
      * @param evt Action event
      */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
-    	String driver = "com.mysql.cj.jdbc.Driver";
+    	String driver = "";
         String username = "root";
         String password = "root";
-        String url = "jdbc:mysql://34.141.44.144:3306/user";
+        String url = "";
         
         User user = new User( name );
         String actualCountry = user.getCountry();
@@ -513,10 +513,10 @@ public class SettingsPage extends javax.swing.JFrame {
      * @param evt Action event
      */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-    	String driver = "com.mysql.cj.jdbc.Driver";
+    	String driver = "";
         String username = "root";
         String password = "root";
-        String url = "jdbc:mysql://34.141.44.144:3306/user";
+        String url = "";
         
         User user = new User( name );
         String actualPassword = user.getPassword();
@@ -630,10 +630,10 @@ public class SettingsPage extends javax.swing.JFrame {
      * @param evt Action event
      */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {    
-   	 String driver = "com.mysql.cj.jdbc.Driver";
+   	 String driver = "";
         String username = "root";
         String password = "root";
-        String url = "jdbc:mysql://34.141.44.144:3306/user";
+        String url = "";
         
         try
         {
