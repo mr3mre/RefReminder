@@ -8,7 +8,7 @@ import java.net.URISyntaxException;
 
 /**
  *
- * @author Amir Aliyev
+ * @author amir
  */
 public class BilkentMenuPage extends javax.swing.JFrame {
 
