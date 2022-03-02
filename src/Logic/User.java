@@ -34,8 +34,8 @@ public class User {
         //name = n;
 
         //connection constants
-        final String driver = "com.mysql.cj.jdbc.Driver";
-        final String url = "jdbc:mysql://34.141.44.144:3306/user";
+        final String driver = "";
+        final String url = "";
         final String username = "root";
         final String password = "root";
 
