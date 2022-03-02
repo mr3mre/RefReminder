@@ -678,9 +678,8 @@ public class AddFoodGUI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        String apiKey = "2b1ad64154msh266681e9461a336p1bfd1bjsndcdef3e10f2a";
-        String apiKey2 = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254";
-        String apiKey3 = "da73587c8emsh6ca56b7d9f2a385p1699dcjsnf6a7ee99f8e3";
+        String apiKey = "";
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
