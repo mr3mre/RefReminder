@@ -595,7 +595,7 @@ class WelcomePage2 extends javax.swing.JFrame {
     
     
         String accountEmail = "refreminder@gmail.com";
-        String password = "test1234*";
+        String password = "";
     
         Session session = Session.getInstance( properties, new Authenticator()
         {
