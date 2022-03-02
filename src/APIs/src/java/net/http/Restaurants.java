@@ -146,8 +146,8 @@ public class Restaurants {
 	public static void main( String[] args) throws IOException, InterruptedException
 	{
 		
-		String api = "2b1ad64154msh266681e9461a336p1bfd1bjsndcdef3e10f2a";
-		String api2 = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254";
+		String api = "";
+		String api2 = "";
 
 		String ankaraId = ""+ 298656;
 		getRestaurants( api, ankaraId );
