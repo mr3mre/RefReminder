@@ -224,10 +224,10 @@ public class Remove extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
 
         jList1.getSelectedIndex();
-        String driver = "com.mysql.cj.jdbc.Driver";
+        String driver = "";
         String username = "root";
         String password = "root";
-        String url = "jdbc:mysql://34.141.44.144:3306/" + name;
+        String url = "" + name;
         try {
             for ( index = 0; index < foodList2.size(); index++ ) {
                 String fname = foodList2.get( index );
