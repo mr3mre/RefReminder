@@ -15,7 +15,7 @@ import java.net.URISyntaxException;
 
 /**
 * Restaurants Page - This page gives a random restaurant and its details in users' city
-* @author H.Emre Tas
+* @author emre
 * @date 01.07.2021
 */
 public class RestaurantsPage extends javax.swing.JFrame {
@@ -75,7 +75,7 @@ public class RestaurantsPage extends javax.swing.JFrame {
 
         user = new User( "" );
 
-        String api = "609871132cmshf0661655cd3fa40p1266fbjsn0a5ce850b254system.out";
+        String api = "";
 
         JSONArray array = Restaurants.getRestaurants( api, Restaurants.getLocation( api,  user.getProvince() ) );
         int random = (int) ( Math.random() * array.length() );
